@@ -2,10 +2,12 @@
 import axios from "axios";
 import { store } from "../data/store";
 import Jumbo from "./partials/Jumbo.vue";
+import Restaurant from "./partials/Restaurant.vue";
 
 export default {
 	components: {
 		Jumbo,
+		Restaurant,
 	},
 
 	data() {
@@ -30,16 +32,9 @@ export default {
 </script>
 
 <template>
-	<main class="">
+	<main>
 		<Jumbo />
-		<!-- <div class="container">
-			<div v-for="restaurant in store.restaurants" :key="restaurant.id">
-				<p>{{ restaurant.name }}</p>
-				<div v-for="type in restaurant.types" :key="type.id">
-					<p>{{ type.type_name }}</p>
-				</div>
-			</div>
-		</div> -->
+		<Restaurant />
 	</main>
 </template>
 

@@ -47,8 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .jumbo {
-	height: 100vh;
-	background-image: url('/public/img/delivery.jpeg');
+
 	background-repeat: no-repeat;
 	background-size: cover;
 	offset-position: 30%;
