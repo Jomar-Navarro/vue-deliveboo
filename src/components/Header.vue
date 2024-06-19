@@ -3,7 +3,7 @@ export default {};
 </script>
 
 <template>
-	<header class="d-flex align-items-center rounded-5 m-3">
+	<header class="d-flex align-items-center">
 		<nav class="navbar navbar-expand-lg w-100 mx-3">
 			<div class="container-fluid">
 				<a class="navbar-brand text-white" href="#">Navbar</a>
@@ -21,20 +21,22 @@ export default {};
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active text-white" aria-current="page" href="#"
-								>Home</a
-							>
+							<a
+								class="nav-link active text-white"
+								aria-current="page"
+								href="#"
+							></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white" href="#">Menu</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link text-white" href="#">Chi siamo</a>
+							<a class="nav-link text-white" href="#"></a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link text-white" href="#">Contatti</a>
+							<a class="nav-link text-white" href="#"></a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link text-white" href="#"></a>
 						</li>
 
 						<!-- <li class="nav-item dropdown">
@@ -59,8 +61,11 @@ export default {};
 					</ul>
 
 					<div>
-						<div class="text-white">
-							<i class="fa-solid fa-cart-shopping"></i>
+						<div class="text-white d-flex align-items-center">
+							<button class="btn btn-outline-warning me-3">Ristoranti</button>
+							<div>
+								<i class="fa-solid fa-cart-shopping"></i>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -72,7 +77,7 @@ export default {};
 <style lang="scss" scoped>
 header {
 	height: 70px;
-	background-color: #e85d04;
+	background-color: #03071e;
 
 	li {
 		list-style: none;

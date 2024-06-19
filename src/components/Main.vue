@@ -1,8 +1,13 @@
 <script>
 import axios from "axios";
 import { store } from "../data/store";
+import Jumbo from "./partials/Jumbo.vue";
 
 export default {
+	components: {
+		Jumbo,
+	},
+
 	data() {
 		return {
 			store,
@@ -25,8 +30,8 @@ export default {
 </script>
 
 <template>
-	<div class="">
-		<h1>Main</h1>
+	<main class="">
+		<Jumbo />
 		<!-- <div class="container">
 			<div v-for="restaurant in store.restaurants" :key="restaurant.id">
 				<p>{{ restaurant.name }}</p>
@@ -35,7 +40,7 @@ export default {
 				</div>
 			</div>
 		</div> -->
-	</div>
+	</main>
 </template>
 
 <style lang="scss" scoped></style>
