@@ -6,7 +6,9 @@ export default {};
 	<header class="d-flex align-items-center">
 		<nav class="navbar navbar-expand-lg w-100 mx-3">
 			<div class="container-fluid">
-				<a class="navbar-brand text-white" href="#"><img src="/public/img/logo-dark.png" alt="" class="logo rounded-circle"></a>
+				<a class="navbar-brand text-white" href="#"
+					><img src="/img/logo-dark.png" alt="" class="logo rounded-circle"
+				/></a>
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -84,9 +86,9 @@ header {
 	}
 
 	.logo {
-			width: 100px;
-			height: 100px;
-			object-fit: contain;
+		width: 100px;
+		height: 100px;
+		object-fit: contain;
 	}
 }
 </style>

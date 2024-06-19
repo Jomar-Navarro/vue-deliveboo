@@ -28,16 +28,20 @@ export default {
 
 <template>
 	<div class="jumbo">
-		<div class="container pt-5 d-flex ">
+		<div class="container pt-5 d-flex">
 			<div class="row justify-content-center type-menu">
 				<div
 					v-for="type in store.types"
 					:key="type.id"
-					class="card m-4 rounded-5 type-btn p-2 "
+					class="card m-4 rounded-5 type-btn p-2"
 					style="width: 18rem"
 				>
 					<div class="card-body">
-						<a href="#"><h5 class="card-title text-center fw-bold text-uppercase">{{ type.type_name }}</h5></a>
+						<a href="#"
+							><h5 class="card-title text-center fw-bold text-uppercase">
+								{{ type.type_name }}
+							</h5></a
+						>
 					</div>
 				</div>
 			</div>
@@ -47,21 +51,21 @@ export default {
 
 <style lang="scss" scoped>
 .jumbo {
-
+	height: calc(100vh - 80px);
 	background-repeat: no-repeat;
 	background-size: cover;
 	offset-position: 30%;
-	.type-menu{
-		margin-top:400px;
+	.type-menu {
+		margin-top: 400px;
 	}
-	.type-btn{
+	.type-btn {
 		background-color: #ffa43c;
-		transition:all .3s ease;
-		&:hover{
-			background-color: #fcc07c;		
+		transition: all 0.3s ease;
+		&:hover {
+			background-color: #fcc07c;
 			cursor: pointer;
 		}
-		a{
+		a {
 			text-decoration: none;
 			color: rgb(54, 54, 54);
 		}
