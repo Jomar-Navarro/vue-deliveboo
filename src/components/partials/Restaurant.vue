@@ -1,16 +1,47 @@
 <script>
-export default {};
+import { store } from "../../data/store";
+import axios from "axios";
+import { errorMessages } from "vue/compiler-sfc";
+export default {
+	data() {
+		return {
+			store,
+		};
+	},
+
+	methods: {
+		getApi() {
+			axios
+				.get(this.store.apiUrl + "restaurants")
+				.then((res) => {
+					this.store.restaurants = res.data;
+					console.log(this.store.restaurants);
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		},
+	},
+
+	mounted() {
+		this.getApi();
+	},
+};
 </script>
 
 <template>
 	<section>
-		<div class="row">
-			<div class="col">
-				<ul class="cards">
-					<li>
-						<a href="" class="card">
+		<div class="">
+			<div class="container-fluid">
+				<ul class="cards row">
+					<li
+						class="col"
+						v-for="restaurant in store.restaurants"
+						:key="restaurant.id"
+					>
+						<a href="" class="card ratio-1x1">
 							<img
-								src="https://i.imgur.com/oYiTqum.jpg"
+								:src="`http://127.0.0.1:8000` + restaurant.image"
 								class="card__image"
 								alt=""
 							/>
@@ -19,227 +50,13 @@ export default {};
 									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
 										<path />
 									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/7D7I6dI.png"
-										alt=""
-									/>
 									<div class="card__header-text">
-										<h3 class="card__title">Jessica Parker</h3>
+										<h3 class="card__title fw-bold">{{ restaurant.name }}</h3>
 										<span class="card__status">1 hour ago</span>
 									</div>
 								</div>
 								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
-								</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="" class="card">
-							<img
-								src="https://i.imgur.com/2DhmtJ4.jpg"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/sjLMNDM.png"
-										alt=""
-									/>
-									<div class="card__header-text">
-										<h3 class="card__title">kim Cattrall</h3>
-										<span class="card__status">3 hours ago</span>
-									</div>
-								</div>
-								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
-								</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="" class="card">
-							<img
-								src="https://i.imgur.com/2DhmtJ4.jpg"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/sjLMNDM.png"
-										alt=""
-									/>
-									<div class="card__header-text">
-										<h3 class="card__title">kim Cattrall</h3>
-										<span class="card__status">3 hours ago</span>
-									</div>
-								</div>
-								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
-								</p>
-							</div>
-						</a>
-					</li>
-
-					<li>
-						<a href="" class="card">
-							<img
-								src="https://i.imgur.com/2DhmtJ4.jpg"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/sjLMNDM.png"
-										alt=""
-									/>
-									<div class="card__header-text">
-										<h3 class="card__title">kim Cattrall</h3>
-										<span class="card__status">3 hours ago</span>
-									</div>
-								</div>
-								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
-								</p>
-							</div>
-						</a>
-					</li>
-
-					<li>
-						<a href="" class="card">
-							<img
-								src="https://i.imgur.com/2DhmtJ4.jpg"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/sjLMNDM.png"
-										alt=""
-									/>
-									<div class="card__header-text">
-										<h3 class="card__title">kim Cattrall</h3>
-										<span class="card__status">3 hours ago</span>
-									</div>
-								</div>
-								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
-								</p>
-							</div>
-						</a>
-					</li>
-
-					<li>
-						<a href="" class="card">
-							<img
-								src="https://i.imgur.com/2DhmtJ4.jpg"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/sjLMNDM.png"
-										alt=""
-									/>
-									<div class="card__header-text">
-										<h3 class="card__title">kim Cattrall</h3>
-										<span class="card__status">3 hours ago</span>
-									</div>
-								</div>
-								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
-								</p>
-							</div>
-						</a>
-					</li>
-
-					<li>
-						<a href="" class="card">
-							<img
-								src="https://i.imgur.com/2DhmtJ4.jpg"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/sjLMNDM.png"
-										alt=""
-									/>
-									<div class="card__header-text">
-										<h3 class="card__title">kim Cattrall</h3>
-										<span class="card__status">3 hours ago</span>
-									</div>
-								</div>
-								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
-								</p>
-							</div>
-						</a>
-					</li>
-
-					<li>
-						<a href="" class="card">
-							<img
-								src="https://i.imgur.com/2DhmtJ4.jpg"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<img
-										class="card__thumb"
-										src="https://i.imgur.com/sjLMNDM.png"
-										alt=""
-									/>
-									<div class="card__header-text">
-										<h3 class="card__title">kim Cattrall</h3>
-										<span class="card__status">3 hours ago</span>
-									</div>
-								</div>
-								<p class="card__description">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Asperiores, blanditiis?
+									{{ restaurant.description }}
 								</p>
 							</div>
 						</a>
@@ -258,7 +75,7 @@ body {
 
 .cards {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 	gap: 2rem;
 	margin: 4rem 5vw;
 	padding: 0;
@@ -276,7 +93,8 @@ body {
 
 .card__image {
 	width: 100%;
-	height: auto;
+	aspect-ratio: 1;
+	object-fit: cover;
 }
 
 .card__overlay {
@@ -289,10 +107,12 @@ body {
 	background-color: white;
 	transform: translateY(100%);
 	transition: 0.2s ease-in-out;
+	opacity: 0.85;
 }
 
 .card:hover .card__overlay {
 	transform: translateY(0);
+	opacity: 0.55;
 }
 
 .card__header {
@@ -305,6 +125,7 @@ body {
 	background-color: white;
 	transform: translateY(-100%);
 	transition: 0.2s ease-in-out;
+	opacity: 0.95;
 }
 
 .card__arc {
@@ -333,9 +154,9 @@ body {
 }
 
 .card__title {
-	font-size: 1em;
+	font-size: 2em;
 	margin: 0 0 0.3em;
-	color: #6a515e;
+	color: #03071e;
 }
 
 .card__tagline {
@@ -354,7 +175,7 @@ body {
 .card__description {
 	padding: 0 2em 2em;
 	margin: 0;
-	color: #d7bdca;
+	color: #03071e;
 	font-family: "MockFlowFont";
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
