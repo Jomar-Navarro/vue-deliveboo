@@ -31,37 +31,29 @@ export default {
 
 <template>
 	<section>
-		<div class="">
-			<div class="container-fluid">
-				<ul class="cards row">
-					<li
-						class="col"
-						v-for="restaurant in store.restaurants"
-						:key="restaurant.id"
-					>
-						<a href="" class="card ratio-1x1">
-							<img
-								:src="`http://127.0.0.1:8000` + restaurant.image"
-								class="card__image"
-								alt=""
-							/>
-							<div class="card__overlay">
-								<div class="card__header">
-									<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<div class="card__header-text">
-										<h3 class="card__title fw-bold">{{ restaurant.name }}</h3>
-										<span class="card__status">1 hour ago</span>
-									</div>
+		<div class="container-fluid my-5 py-5">
+			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4  justify-content-center">
+
+				<div class="col mb-5 px-5" v-for="restaurant in store.restaurants" :key="restaurant.id">
+					<a href="" class="card ratio-1x1">
+						<img :src="`http://127.0.0.1:8000` + restaurant.image" class="card__image" alt="" />
+						<div class="card__overlay">
+							<div class="card__header">
+								<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+									<path />
+								</svg>
+								<div class="card__header-text">
+									<h3 class="card__title fw-bold">{{ restaurant.name }}</h3>
+									<span class="card__status">1 hour ago</span>
 								</div>
-								<p class="card__description">
-									{{ restaurant.description }}
-								</p>
 							</div>
-						</a>
-					</li>
-				</ul>
+							<p class="card__description">
+								{{ restaurant.description }}
+							</p>
+						</div>
+					</a>
+				</div>
+
 			</div>
 		</div>
 	</section>
@@ -73,14 +65,6 @@ body {
 	background-color: #fef8f8;
 }
 
-.cards {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-	gap: 2rem;
-	margin: 4rem 5vw;
-	padding: 0;
-	list-style-type: none;
-}
 
 .card {
 	position: relative;

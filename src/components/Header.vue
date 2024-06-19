@@ -7,7 +7,7 @@ export default {};
 		<nav class="navbar navbar-expand-lg w-100 mx-3">
 			<div class="container-fluid">
 				<a class="navbar-brand text-white" href="#"
-					><img src="/img/logo-dark.png" alt="" class="logo rounded-circle"
+					><img src="/img/logo-dark-2.png" alt="" class="logo"
 				/></a>
 				<button
 					class="navbar-toggler"
@@ -86,9 +86,7 @@ header {
 	}
 
 	.logo {
-		width: 100px;
-		height: 100px;
-		object-fit: contain;
+		width: 47%;
 	}
 }
 </style>
