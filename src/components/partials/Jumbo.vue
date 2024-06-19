@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .jumbo {
-	height: 100vh;
+	height: calc(100vh - 80px);
 	// background-color: ;
 	background-repeat: no-repeat;
 }
