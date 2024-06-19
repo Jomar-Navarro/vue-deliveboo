@@ -53,6 +53,7 @@ export default {
 .jumbo {
 	height: calc(100vh - 80px);
 	background-repeat: no-repeat;
+	background-image: url('/img/delivery.jpeg');
 	background-size: cover;
 	offset-position: 30%;
 	.type-menu {
