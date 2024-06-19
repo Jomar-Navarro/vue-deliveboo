@@ -15,7 +15,7 @@ export default {
 	<div>
 		<Header />
 		<Main />
-		<Footer />
+		<!-- <Footer /> -->
 	</div>
 </template>
 
