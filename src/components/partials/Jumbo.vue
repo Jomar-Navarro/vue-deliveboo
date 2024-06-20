@@ -68,7 +68,7 @@ export default {
 		url("/img/italian-food-background-1.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: calc(100vh - 80px);
+	height: calc(100vh - 90px);
 	max-height: 100%;
 	font-family: "Luckiest Guy", system-ui;
 	// font-family: 'Bungee Shade', system-ui;
@@ -143,7 +143,7 @@ export default {
 
 .custom-shape-divider-bottom-1718892344 {
 	position: absolute;
-	bottom: 0px;
+	bottom: -2%;
 	left: 0;
 	width: 100%;
 	overflow: hidden;
@@ -155,7 +155,7 @@ export default {
 	position: relative;
 	display: block;
 	width: calc(139% + 1.3px);
-	height: 183px;
+	height: 12rem;
 }
 
 .custom-shape-divider-bottom-1718892344 .shape-fill {
