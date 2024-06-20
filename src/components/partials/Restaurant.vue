@@ -6,6 +6,8 @@ export default {
 	data() {
 		return {
 			store,
+			selectedTypes: [],
+			searchQuery: "",
 		};
 	},
 
@@ -21,22 +23,112 @@ export default {
 					console.error(error);
 				});
 		},
+
+		getTypes() {
+			axios
+				.get(this.store.apiUrl + "types")
+				.then((res) => {
+					this.store.types = res.data;
+					console.log(this.store.types);
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		},
+
+		getFilteredRestaurants() {
+			const params = {
+				types: this.selectedTypes.join(","),
+				query: this.searchQuery,
+			};
+
+			axios
+				.get(this.store.apiUrl + "restaurants/filter", { params })
+				.then((res) => {
+					this.store.restaurants = res.data;
+					console.log(this.store.restaurants);
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		},
+
+		toggleType(type) {
+			const index = this.selectedTypes.indexOf(type);
+			if (index === -1) {
+				this.selectedTypes.push(type);
+			} else {
+				this.selectedTypes.splice(index, 1);
+			}
+			this.getFilteredRestaurants();
+		},
+
+		searchRestaurants() {
+			this.getFilteredRestaurants();
+		},
+	},
+
+	watch: {
+		searchQuery() {
+			this.searchRestaurants();
+		},
 	},
 
 	mounted() {
 		this.getApi();
+		this.getTypes();
 	},
 };
 </script>
 
 <template>
-	<section>
-		<div class="container-fluid my-5 py-5">
-			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4  justify-content-center">
+	<section class="resto py-5">
+		<div class="container-fluid py-5">
+			<div class="d-flex justify-content-center text-center">
+				<div>
+					<div class="d-flex my-3">
+						<input
+							class="form-control me-2"
+							@input="searchRestaurants"
+							v-model="searchQuery"
+							type="search"
+							placeholder="Search"
+							aria-label="Search"
+						/>
+					</div>
 
-				<div class="col mb-5 px-5" v-for="restaurant in store.restaurants" :key="restaurant.id">
+					<span
+						v-for="type in store.types"
+						:key="type.id"
+						class="rounded-5 me-2 my-2 d-inline-block"
+					>
+						<input
+							:value="type.type_name"
+							@click="toggleType(type.type_name)"
+							type="checkbox"
+							class="btn-check"
+							:id="`btn-${type.type_name}`"
+						/>
+						<label class="btn btn-primary" :for="`btn-${type.type_name}`">{{
+							type.type_name
+						}}</label>
+					</span>
+				</div>
+			</div>
+			<div
+				class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center mt-5"
+			>
+				<div
+					class="col mb-5 px-5"
+					v-for="restaurant in store.restaurants"
+					:key="restaurant.id"
+				>
 					<a href="" class="card ratio-1x1">
-						<img :src="`http://127.0.0.1:8000` + restaurant.image" class="card__image" alt="" />
+						<img
+							:src="`http://127.0.0.1:8000` + restaurant.image"
+							class="card__image"
+							alt=""
+						/>
 						<div class="card__overlay">
 							<div class="card__header">
 								<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
@@ -53,26 +145,25 @@ export default {
 						</div>
 					</a>
 				</div>
-
 			</div>
 		</div>
 	</section>
 </template>
 
 <style lang="scss" scoped>
-body {
-	font-family: "Noto Sans JP", sans-serif;
-	background-color: #fef8f8;
+.resto {
+	background-color: #f77f00;
 }
-
 
 .card {
 	position: relative;
 	display: block;
 	height: 100%;
-	border-radius: calc(var(40) * 1px);
+	border-radius: calc(40 * 1px);
 	overflow: hidden;
 	text-decoration: none;
+	border-radius: 30px 5px 30px 5px;
+	border: 1px solid #f77f00;
 }
 
 .card__image {
@@ -87,7 +178,7 @@ body {
 	left: 0;
 	right: 0;
 	z-index: 1;
-	border-radius: calc(var(40) * 1px);
+	border-radius: calc(0 * 1px);
 	background-color: white;
 	transform: translateY(100%);
 	transition: 0.2s ease-in-out;
@@ -105,7 +196,7 @@ body {
 	align-items: center;
 	gap: 2em;
 	padding: 2em;
-	border-radius: calc(var(40) * 1px) 0 0 0;
+	border-radius: calc(30 * 1px) 0 0 0;
 	background-color: white;
 	transform: translateY(-100%);
 	transition: 0.2s ease-in-out;
