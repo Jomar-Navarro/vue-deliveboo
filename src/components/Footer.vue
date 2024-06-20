@@ -129,7 +129,7 @@ export default {};
 
 						<ul class="list-unstyled mb-0">
 							<li>
-								<a class="text-white" href="#!">Link 1</a>
+								<a class="text-white" href="#!"><span></span></a>
 							</li>
 							<li>
 								<a class="text-white" href="#!">Link 2</a>
@@ -218,10 +218,8 @@ export default {};
 			class="text-center p-3 text-white"
 			style="background-color: rgba(0, 0, 0, 0.05)"
 		>
-			© 2020 Copyright:
-			<a class="text-reset fw-bold text-white" href="https://mdbootstrap.com/"
-				>MDBootstrap.com</a
-			>
+			© 2024 Copyright:
+			<a class="text-reset fw-bold text-white" href="#">Deliveboo.com</a>
 		</div>
 		<!-- Copyright -->
 	</footer>
@@ -230,6 +228,9 @@ export default {};
 
 <style lang="scss" scoped>
 footer {
-	background-color: #03071e;
+	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(65, 65, 65, 0.3)),
+		url("/img/italian-food-background-1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 </style>
