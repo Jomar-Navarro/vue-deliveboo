@@ -13,6 +13,7 @@ export default {
 
 <template>
 	<div>
+		
 		<Header />
 		<Main />
 		<Footer />

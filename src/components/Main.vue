@@ -35,9 +35,12 @@ export default {
 
 <template>
 	<main>
-		<Jumbo />
+
+		<router-view></router-view>
+		
+		<!-- <Jumbo />
 		<Restaurant />
-		<Review />
+		<Review /> -->
 	</main>
 </template>
 
