@@ -26,27 +26,12 @@ export default {
 
 		getFilteredRestaurants() {
 			const params = {
-				types: this.selectedTypes.join(',')
-			};
-
-			axios
-				.get(this.store.apiUrl + "restaurants/filter", { params })
-				.then((res) => {
-					this.store.restaurants = res.data;
-					console.log(this.store.restaurants);
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-		},
-
-		searchRestaurantsByName() {
-			const params = {
+				types: this.selectedTypes.join(','),
 				query: this.searchQuery
 			};
 
 			axios
-				.get(this.store.apiUrl + "restaurants/search", { params })
+				.get(this.store.apiUrl + "restaurants/filter", { params })
 				.then((res) => {
 					this.store.restaurants = res.data;
 					console.log(this.store.restaurants);
@@ -67,11 +52,7 @@ export default {
 		},
 
 		searchRestaurants() {
-			if (this.searchQuery) {
-				this.searchRestaurantsByName();
-			} else {
-				this.getFilteredRestaurants();
-			}
+			this.getFilteredRestaurants();
 		}
 	},
 
@@ -115,6 +96,8 @@ export default {
 							:id="`btn-${ type.type_name }`">
 						<label class="btn btn-primary" :for="`btn-${ type.type_name }`">{{ type.type_name }}</label>
 					</span>
+
+				
 				</div>
 			</div>
 		</div>
