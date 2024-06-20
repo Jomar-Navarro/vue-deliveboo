@@ -39,7 +39,7 @@ export default {
         getFilteredRestaurants() {
             const params = {
                 types: this.selectedTypes.join(','),
-                query: this.searchQuery,
+                query: this.searchQuery
             };
 
             axios
@@ -158,6 +158,7 @@ export default {
         </div>
     </section>
 </template>
+
 
 
 
