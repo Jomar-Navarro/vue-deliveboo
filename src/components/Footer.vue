@@ -4,7 +4,7 @@ export default {};
 
 <template>
 	<!-- Footer -->
-	<footer class="text-center">
+	<footer class="text-center pt-5">
 		<!-- Grid container -->
 		<div class="container p-4">
 			<!-- Section: Social media -->
@@ -65,56 +65,16 @@ export default {};
 			</section>
 			<!-- Section: Social media -->
 
-			<!-- Section: Form -->
-			<section class="">
-				<form action="">
-					<!--Grid row-->
-					<div class="row d-flex justify-content-center">
-						<!--Grid column-->
-						<div class="col-auto">
-							<p class="pt-2">
-								<strong class="text-white">Sign up for our newsletter</strong>
-							</p>
-						</div>
-						<!--Grid column-->
-
-						<!--Grid column-->
-						<div class="col-md-5 col-12">
-							<!-- Email input -->
-							<div data-mdb-input-init class="form-outline mb-4">
-								<input type="email" id="form5Example24" class="form-control" />
-								<label class="form-label text-white" for="form5Example24"
-									>Email address</label
-								>
-							</div>
-						</div>
-						<!--Grid column-->
-
-						<!--Grid column-->
-						<div class="col-auto">
-							<!-- Submit button -->
-							<button
-								data-mdb-ripple-init
-								type="submit"
-								class="btn btn-outline mb-4 text-white"
-							>
-								Subscribe
-							</button>
-						</div>
-						<!--Grid column-->
-					</div>
-					<!--Grid row-->
-				</form>
-			</section>
-			<!-- Section: Form -->
-
 			<!-- Section: Text -->
 			<section class="mb-4">
 				<p class="text-white">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-					distinctio earum repellat quaerat voluptatibus placeat nam, commodi
-					optio pariatur est quia magnam eum harum corrupti dicta, aliquam sequi
-					voluptate quas.
+					Benvenuti su <strong>Deliveboo</strong>, il vostro servizio di food
+					delivery di fiducia a Milano. Offriamo una vasta gamma di piatti
+					autentici italiani, preparati con ingredienti freschi e consegnati
+					direttamente a casa vostra. Siamo situati in
+					<strong>Via Monte Napoleone, 12, 20121 Milano MI</strong>. Per ordini
+					e informazioni, contattateci al <strong>+39 02 1234 5678</strong>.
+					Assaporate il gusto dell'Italia, senza uscire di casa!
 				</p>
 			</section>
 			<!-- Section: Text -->
@@ -124,21 +84,43 @@ export default {};
 				<!--Grid row-->
 				<div class="row">
 					<!--Grid column-->
-					<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-						<h5 class="text-uppercase text-white">Indirizzo</h5>
+					<div class="col-lg-3 col-md-6 mb-4 mb-md-0 me-5">
+						<h5 class="text-uppercase text-white fw-bolder">Indirizzo</h5>
 
-						<ul class="list-unstyled mb-0">
+						<ul class="list-unstyled mb-0 text-start">
 							<li>
-								<a class="text-white" href="#!"><span></span></a>
+								<a class="text-white text-decoration-none d-flex" href="#!">
+									<div class="pe-2">
+										<i class="fa-solid fa-location-dot"></i>
+									</div>
+									<span class="card-subtitle"
+										>Via Monte Napoleone, 12 20121 Milano MI, Italia</span
+									>
+								</a>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 2</a>
+								<a class="text-white text-decoration-none" href="#!">
+									<span class="pe-2">
+										<i class="fa-regular fa-clock"></i>
+									</span>
+									<span class="card-subtitle">Lun-Dom: 7/24 </span>
+								</a>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 3</a>
+								<a class="text-white text-decoration-none" href="#!">
+									<span class="pe-2">
+										<i class="fa-solid fa-bag-shopping"></i>
+									</span>
+									<span>Lun-Dom: 7/24</span>
+								</a>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 4</a>
+								<a class="text-white text-decoration-none" href="#!">
+									<span class="pe-2">
+										<i class="fa-solid fa-phone-volume"></i>
+									</span>
+									<span>+39 02 1234 5678</span>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -146,20 +128,28 @@ export default {};
 
 					<!--Grid column-->
 					<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-						<h5 class="text-uppercase text-white">Links</h5>
+						<h5 class="text-uppercase text-white fw-bolder">chi siamo</h5>
 
-						<ul class="list-unstyled mb-0">
+						<ul class="list-unstyled mb-0 text-start lh-lg">
 							<li>
-								<a class="text-white" href="#!">Link 1</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>La nostra storia</a
+								>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 2</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>Il nostro team</a
+								>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 3</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>Il nostro cibo</a
+								>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 4</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>Lavora con noi</a
+								>
 							</li>
 						</ul>
 					</div>
@@ -167,41 +157,30 @@ export default {};
 
 					<!--Grid column-->
 					<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-						<h5 class="text-uppercase text-white">Links</h5>
+						<h5 class="text-uppercase text-white fw-bolder">
+							servizio clienti
+						</h5>
 
-						<ul class="list-unstyled mb-0">
+						<ul class="list-unstyled mb-0 text-start lh-lg">
 							<li>
-								<a class="text-white" href="#!">Link 1</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>Domande frequenti</a
+								>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 2</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>Termini e Condizioni</a
+								>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 3</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>Scarica l'app Deliveboo</a
+								>
 							</li>
 							<li>
-								<a class="text-white" href="#!">Link 4</a>
-							</li>
-						</ul>
-					</div>
-					<!--Grid column-->
-
-					<!--Grid column-->
-					<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-						<h5 class="text-uppercase text-white">Links</h5>
-
-						<ul class="list-unstyled mb-0">
-							<li>
-								<a class="text-white" href="#!">Link 1</a>
-							</li>
-							<li>
-								<a class="text-white" href="#!">Link 2</a>
-							</li>
-							<li>
-								<a class="text-white" href="#!">Link 3</a>
-							</li>
-							<li>
-								<a class="text-white" href="#!">Link 4</a>
+								<a class="text-white text-decoration-none" href="#!"
+									>Segnala un problema</a
+								>
 							</li>
 						</ul>
 					</div>
