@@ -3,11 +3,13 @@ import axios from "axios";
 import { store } from "../data/store";
 import Jumbo from "./partials/Jumbo.vue";
 import Restaurant from "./partials/Restaurant.vue";
+import Review from "./partials/Review.vue";
 
 export default {
 	components: {
 		Jumbo,
 		Restaurant,
+		Review,
 	},
 
 	data() {
@@ -35,6 +37,7 @@ export default {
 	<main>
 		<Jumbo />
 		<Restaurant />
+		<Review />
 	</main>
 </template>
 
