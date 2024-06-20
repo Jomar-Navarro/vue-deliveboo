@@ -92,8 +92,10 @@ export default {
 <template>
     <section class="resto py-5">
         <div class="container-fluid py-5">
-            <div class="d-flex justify-content-center text-center">
+            <div class="d-flex justify-content-center">
+               
                 <div>
+                    <h2 class="text-white mb-3">Cerca il tuo ristorante:</h2>
                     <div class="d-flex my-3">
                         <input
                             class="form-control me-2"
@@ -103,6 +105,10 @@ export default {
                             placeholder="Search"
                             aria-label="Search"
                         />
+                    </div>
+
+                    <div>
+                        <h2 class="text-white mt-5">Filtra per tipologia:</h2>
                     </div>
 
                     <span
@@ -164,7 +170,7 @@ export default {
 
 <style lang="scss" scoped>
 .resto {
-	background-color: #f77f00;
+	background-color: #8b0101;
 }
 
 .card {
@@ -268,5 +274,25 @@ export default {
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
 	overflow: hidden;
+}
+
+.custom-shape-divider-top-1718898198 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1718898198 svg {
+    position: relative;
+    display: block;
+    width: calc(139% + 1.3px);
+    height: 130px;
+}
+
+.custom-shape-divider-top-1718898198 .shape-fill {
+    fill: #FFFFFF;
 }
 </style>

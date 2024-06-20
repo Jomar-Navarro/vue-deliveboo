@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/bungee-shade": "^5.0.20",
+    "@fontsource/luckiest-guy": "^5.0.19",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "vue": "^3.4.29",
