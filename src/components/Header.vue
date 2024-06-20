@@ -6,9 +6,9 @@ export default {};
 	<header class="d-flex align-items-center">
 		<nav class="navbar navbar-expand-lg w-100 mx-3">
 			<div class="container-fluid">
-				<a class="navbar-brand text-white" href="#"
-					><img src="/img/logo-dark-2.png" alt="" class="logo"
-				/></a>
+				<a class="navbar-brand text-white" href="#">
+					<img src="/img/logo-dark-2.png" alt="" class="logo" />
+				</a>
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -78,15 +78,15 @@ export default {};
 
 <style lang="scss" scoped>
 header {
-	height: 120px;
-	background-color: #03071e;
-
+	background-color: #c1121f;
+	height: 80px;
 	li {
 		list-style: none;
 	}
 
 	.logo {
-		width: 47%;
+		width: 25%;
+		object-fit: cover;
 	}
 }
 </style>
