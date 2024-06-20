@@ -1,154 +1,165 @@
 <script>
 import { store } from "../../data/store";
 import axios from "axios";
-import { errorMessages } from "vue/compiler-sfc";
+
 export default {
-	data() {
-		return {
-			store,
-			selectedTypes: [],
-			searchQuery: "",
-		};
-	},
+    data() {
+        return {
+            store,
+            selectedTypes: [],
+            searchQuery: '',
+        };
+    },
 
-	methods: {
-		getApi() {
-			axios
-				.get(this.store.apiUrl + "restaurants")
-				.then((res) => {
-					this.store.restaurants = res.data;
-					console.log(this.store.restaurants);
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-		},
+    methods: {
+        getAllRestaurants() {
+            axios
+                .get(this.store.apiUrl + "restaurants")
+                .then((res) => {
+                    this.store.restaurants = res.data;
+                    console.log(this.store.restaurants);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
 
-		getTypes() {
-			axios
-				.get(this.store.apiUrl + "types")
-				.then((res) => {
-					this.store.types = res.data;
-					console.log(this.store.types);
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-		},
+        getTypes() {
+            axios
+                .get(this.store.apiUrl + "types")
+                .then((res) => {
+                    this.store.types = res.data;
+                    console.log(this.store.types);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
 
-		getFilteredRestaurants() {
-			const params = {
-				types: this.selectedTypes.join(","),
-				query: this.searchQuery,
-			};
+        getFilteredRestaurants() {
+            const params = {
+                types: this.selectedTypes.join(','),
+                query: this.searchQuery,
+            };
 
-			axios
-				.get(this.store.apiUrl + "restaurants/filter", { params })
-				.then((res) => {
-					this.store.restaurants = res.data;
-					console.log(this.store.restaurants);
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-		},
+            axios
+                .get(this.store.apiUrl + "restaurants/filter", { params })
+                .then((res) => {
+                    this.store.restaurants = res.data;
+                    console.log(this.store.restaurants);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
 
-		toggleType(type) {
-			const index = this.selectedTypes.indexOf(type);
-			if (index === -1) {
-				this.selectedTypes.push(type);
-			} else {
-				this.selectedTypes.splice(index, 1);
-			}
-			this.getFilteredRestaurants();
-		},
+        toggleType(type) {
+            const index = this.selectedTypes.indexOf(type);
+            if (index === -1) {
+                this.selectedTypes.push(type);
+            } else {
+                this.selectedTypes.splice(index, 1);
+            }
+            this.searchQuery = ''; // Clear search query when types are selected
+            this.getFilteredRestaurants();
+        },
 
-		searchRestaurants() {
-			this.getFilteredRestaurants();
-		},
-	},
+        handleKeyup() {
+            this.selectedTypes = []; // Clear selected types when a search query is entered
+            this.getFilteredRestaurants();
+        },
+    },
 
-	watch: {
-		searchQuery() {
-			this.searchRestaurants();
-		},
-	},
+    watch: {
+        searchQuery() {
+            this.handleKeyup();
+        },
+    },
 
-	mounted() {
-		this.getApi();
-		this.getTypes();
-	},
+    computed: {
+        isTypeChecked() {
+            return (type) => this.selectedTypes.includes(type.type_name);
+        },
+    },
+
+    mounted() {
+        this.getAllRestaurants();
+        this.getTypes();
+    },
 };
 </script>
 
 <template>
-	<section class="resto py-5">
-		<div class="container-fluid py-5">
-			<div class="d-flex justify-content-center text-center">
-				<div>
-					<div class="d-flex my-3">
-						<input
-							class="form-control me-2"
-							@input="searchRestaurants"
-							v-model="searchQuery"
-							type="search"
-							placeholder="Search"
-							aria-label="Search"
-						/>
-					</div>
+    <section class="resto py-5">
+        <div class="container-fluid py-5">
+            <div class="d-flex justify-content-center text-center">
+                <div>
+                    <div class="d-flex my-3">
+                        <input
+                            class="form-control me-2"
+                            @keyup="handleKeyup"
+                            v-model="searchQuery"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search"
+                        />
+                    </div>
 
-					<span
-						v-for="type in store.types"
-						:key="type.id"
-						class="rounded-5 me-2 my-2 d-inline-block"
-					>
-						<input
-							:value="type.type_name"
-							@click="toggleType(type.type_name)"
-							type="checkbox"
-							class="btn-check"
-							:id="`btn-${type.type_name}`"
-						/>
-						<label class="btn btn-primary" :for="`btn-${type.type_name}`">{{
-							type.type_name
-						}}</label>
-					</span>
-				</div>
-			</div>
-			<div
-				class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center mt-5"
-			>
-				<div
-					class="col mb-5 px-5"
-					v-for="restaurant in store.restaurants"
-					:key="restaurant.id"
-				>
-					<a href="" class="card ratio-1x1">
-						<img
-							:src="`http://127.0.0.1:8000` + restaurant.image"
-							class="card__image"
-							alt=""
-						/>
-						<div class="card__overlay">
-							<div class="card__header">
-								<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-									<path />
-								</svg>
-								<div class="card__header-text">
-									<h3 class="card__title fw-bold">{{ restaurant.name }}</h3>
-									<span class="card__status">1 hour ago</span>
-								</div>
-							</div>
-							<p class="card__description">
-								{{ restaurant.description }}
-							</p>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+                    <span
+                        v-for="type in store.types"
+                        :key="type.id"
+                        class="rounded-5 me-2 my-2 d-inline-block"
+                    >
+                        <input
+                            :value="type.type_name"
+                            @click="toggleType(type.type_name)"
+                            type="checkbox"
+                            class="btn-check"
+                            :id="`btn-${type.type_name}`"
+                            :checked="isTypeChecked(type)"
+                        />
+                        <label class="btn btn-primary" :for="`btn-${type.type_name}`">{{
+                            type.type_name
+                        }}</label>
+                    </span>
+                </div>
+            </div>
+            <div
+                class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center mt-5"
+            >
+                <div
+                    class="col mb-5 px-5"
+                    v-for="restaurant in store.restaurants"
+                    :key="restaurant.id"
+                >
+                    <a href="" class="card ratio-1x1">
+                        <img
+                            :src="`http://127.0.0.1:8000` + restaurant.image"
+                            class="card__image"
+                            alt=""
+                        />
+                        <div class="card__overlay">
+                            <div class="card__header">
+                                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                                    <path />
+                                </svg>
+                                <div class="card__header-text">
+                                    <h3 class="card__title fw-bold">{{ restaurant.name }}</h3>
+                                    <span class="card__status">1 hour ago</span>
+                                </div>
+                            </div>
+                            <p class="card__description">
+                                {{ restaurant.description }}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
+
+
 
 <style lang="scss" scoped>
 .resto {
