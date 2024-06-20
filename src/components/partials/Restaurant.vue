@@ -120,11 +120,11 @@ export default {
                             :value="type.type_name"
                             @click="toggleType(type.type_name)"
                             type="checkbox"
-                            class="btn-check"
+                            class="btn-check "
                             :id="`btn-${type.type_name}`"
                             :checked="isTypeChecked(type)"
                         />
-                        <label class="btn btn-primary" :for="`btn-${type.type_name}`">{{
+                        <label class="btn btn-primary btn-warning" :for="`btn-${type.type_name}`">{{
                             type.type_name
                         }}</label>
                     </span>
