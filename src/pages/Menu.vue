@@ -1,9 +1,9 @@
 <script>
 import { store } from "../data/store";
 import axios from "axios";
+
 export default {
   name: "menu",
-
   data() {
     return {
       store,
@@ -11,18 +11,29 @@ export default {
       dishes: [],
     };
   },
-
   methods: {
     getApi(id) {
       axios.get(this.store.apiUrl + "menu/" + id).then((res) => {
         this.restaurantName = res.data;
-        console.log(this.restaurantName);
         this.dishes = res.data.dishes;
-        console.log(this.dishes);
+        // Aggiungi una proprietà 'selectedQuantity' a ciascun dish
+        this.dishes.forEach(dish => {
+          dish.selectedQuantity = 1;
+        });
       });
     },
+    increaseQuantity(dish) {
+      dish.selectedQuantity++;
+    },
+    decreaseQuantity(dish) {
+      if (dish.selectedQuantity > 1) {
+        dish.selectedQuantity--;
+      }
+    },
+    addToCart(dish) {
+      store.addToCart(dish, dish.selectedQuantity);
+    }
   },
-
   mounted() {
     this.getApi(this.$route.params.id);
   },
@@ -41,7 +52,6 @@ export default {
                 <div class="box-up py-3">
                   <img class="img-fluid img" :src="dish.image_url" alt="">
                   <div class="img-info">
-
                     <div class="info-inner">
                       <span class="p-name fw-bold">{{ dish.dish_name }}</span>
                       <span class="p-company">{{ dish.description }}</span>
@@ -50,13 +60,15 @@ export default {
                     <div class="a-size">
                       <h5 class="text-black">Quantità</h5>
                       <div class="d-flex justify-content-center align-items-center">
-                        <button class="btn-quantity btn btn-warning rounded-5"><i
-                          class="fa-solid fa-minus"></i></button>
-                        <p class="text-black fw-semibold mx-3 m-0">5</p>
-                        <button class="btn-quantity btn btn-warning rounded-5"><i class="fa-solid fa-plus"></i></button>
+                        <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
+                        <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
                       </div>
                     </div>
-                    
                   </div>
                 </div>
 
@@ -65,10 +77,7 @@ export default {
                     <div class="h-bg-inner"></div>
                   </div>
 
-                  <a
-                    @click="store.addToCart(dish)"
-                    class="cart"
-                    href="#">
+                  <a @click.prevent="addToCart(dish)" class="cart" href="#">
                     <span class="price">{{ dish.price }}</span>
                     <span class="add-to-cart">
                       <span class="txt">Aggiungi al carrello</span>
@@ -79,32 +88,11 @@ export default {
             </div>
           </div>
         </div>
-
-
-
-
-
-        <!-- <div
-				v-for="dish in this.dishes"
-				:key="dish.id"
-				class="card"
-				style="width: 18rem"
-			>
-				<img :src="dish.image_url" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<h5 class="card-title">{{ dish.dish_name }}</h5>
-					<p class="card-text">
-						{{ dish.description }}
-					</p>
-					<p class="card-text">
-						{{ dish.price }}
-					</p>
-				</div>
-			</div> -->
       </div>
     </div>
   </div>
 </template>
+
 
 <style lang="scss" scoped>
 body,
