@@ -29,5 +29,6 @@ export const store = reactive({
 	clearCart() {
 		this.cart = [];
 	}
+
 });
 

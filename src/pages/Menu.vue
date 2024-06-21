@@ -2,78 +2,89 @@
 import { store } from "../data/store";
 import axios from "axios";
 export default {
-	name: "menu",
+  name: "menu",
 
-	data() {
-		return {
-			store,
-			restaurantName: "",
-			dishes: [],
-		};
-	},
+  data() {
+    return {
+      store,
+      restaurantName: "",
+      dishes: [],
+    };
+  },
 
-	methods: {
-		getApi(id) {
-			axios.get(this.store.apiUrl + "menu/" + id).then((res) => {
-				this.restaurantName = res.data;
-				console.log(this.restaurantName);
-				this.dishes = res.data.dishes;
-				console.log(this.dishes);
-			});
-		},
-	},
+  methods: {
+    getApi(id) {
+      axios.get(this.store.apiUrl + "menu/" + id).then((res) => {
+        this.restaurantName = res.data;
+        console.log(this.restaurantName);
+        this.dishes = res.data.dishes;
+        console.log(this.dishes);
+      });
+    },
+  },
 
-	mounted() {
-		this.getApi(this.$route.params.id);
-	},
+  mounted() {
+    this.getApi(this.$route.params.id);
+  },
 };
 </script>
 
 <template>
-	<div class="container">
-		<h1>{{ this.restaurantName.name }}</h1>
-<div class="row">
-<div
-v-for="dish in this.dishes"
-				:key="dish.id"
-class="col">
-<div class="container page-wrapper">
-  <div class="page-inner">
+  <div class="container">
+    <h1>{{ this.restaurantName.name }}</h1>
     <div class="row">
-      <div class="el-wrapper">
-        <div class="box-up py-3">
-          <img class="img-fluid img" :src="dish.image_url" alt="">
-          <div class="img-info">
-            <div class="info-inner">
-              <span class="p-name fw-bold">{{ dish.dish_name }}</span>
-              <span class="p-company">{{ dish.description }}</span>
+      <div v-for="dish in this.dishes" :key="dish.id" class="col">
+        <div class="container page-wrapper">
+          <div class="page-inner">
+            <div class="row">
+              <div class="el-wrapper">
+                <div class="box-up py-3">
+                  <img class="img-fluid img" :src="dish.image_url" alt="">
+                  <div class="img-info">
+
+                    <div class="info-inner">
+                      <span class="p-name fw-bold">{{ dish.dish_name }}</span>
+                      <span class="p-company">{{ dish.description }}</span>
+                    </div>
+
+                    <div class="a-size">
+                      <h5 class="text-black">Quantità</h5>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <button class="btn-quantity btn btn-warning rounded-5"><i
+                          class="fa-solid fa-minus"></i></button>
+                        <p class="text-black fw-semibold mx-3 m-0">5</p>
+                        <button class="btn-quantity btn btn-warning rounded-5"><i class="fa-solid fa-plus"></i></button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <div class="box-down">
+                  <div class="h-bg">
+                    <div class="h-bg-inner"></div>
+                  </div>
+
+                  <a
+                    @click="store.addToCart(dish)"
+                    class="cart"
+                    href="#">
+                    <span class="price">{{ dish.price }}</span>
+                    <span class="add-to-cart">
+                      <span class="txt">Aggiungi al carrello</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="a-size">Quantità <span class="size">S , M , L , XL</span></div>
           </div>
         </div>
 
-        <div class="box-down">
-          <div class="h-bg">
-            <div class="h-bg-inner"></div>
-          </div>
-
-          <a class="cart" href="#">
-            <span class="price">{{ dish.price }}</span>
-            <span class="add-to-cart">
-              <span class="txt">Aggiungi al carrello</span>
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
-	
 
 
-			<!-- <div
+        <!-- <div
 				v-for="dish in this.dishes"
 				:key="dish.id"
 				class="card"
@@ -90,13 +101,12 @@ class="col">
 					</p>
 				</div>
 			</div> -->
-		</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-
 body,
 html {
   height: 100%;
@@ -169,8 +179,8 @@ body {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   color: #f0f0f0;
-	border-right: 1px solid rgb(255, 252, 252);
-	padding-right: 10px;
+  border-right: 1px solid rgb(255, 252, 252);
+  padding-right: 10px;
 }
 
 .el-wrapper:hover .add-to-cart {
@@ -194,7 +204,7 @@ body {
   -webkit-transition-delay: 300ms;
   -o-transition-delay: 300ms;
   transition-delay: 300ms;
-  bottom: 50px;
+  bottom: 15px;
   opacity: 1;
 }
 
@@ -214,9 +224,9 @@ body {
 }
 
 .el-wrapper .img {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   padding: 50px 0;
   -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
   -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
@@ -380,7 +390,4 @@ body {
   text-transform: uppercase;
   white-space: nowrap;
 }
-
-
-
 </style>
