@@ -3,78 +3,187 @@ import { store } from "../../data/store";
 import axios from "axios";
 
 export default {
-    data() {
-        return {
-            store,
-        };
-    },
-    computed: {
-        totalPrice() {
-            return this.store.cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
-        }
-    },
-    methods: {
-        removeFromCart(dish) {
-            store.removeFromCart(dish);
-        },
-        updateQuantity(dish) {
-            store.updateQuantity(dish, dish.quantity);
-        },
-        checkout() {
-            const order = {
-                name: 'Nome Cliente',
-                lastname: 'Cognome Cliente',
-                address: 'Indirizzo Cliente',
-                postal_code: 'CAP',
-                phone_number: 'Telefono Cliente',
-                email: 'Email Cliente',
-                total_price: this.totalPrice,
-                dishes: this.store.cart.map(item => ({ dish_id: item.id, quantity: item.quantity }))
-            };
+	data() {
+		return {
+			store,
+		};
+	},
+	computed: {
+		totalPrice() {
+			return this.store.cart
+				.reduce((acc, item) => acc + item.price * item.quantity, 0)
+				.toFixed(2);
+		},
+	},
+	methods: {
+		removeFromCart(dish) {
+			store.removeFromCart(dish);
+		},
+		updateQuantity(dish) {
+			store.updateQuantity(dish, dish.quantity);
+		},
+		increaseQuantity(dish) {
+			dish.quantity++;
+			this.updateQuantity(dish);
+		},
+		decreaseQuantity(dish) {
+			if (dish.quantity > 1) {
+				dish.quantity--;
+				this.updateQuantity(dish);
+			}
+		},
+		checkout() {
+			const order = {
+				name: "Nome Cliente",
+				lastname: "Cognome Cliente",
+				address: "Indirizzo Cliente",
+				postal_code: "CAP",
+				phone_number: "Telefono Cliente",
+				email: "Email Cliente",
+				total_price: this.totalPrice,
+				dishes: this.store.cart.map((item) => ({
+					dish_id: item.id,
+					quantity: item.quantity,
+				})),
+			};
 
-            axios.post(this.store.apiUrl + 'orders', order)
-                .then(response => {
-                    console.log(response.data);
-                    alert('Ordine effettuato con successo!');
-                    store.clearCart();
-                })
-                .catch(error => {
-                    console.error(error);
-                    alert('Errore durante l\'effettuazione dell\'ordine.');
-                });
-        }
-    }
+			axios
+				.post(this.store.apiUrl + "orders", order)
+				.then((response) => {
+					console.log(response.data);
+					alert("Ordine effettuato con successo!");
+					store.clearCart();
+				})
+				.catch((error) => {
+					console.error(error);
+					alert("Errore durante l'effettuazione dell'ordine.");
+				});
+		},
+	},
 };
 </script>
 
 <template>
-  <div class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello Piatti</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="cart">
-        <h2>Carrello</h2>
-        <ul>
-          <li v-for="item in store.cart" :key="item.id">
-            {{ item.name }} - {{ item.quantity }} x {{ item.price }}
-            <input type="number" v-model.number="item.quantity" @change="updateQuantity(item)" min="1" />
-            <button @click="removeFromCart(item)">Rimuovi</button>
-          </li>
-        </ul>
-        <p v-if="!store.cart.length">Il carrello è vuoto.</p>
-        <p>Total: {{ totalPrice }}</p>
-        <button @click="checkout" :disabled="!store.cart.length">Checkout</button>
-      </div>
-    </div>
-  </div>
+	<div
+		class="offcanvas offcanvas-end w-25"
+		tabindex="-1"
+		id="offcanvasRight"
+		aria-labelledby="offcanvasRightLabel"
+	>
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello Piatti</h5>
+			<button
+				type="button"
+				class="btn-close"
+				data-bs-dismiss="offcanvas"
+				aria-label="Close"
+			></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="cart">
+				<ul class="w-100">
+					<li
+						class="d-flex justify-content-between align-items-center"
+						v-for="item in store.cart"
+						:key="item.id"
+					>
+						<div>
+							{{ item.quantity }} x {{ item.dish_name }} {{ item.price }}
+						</div>
+						<div class="d-flex">
+							<div class="number-input">
+								<button @click="decreaseQuantity(item)">-</button>
+								<input
+									class="quantita"
+									type="number"
+									v-model.number="item.quantity"
+									@change="updateQuantity(item)"
+									min="1"
+									max="99"
+								/>
+								<button @click="increaseQuantity(item)">+</button>
+							</div>
+							<div class="ms-2">
+								<button
+									class="btn btn-outline-warning"
+									@click="removeFromCart(item)"
+								>
+									<i class="fa-regular fa-trash-can"></i>
+								</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<p v-if="!store.cart.length">Il carrello è vuoto.</p>
+				<p>Total: {{ totalPrice }}</p>
+				<button @click="checkout" :disabled="!store.cart.length">
+					Checkout
+				</button>
+			</div>
+		</div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
+////////////////////////////////////////
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+// Input type number per non mostare le frecce
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+//////////////////////////////////////////
+
+.offcanvas {
+	background-color: #8b0101;
+
+	.offcanvas-title {
+		font-family: "Luckiest Guy", system-ui;
+		color: #ff9f22;
+		font-size: 3rem;
+	}
+
+	.number-input {
+		display: flex;
+		align-items: center;
+	}
+
+	.number-input input {
+		text-align: center;
+		border-radius: 10px;
+		width: 30px;
+		border: 1px solid #ccc;
+		margin: 0 5px;
+	}
+
+	.number-input button {
+		background-color: #ff9f22;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.number-input button:active {
+		background-color: #bbb;
+	}
+}
+
 li {
-  list-style: none;
-  font-family: "Luckiest Guy", system-ui;
-  color: #ff9f22;
+	list-style: none;
+	font-family: "Luckiest Guy", system-ui;
+	color: #ff9f22;
 }
 </style>
