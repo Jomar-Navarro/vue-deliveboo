@@ -19,7 +19,7 @@ export default {
 	<div
 		class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column"
 	>
-		<div class=" ">
+		<div class="">
 			<h1 class="fw-bold d-flex jumbo-title">
 				Il Tuo Gusto, <br />
 				la Nostra Missione. <br />
@@ -134,7 +134,7 @@ export default {
 }
 
 .jumbo-title {
-	// margin-top: 250px;
+	margin-bottom: 8%;
 	// margin-left: 100px;
 	// width: 1300px;
 	font-size: 4rem;

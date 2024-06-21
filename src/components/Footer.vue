@@ -40,7 +40,7 @@ export default {};
 				<a
 					data-mdb-ripple-init
 					class="btn btn-outline-light btn-floating m-1 text-white"
-					href="#!"
+					href="https://www.instagram.com/"
 					role="button"
 					><i class="fab fa-instagram"></i
 				></a>
@@ -70,11 +70,8 @@ export default {};
 				<p class="text-white">
 					Benvenuti su <strong>Deliveboo</strong>, il vostro servizio di food
 					delivery di fiducia a Milano. Offriamo una vasta gamma di piatti
-					autentici italiani, preparati con ingredienti freschi e consegnati
-					direttamente a casa vostra. Siamo situati in
-					<strong>Via Monte Napoleone, 12, 20121 Milano MI</strong>. Per ordini
-					e informazioni, contattateci al <strong>+39 02 1234 5678</strong>.
-					Assaporate il gusto dell'Italia, senza uscire di casa!
+					autentici, preparati con ingredienti freschi e consegnati
+					direttamente a casa vostra, dai vostri ristoranti preferiti.
 				</p>
 			</section>
 			<!-- Section: Text -->

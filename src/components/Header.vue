@@ -75,9 +75,13 @@ header {
 	}
 
 	.link-title {
-		color: #ff9f22;
+		color: #ffc107;
 		font-size: 1.5rem;
 		letter-spacing: 1px;
+		transition: all .3s ease-out;
+		&:hover{
+			color: rgb(251, 198, 145);
+		}
 	}
 
 	.logo {
