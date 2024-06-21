@@ -1,5 +1,10 @@
 <script>
-export default {};
+import Cart from './partials/Cart.vue';
+export default {
+	components: {
+		Cart,
+	},
+};
 </script>
 
 <template>
@@ -41,21 +46,7 @@ export default {};
 
 
 
-			<div class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasRight"
-				aria-labelledby="offcanvasRightLabel">
-				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello Piatti</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-				</div>
-				<div class="offcanvas-body">
-					<ul>
-						<li>piatto 1</li>
-						<li>piatto 2</li>
-						<li>piatto 3</li>
-						<li>piatto 4</li>
-					</ul>
-				</div>
-			</div>
+			<Cart />
 
 
 		</div>
@@ -79,7 +70,8 @@ header {
 		font-size: 1.5rem;
 		letter-spacing: 1px;
 		transition: all .3s ease-out;
-		&:hover{
+
+		&:hover {
 			color: rgb(251, 198, 145);
 		}
 	}
