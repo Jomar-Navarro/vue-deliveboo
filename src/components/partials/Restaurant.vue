@@ -142,7 +142,7 @@ export default {
 			<div
 				class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center mt-5 mx-sm-0 mx-md-3"
 			>
-				<div
+				<!-- <div
 					class="col mb-5 px-5"
 					v-for="restaurant in store.restaurants"
 					:key="restaurant.id"
@@ -178,6 +178,39 @@ export default {
 							</p>
 						</div>
 					</router-link>
+				</div> -->
+
+				<div
+					class="col mb-5 px-3 d-flex justify-content-center"
+					v-for="restaurant in store.restaurants"
+					:key="restaurant.id"
+				>
+					<router-link
+						:to="{ name: 'menu', params: { id: restaurant.id } }"
+						class="card p-0"
+					>
+						<img
+							class="card__background"
+							:src="`http://127.0.0.1:8000` + restaurant.image"
+							alt="#"
+							width="1920"
+							height="2193"
+						/>
+						<div class="card__content | flow">
+							<div class="card__content--container | flow">
+								<h2 class="card__title">{{ restaurant.name }}</h2>
+								<span
+									v-for="item in restaurant.types"
+									:key="item.id"
+									class="card__status badge mx-1"
+									>{{ item.type_name }}</span
+								>
+								<p class="card__description">
+									{{ restaurant.description }}
+								</p>
+							</div>
+						</div>
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -200,11 +233,6 @@ export default {
 	transition: filter 0.3s ease; /* Animazione per il filtro */
 }
 
-/* Applica un filtro di saturazione all'immagine quando il checkbox è selezionato */
-// .btn-check:checked + .btn.checkbox-active .checkbox-icon {
-// 	filter: saturate(2); /* Esempio di filtro: aumenta la saturazione */
-// }
-
 /* Stile per l'elemento label quando il checkbox è selezionato */
 .btn-check:checked + .btn.checkbox-active {
 	background-color: yellow; /* Esempio di colore di sfondo */
@@ -222,145 +250,292 @@ export default {
 	font-size: 3rem;
 }
 
+// .card {
+// 	position: relative;
+// 	display: block;
+// 	height: 100%;
+// 	border-radius: calc(40 * 1px);
+// 	overflow: hidden;
+// 	text-decoration: none;
+// 	border-radius: 30px 5px 30px 5px;
+// 	border: 1px solid #f77f00;
+// }
+
+// .card__image {
+// 	width: 100%;
+// 	aspect-ratio: 1;
+// 	object-fit: cover;
+// }
+
+// .card__overlay {
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 0;
+// 	right: 0;
+// 	z-index: 1;
+// 	border-radius: calc(0 * 1px);
+// 	background-color: white;
+// 	transform: translateY(100%);
+// 	transition: 0.2s ease-in-out;
+// 	opacity: 0.85;
+// }
+
+// .card:hover .card__overlay {
+// 	transform: translateY(0);
+// 	opacity: 0.55;
+// }
+
+// .card__header {
+// 	position: relative;
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 2em;
+// 	padding: 2em;
+// 	border-radius: calc(30 * 1px) 0 0 0;
+// 	background-color: white;
+// 	transform: translateY(-100%);
+// 	transition: 0.2s ease-in-out;
+// 	opacity: 0.95;
+// }
+
+// .card__arc {
+// 	width: 80px;
+// 	height: 80px;
+// 	position: absolute;
+// 	bottom: 100%;
+// 	right: 0;
+// 	z-index: 1;
+// }
+
+// .card__arc path {
+// 	fill: white;
+// 	d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+// }
+
+// .card:hover .card__header {
+// 	transform: translateY(0);
+// }
+
+// .card__thumb {
+// 	flex-shrink: 0;
+// 	width: 50px;
+// 	height: 50px;
+// 	border-radius: 50%;
+// }
+
+// .card__title {
+// 	font-size: 2em;
+// 	margin: 0 0 0.3em;
+// 	color: #03071e;
+// }
+
+// .card__tagline {
+// 	display: block;
+// 	margin: 1em 0;
+// 	font-size: 0.8em;
+// 	color: #d7bdca;
+// }
+
+// .card__status {
+// 	font-size: 0.8em;
+// 	color: #03071e;
+// 	border: 1px solid #f77f00;
+// 	border-radius: 30px;
+// }
+
+// .card__description {
+// 	padding: 0 2em 2em;
+// 	margin: 0;
+// 	color: #03071e;
+// 	display: -webkit-box;
+// 	-webkit-box-orient: vertical;
+// 	-webkit-line-clamp: 3;
+// 	overflow: hidden;
+// }
+
+// .custom-shape-divider-top-1718898198 {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	overflow: hidden;
+// 	line-height: 0;
+// }
+
+// .custom-shape-divider-top-1718898198 svg {
+// 	position: relative;
+// 	display: block;
+// 	width: calc(139% + 1.3px);
+// 	height: 130px;
+// }
+
+// .custom-shape-divider-top-1718898198 .shape-fill {
+// 	fill: #ffffff;
+// }
+
+// .card__title {
+// 	font-size: 1.8rem; /* Dimensione di default per schermi grandi */
+// 	line-height: 1.2; /* Altezza della riga per migliorare la leggibilità */
+// }
+
+// @media (max-width: 1280px) {
+// 	/* Stile per schermi di dimensioni inferiori a 1280px (es. MacBook Air piccolo) */
+// 	.card__title {
+// 		font-size: 1.2rem; /* Dimensione più piccola per adattarsi al dispositivo */
+// 	}
+// }
+
+// @media (max-width: 768px) {
+// 	/* Stile per schermi di dimensioni inferiori a 768px (es. dispositivi mobili) */
+// 	.card__title {
+// 		font-size: 1.5rem; /* Dimensione ancora più piccola per dispositivi più piccoli */
+// 	}
+// }
+
+h2 {
+	font-size: 2.1rem;
+	font-family: var(--font-title);
+	color: white;
+	line-height: 1.1;
+}
+
+p {
+	font-family: white;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: white;
+}
+
+.flow > * + * {
+	margin-top: 1.25rem;
+}
+
+/* CARD COMPONENT */
+
 .card {
-	position: relative;
-	display: block;
-	height: 100%;
-	border-radius: calc(40 * 1px);
+	display: grid;
+	place-items: center;
+	width: 50vw;
+	max-width: 20.875rem;
+	height: 26.125rem;
 	overflow: hidden;
-	text-decoration: none;
-	border-radius: 30px 5px 30px 5px;
-	border: 1px solid #f77f00;
+	border-radius: 0.625rem;
+	box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 
-.card__image {
-	width: 100%;
-	aspect-ratio: 1;
+.card > * {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.card__background {
 	object-fit: cover;
+	max-width: 100%;
+	height: 100%;
 }
 
-.card__overlay {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 1;
-	border-radius: calc(0 * 1px);
-	background-color: white;
-	transform: translateY(100%);
-	transition: 0.2s ease-in-out;
-	opacity: 0.85;
-}
-
-.card:hover .card__overlay {
-	transform: translateY(0);
-	opacity: 0.55;
-}
-
-.card__header {
-	position: relative;
+.card__content {
+	--flow-space: 0.9375rem;
 	display: flex;
-	align-items: center;
-	gap: 2em;
-	padding: 2em;
-	border-radius: calc(30 * 1px) 0 0 0;
-	background-color: white;
-	transform: translateY(-100%);
-	transition: 0.2s ease-in-out;
-	opacity: 0.95;
+	flex-direction: column;
+	justify-content: space-between;
+	align-self: flex-end;
+	height: 65%;
+	padding: 12% 1.25rem 1.875rem;
+	background: linear-gradient(
+		180deg,
+		hsla(0, 0%, 0%, 0) 0%,
+		hsla(0, 0%, 0%, 0.3) 10%,
+		hsl(0, 0%, 0%) 100%
+	);
 }
 
-.card__arc {
-	width: 80px;
-	height: 80px;
-	position: absolute;
-	bottom: 100%;
-	right: 0;
-	z-index: 1;
-}
-
-.card__arc path {
-	fill: white;
-	d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-}
-
-.card:hover .card__header {
-	transform: translateY(0);
-}
-
-.card__thumb {
-	flex-shrink: 0;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
+.card__content--container {
+	--flow-space: 1.25rem;
 }
 
 .card__title {
-	font-size: 2em;
-	margin: 0 0 0.3em;
-	color: #03071e;
+	position: relative;
+	width: fit-content;
+	width: -moz-fit-content; /* Prefijo necesario para Firefox  */
 }
 
-.card__tagline {
-	display: block;
-	margin: 1em 0;
-	font-size: 0.8em;
-	color: #d7bdca;
+.card__title::after {
+	content: "";
+	position: absolute;
+	height: 0.3125rem;
+	width: calc(100% + 1.25rem);
+	bottom: calc((1.25rem - 0.5rem) * -1);
+	left: -1.25rem;
+	background-color: hsl(46, 100%, 50%);
 }
 
 .card__status {
-	font-size: 0.8em;
-	color: #03071e;
-	border: 1px solid #f77f00;
-	border-radius: 30px;
+	border: 1px solid #f5e7c1;
 }
 
-.card__description {
-	padding: 0 2em 2em;
-	margin: 0;
-	color: #03071e;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;
-	overflow: hidden;
-}
-
-.custom-shape-divider-top-1718898198 {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	overflow: hidden;
-	line-height: 0;
-}
-
-.custom-shape-divider-top-1718898198 svg {
-	position: relative;
-	display: block;
-	width: calc(139% + 1.3px);
-	height: 130px;
-}
-
-.custom-shape-divider-top-1718898198 .shape-fill {
-	fill: #ffffff;
-}
-
-.card__title {
-	font-size: 1.8rem; /* Dimensione di default per schermi grandi */
-	line-height: 1.2; /* Altezza della riga per migliorare la leggibilità */
-}
-
-@media (max-width: 1280px) {
-	/* Stile per schermi di dimensioni inferiori a 1280px (es. MacBook Air piccolo) */
-	.card__title {
-		font-size: 1.2rem; /* Dimensione più piccola per adattarsi al dispositivo */
+@media (any-hover: hover) and (any-pointer: fine) {
+	.card__content {
+		transform: translateY(62%);
+		transition: transform 500ms ease-out;
+		transition-delay: 500ms;
 	}
-}
 
-@media (max-width: 768px) {
-	/* Stile per schermi di dimensioni inferiori a 768px (es. dispositivi mobili) */
-	.card__title {
-		font-size: 1.5rem; /* Dimensione ancora più piccola per dispositivi più piccoli */
+	.card__title::after {
+		opacity: 0;
+		transform: scaleX(0);
+		transition: opacity 1000ms ease-in, transform 500ms ease-out;
+		transition-delay: 500ms;
+		transform-origin: right;
+	}
+
+	.card__background {
+		transition: transform 500ms ease-in;
+	}
+
+	.card__content--container > :not(.card__title),
+	.card__button {
+		opacity: 0;
+		transition: transform 500ms ease-out, opacity 500ms ease-out;
+	}
+
+	.card:hover,
+	.card:focus-within {
+		transform: scale(1.05);
+		transition: transform 500ms ease-in;
+	}
+
+	.card:hover .card__content,
+	.card:focus-within .card__content {
+		transform: translateY(0);
+		transition: transform 500ms ease-in;
+	}
+
+	.card:focus-within .card__content {
+		transition-duration: 0ms;
+	}
+
+	.card:hover .card__background,
+	.card:focus-within .card__background {
+		transform: scale(1.3);
+	}
+
+	.card:hover .card__content--container > :not(.card__title),
+	.card:hover .card__button,
+	.card:focus-within .card__content--container > :not(.card__title),
+	.card:focus-within .card__button {
+		opacity: 1;
+		transition: opacity 500ms ease-in;
+		transition-delay: 1000ms;
+	}
+
+	.card:hover .card__title::after,
+	.card:focus-within .card__title::after {
+		opacity: 1;
+		transform: scaleX(1);
+		transform-origin: left;
+		transition: opacity 500ms ease-in, transform 500ms ease-in;
+		transition-delay: 500ms;
 	}
 }
 </style>
