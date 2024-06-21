@@ -32,6 +32,9 @@ export default {
     },
     addToCart(dish) {
       store.addToCart(dish, dish.selectedQuantity);
+    },
+    returnQuantityToOne(dish){
+      dish.selectedQuantity = 1;
     }
   },
   mounted() {
@@ -63,7 +66,9 @@ export default {
                         <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
                           <i class="fa-solid fa-minus"></i>
                         </button>
+
                         <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
+
                         <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
                           <i class="fa-solid fa-plus"></i>
                         </button>
@@ -77,7 +82,11 @@ export default {
                     <div class="h-bg-inner"></div>
                   </div>
 
-                  <a @click.prevent="addToCart(dish)" class="cart" href="#">
+                  <a
+                    
+                    @click.prevent="addToCart(dish), returnQuantityToOne(dish)"
+                    class="cart"
+                    href="#">
                     <span class="price">{{ dish.price }}</span>
                     <span class="add-to-cart">
                       <span class="txt">Aggiungi al carrello</span>
