@@ -45,7 +45,7 @@ export default {
 
 <template>
   <div class="container">
-    <h1>{{ this.restaurantName.name }}</h1>
+    <h1 class="text-center mt-5">{{ this.restaurantName.name }}</h1>
     <div class="row">
       <div v-for="dish in this.dishes" :key="dish.id" class="col">
         <div class="container page-wrapper">
@@ -66,7 +66,7 @@ export default {
                         <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
                           <i class="fa-solid fa-minus"></i>
                         </button>
-
+                        
                         <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
 
                         <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
@@ -81,9 +81,7 @@ export default {
                   <div class="h-bg">
                     <div class="h-bg-inner"></div>
                   </div>
-
                   <a
-                    
                     @click.prevent="addToCart(dish), returnQuantityToOne(dish)"
                     class="cart"
                     href="#">
