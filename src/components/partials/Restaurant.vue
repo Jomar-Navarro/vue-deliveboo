@@ -147,7 +147,10 @@ export default {
 					v-for="restaurant in store.restaurants"
 					:key="restaurant.id"
 				>
-					<a href="" class="card ratio-1x1">
+					<router-link
+						:to="{ name: 'menu', params: { id: restaurant.id } }"
+						class="card ratio-1x1"
+					>
 						<img
 							:src="`http://127.0.0.1:8000` + restaurant.image"
 							class="card__image"
@@ -174,7 +177,7 @@ export default {
 								{{ restaurant.description }}
 							</p>
 						</div>
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</div>
