@@ -69,9 +69,9 @@ export default {};
 			<section class="mb-4">
 				<p class="text-white">
 					Benvenuti su <strong>Deliveboo</strong>, il vostro servizio di food
-					delivery di fiducia a Milano. Offriamo una vasta gamma di ristoranti
+					delivery di fiducia a Milano. Offriamo una vasta gamma di piatti
 					autentici, preparati con ingredienti freschi e consegnati
-					direttamente a casa vostra.
+					direttamente a casa vostra, dai vostri ristoranti preferiti.
 				</p>
 			</section>
 			<!-- Section: Text -->
