@@ -39,7 +39,7 @@ export default {
 				address: "Indirizzo Cliente",
 				postal_code: "CAP",
 				phone_number: "Telefono Cliente",
-				email: "Email Cliente",
+				email: "Email@Cliente.com",
 				total_price: this.totalPrice,
 				dishes: this.store.cart.map((item) => ({
 					dish_id: item.id,
