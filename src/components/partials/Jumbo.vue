@@ -20,7 +20,7 @@ export default {
 		class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column"
 	>
 		<div class="">
-			<h1 class="fw-bold d-flex jumbo-title">
+			<h1 class="fw-bold d-flex jumbo-title text-warning">
 				Il Tuo Gusto, <br />
 				la Nostra Missione. <br />
 				Ordina Ora e Gusta la Felicità!
@@ -65,7 +65,7 @@ export default {
 .jumbo {
 	color: rgb(255, 237, 176);
 	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(65, 65, 65, 0.3)),
-		url("/img/italian-food-background-1.jpg");
+		url("/img/jumbo_1.jpeg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: calc(100vh - 90px);
@@ -159,6 +159,6 @@ export default {
 }
 
 .custom-shape-divider-bottom-1718892344 .shape-fill {
-	fill: #8b0101;
+	fill: #292626;
 }
 </style>

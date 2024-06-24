@@ -94,7 +94,7 @@ export default {
 		<div class="container-fluid py-5">
 			<div class="d-flex justify-content-center">
 				<div>
-					<h2 class="titolo mb-5 pb-5 text-center">Cerca il tuo ristorante</h2>
+					<h2 class="titolo mb-5 pb-2 text-center text-warning">Cerca il tuo ristorante</h2>
 					<div class="d-flex justify-content-center">
 						<input
 							class="search w-50 me-2 rounded-5 px-3 py-4"
@@ -107,7 +107,7 @@ export default {
 					</div>
 
 					<div>
-						<h2 class="filtro mt-5 text-center">Filtra per tipologia</h2>
+						<h2 class="filtro mt-5 text-center mb-5 text-warning">Filtra per tipologia</h2>
 					</div>
 
 					<div class="d-flex flex-wrap justify-content-center">
@@ -219,7 +219,7 @@ export default {
 
 <style lang="scss" scoped>
 .resto {
-	background-color: #8b0101;
+	background-color: #292626;
 }
 
 .search {
@@ -420,7 +420,7 @@ p {
 	height: 26.125rem;
 	overflow: hidden;
 	border-radius: 0.625rem;
-	box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+	box-shadow: 0.25rem .25rem .25rem rgba(255, 197, 4, 0.562);
 }
 
 .card > * {
