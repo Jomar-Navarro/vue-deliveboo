@@ -20,9 +20,9 @@ export default {
 		class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column"
 	>
 		<div class="">
-			<h1 class="fw-bold d-flex jumbo-title text-warning">
-				Il Tuo Gusto, <br />
-				la Nostra Missione. <br />
+			<h1 class="fw-bold d-flex jumbo-title text-warning text-center">
+				Il Tuo Gusto <br />
+				la Nostra Missione <br />
 				Ordina Ora e Gusta la Felicità!
 			</h1>
 		</div>
@@ -50,7 +50,7 @@ export default {
 					></path>
 				</svg>
 			</div>
-			<div class="indicator mt-5">
+			<div class="indicator mt-5 ">
 				<span></span>
 				<span></span>
 				<span></span>
@@ -64,7 +64,7 @@ export default {
 <style lang="scss" scoped>
 .jumbo {
 	color: rgb(255, 237, 176);
-	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(65, 65, 65, 0.3)),
+	background: linear-gradient(rgba(0, 0, 0, .9), rgba(32, 32, 32, 0.5)),
 		url("/img/jumbo_1.jpeg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -73,71 +73,84 @@ export default {
 	font-family: "Luckiest Guy", system-ui;
 	// font-family: 'Bungee Shade', system-ui;
 	.indicator {
-		position: relative;
-		width: 50px;
-		height: 50px;
+  position: relative;
+  width: 10vw; /* Utilizza vw per dimensioni relative */
+  height: 10vw; /* Utilizza vw per mantenere proporzioni */
+  transform: rotate(45deg);
+  display: grid;
+  place-items: center;
+}
 
-		transform: rotate(45deg);
-		span {
-			position: absolute;
-			// left:0;
-			right: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			box-sizing: border-box;
-			border: none;
-			border-bottom: 3px solid #fff;
-			border-right: 3px solid #fff;
-			animation: animate 1s linear infinite;
-			&:nth-child(1) {
-				top: -30px;
-				left: -30px;
-				animation-delay: 0s;
-			}
-			&:nth-child(2) {
-				top: -15px;
-				left: -15px;
-				animation-delay: 0.2s;
-			}
-			&:nth-child(3) {
-				top: 0;
-				left: 0;
-				animation-delay: 0.4s;
-			}
-			&:nth-child(4) {
-				top: 15px;
-				left: 15px;
-				animation-delay: 0.6s;
-			}
-			&:nth-child(5) {
-				top: 30px;
-				left: 30px;
-				animation-delay: 0.8s;
-			}
-		}
-	}
+.circle{
+	background-color: #0c0c0c;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
 }
+
+.indicator span {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  animation: animate 1s linear infinite;
+}
+
+.indicator span:nth-child(1) {
+  top: -20%;
+  left: -20%;
+  animation-delay: 0s;
+}
+
+.indicator span:nth-child(2) {
+  top: -10%;
+  left: -10%;
+  animation-delay: 0.2s;
+}
+
+.indicator span:nth-child(3) {
+  top: 0;
+  left: 0;
+  animation-delay: 0.4s;
+}
+
+.indicator span:nth-child(4) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0.6s;
+}
+
+.indicator span:nth-child(5) {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0.8s;
+}
+
 @keyframes animate {
-	0% {
-		border-color: #fff;
-		transform: translate(0, 0);
-	}
-	20% {
-		border-color: #fff;
-		transform: translate(15px, 15px);
-	}
-	20.1%,
-	100% {
-		border-color: #ffd64a;
-	}
+  0% {
+    border-color: #fff;
+    transform: translate(0, 0);
+  }
+  20% {
+    border-color: #fff;
+    transform: translate(10%, 10%);
+  }
+  20.1%,
+  100% {
+    border-color: #ffd64a;
+  }
 }
+
 
 .jumbo-title {
 	margin-bottom: 8%;
 	// margin-left: 100px;
 	// width: 1300px;
-	font-size: 4rem;
+	// font-size: 4rem;
+	font-size: clamp(1.5rem, 4vw, 4rem);
 	letter-spacing: 3px;
 }
 
@@ -160,5 +173,6 @@ export default {
 
 .custom-shape-divider-bottom-1718892344 .shape-fill {
 	fill: #292626;
+}
 }
 </style>

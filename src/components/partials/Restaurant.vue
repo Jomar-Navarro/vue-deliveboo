@@ -241,13 +241,15 @@ export default {
 .titolo {
 	font-family: "Luckiest Guy", system-ui;
 	color: rgb(255, 237, 176);
-	font-size: 5rem;
+	// font-size: 5rem;
+	font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
 .filtro {
 	color: rgb(255, 237, 176);
 	font-family: "Luckiest Guy", system-ui;
-	font-size: 3rem;
+	// font-size: 3rem;
+	font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
 // .card {
