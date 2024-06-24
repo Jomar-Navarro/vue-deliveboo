@@ -477,38 +477,38 @@ p {
 @media (any-hover: hover) and (any-pointer: fine) {
 	.card__content {
 		transform: translateY(62%);
-		transition: transform 500ms ease-out;
-		transition-delay: 500ms;
+		transition: transform 250ms ease-out;
+		transition-delay: 250ms;
 	}
 
 	.card__title::after {
 		opacity: 0;
 		transform: scaleX(0);
-		transition: opacity 1000ms ease-in, transform 500ms ease-out;
-		transition-delay: 500ms;
+		transition: opacity 500ms ease-in, transform 250ms ease-out;
+		transition-delay: 250ms;
 		transform-origin: right;
 	}
 
 	.card__background {
-		transition: transform 500ms ease-in;
+		transition: transform 250ms ease-in;
 	}
 
 	.card__content--container > :not(.card__title),
 	.card__button {
 		opacity: 0;
-		transition: transform 500ms ease-out, opacity 500ms ease-out;
+		transition: transform 250ms ease-out, opacity 250ms ease-out;
 	}
 
 	.card:hover,
 	.card:focus-within {
 		transform: scale(1.05);
-		transition: transform 500ms ease-in;
+		transition: transform 250ms ease-in;
 	}
 
 	.card:hover .card__content,
 	.card:focus-within .card__content {
 		transform: translateY(0);
-		transition: transform 500ms ease-in;
+		transition: transform 250ms ease-in;
 	}
 
 	.card:focus-within .card__content {
@@ -525,8 +525,8 @@ p {
 	.card:focus-within .card__content--container > :not(.card__title),
 	.card:focus-within .card__button {
 		opacity: 1;
-		transition: opacity 500ms ease-in;
-		transition-delay: 1000ms;
+		transition: opacity 250ms ease-in;
+		transition-delay: 500ms;
 	}
 
 	.card:hover .card__title::after,
@@ -534,8 +534,8 @@ p {
 		opacity: 1;
 		transform: scaleX(1);
 		transform-origin: left;
-		transition: opacity 500ms ease-in, transform 500ms ease-in;
-		transition-delay: 500ms;
+		transition: opacity 250ms ease-in, transform 250ms ease-in;
+		transition-delay: 250ms;
 	}
 }
 </style>
