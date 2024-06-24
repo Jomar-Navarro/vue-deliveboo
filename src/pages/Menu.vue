@@ -16,24 +16,27 @@ export default {
       axios.get(this.store.apiUrl + "menu/" + id).then((res) => {
         this.restaurantName = res.data;
         this.dishes = res.data.dishes;
-        // Aggiungi una proprietà 'selectedQuantity' a ciascun dish
         this.dishes.forEach((dish) => {
           dish.selectedQuantity = 1;
         });
       });
     },
+
     increaseQuantity(dish) {
       dish.selectedQuantity++;
     },
+
     decreaseQuantity(dish) {
       if (dish.selectedQuantity > 1) {
         dish.selectedQuantity--;
       }
     },
+
     addToCart(dish) {
       const restaurantId = this.$route.params.id;
       store.addToCart(dish, dish.selectedQuantity, restaurantId);
     },
+
     returnQuantityToOne(dish) {
       dish.selectedQuantity = 1;
     },
@@ -46,9 +49,9 @@ export default {
 
 <template>
   <div class="container">
-    <h1 class="text-center mt-5">{{ this.restaurantName.name }}</h1>
+    <h1 class="text-center mt-5">{{ restaurantName.name }}</h1>
     <div class="row">
-      <div v-for="dish in this.dishes" :key="dish.id" class="col">
+      <div v-for="dish in dishes" :key="dish.id" class="col">
         <div class="container page-wrapper">
           <div class="page-inner">
             <div class="row">
@@ -60,16 +63,13 @@ export default {
                       <span class="p-name fw-bold">{{ dish.dish_name }}</span>
                       <span class="p-company">{{ dish.description }}</span>
                     </div>
-
                     <div class="a-size">
                       <h5 class="text-black">Quantità</h5>
                       <div class="d-flex justify-content-center align-items-center">
                         <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
                           <i class="fa-solid fa-minus"></i>
                         </button>
-
                         <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
-
                         <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
                           <i class="fa-solid fa-plus"></i>
                         </button>
@@ -77,7 +77,6 @@ export default {
                     </div>
                   </div>
                 </div>
-
                 <div class="box-down">
                   <div class="h-bg">
                     <div class="h-bg-inner"></div>
@@ -97,6 +96,7 @@ export default {
     </div>
   </div>
 </template>
+
 
 
 <style lang="scss" scoped>
