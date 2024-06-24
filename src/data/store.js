@@ -11,7 +11,7 @@ export const store = reactive({
     if (item) {
       item.quantity += quantity;
     } else {
-      this.cart.push({ ...dish, quantity });
+      this.cart.push({ ...dish, quantity: quantity || 1, price: dish.price || 0 });
     }
   },
   removeFromCart(dish) {

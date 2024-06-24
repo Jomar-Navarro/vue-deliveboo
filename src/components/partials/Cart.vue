@@ -10,9 +10,17 @@ export default {
 	},
 	computed: {
 		totalPrice() {
-			return this.store.cart
-				.reduce((acc, item) => acc + item.price * item.quantity, 0)
+			const total = this.store.cart
+				.reduce((acc, item) => {
+					const priceString = item.price.replace('€', '').replace(',', '.').trim();
+					const price = parseFloat(priceString) || 0;
+					const quantity = parseInt(item.quantity, 10) || 0;
+					return acc + price * quantity;
+				}, 0)
 				.toFixed(2);
+
+			// Sostituzione del punto con la virgola
+			return total.replace('.', ',');
 		},
 	},
 	methods: {
@@ -40,7 +48,7 @@ export default {
 				postal_code: "CAP",
 				phone_number: "Telefono Cliente",
 				email: "Email Cliente",
-				total_price: this.totalPrice,
+				total_price: this.totalPrice.replace(',', '.'), // convertiamo di nuovo in formato decimale per l'invio al server
 				dishes: this.store.cart.map((item) => ({
 					dish_id: item.id,
 					quantity: item.quantity,
@@ -71,7 +79,7 @@ export default {
 		aria-labelledby="offcanvasRightLabel"
 	>
 		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello Piatti</h5>
+			<h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
 			<button
 				type="button"
 				class="btn-close"
@@ -83,7 +91,7 @@ export default {
 			<div class="cart">
 				<ul class="w-100">
 					<li
-						class="d-flex justify-content-between align-items-center"
+						class="d-flex justify-content-between align-items-center mb-4"
 						v-for="item in store.cart"
 						:key="item.id"
 					>
@@ -115,9 +123,9 @@ export default {
 					</li>
 				</ul>
 				<p v-if="!store.cart.length">Il carrello è vuoto.</p>
-				<p>Total: {{ totalPrice }}</p>
-				<button @click="checkout" :disabled="!store.cart.length">
-					Checkout
+				<p class="tot-price">Totale: €{{ totalPrice }}</p>
+				<button @click="checkout" :disabled="!store.cart.length" class="btn btn-warning">
+					Vai al pagamento
 				</button>
 			</div>
 		</div>
@@ -185,5 +193,9 @@ li {
 	list-style: none;
 	font-family: "Luckiest Guy", system-ui;
 	color: #ff9f22;
+}
+
+.tot-price{
+	color:#ff9f22;
 }
 </style>
