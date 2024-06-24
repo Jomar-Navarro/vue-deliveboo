@@ -4,6 +4,7 @@ import about from "./pages/Chi-siamo.vue";
 import Contacts from "./pages/Contatti.vue";
 import Error404 from "./pages/Error404.vue";
 import Menu from "./pages/Menu.vue";
+import Order from "./pages/Order.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -28,6 +29,11 @@ const router = createRouter({
 			path: "/contatti",
 			name: "contacts",
 			component: Contacts,
+		},
+		{
+			path: "/ordine",
+			name: "order",
+			component: Order,
 		},
 		{
 			path: "/:patchMatch(.*)*",
