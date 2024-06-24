@@ -10,6 +10,12 @@ export const store = reactive({
 
   // Aggiunge un piatto al carrello
   addToCart(dish, quantity, restaurantId) {
+    // Controllo se ci sono già piatti nel carrello da un altro ristorante
+    if (this.cart.length > 0 && this.cart[0].restaurantId !== restaurantId) {
+      alert("Puoi ordinare piatti da un solo ristorante alla volta.");
+      return;
+    }
+
     const item = this.cart.find(i => i.id === dish.id && i.restaurantId === restaurantId);
     if (item) {
       item.quantity += quantity;
@@ -48,4 +54,3 @@ export const store = reactive({
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 });
-

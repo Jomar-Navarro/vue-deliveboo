@@ -66,8 +66,8 @@ export default {
         .post(this.store.apiUrl + "orders", order)
         .then((response) => {
           console.log(response.data);
-          alert("Ordine effettuato con successo!");
-          store.clearCart();
+          // alert("Ordine effettuato con successo!");
+          // store.clearCart();
         })
         .catch((error) => {
           console.error(error);
@@ -114,7 +114,8 @@ export default {
         </ul>
         <p v-if="!store.cart.length">Il carrello è vuoto.</p>
         <p class="tot-price">Totale: €{{ totalPrice }}</p>
-        <button @click="checkout" :disabled="!store.cart.length" class="btn btn-warning">Vai al pagamento</button>
+				
+        <router-link v-if="store.cart.length" :to="{ name: 'order' }" @click="checkout" :disabled="!store.cart.length" class="btn btn-warning">Vai al pagamento</router-link>
       </div>
     </div>
   </div>
