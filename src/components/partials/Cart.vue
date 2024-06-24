@@ -142,7 +142,7 @@ input[type="number"] {
 //////////////////////////////////////////
 
 .offcanvas {
-	background-color: #8b0101;
+	background-color: #f77b7b;
 
 	.offcanvas-title {
 		font-family: "Luckiest Guy", system-ui;

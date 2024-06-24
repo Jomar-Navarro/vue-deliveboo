@@ -21,8 +21,8 @@ export default {
 <template>
 	<header class="header bg-dark sticky-top py-2">
 		<div class="container-fluid d-flex align-items-center justify-content-between">
-			<div class="logo-container">
-				<img src="/img/logo-final.png" alt="Logo" class="logo img-fluid" />
+			<div class="logo-container  me-md-4">
+				<img src="/img/logo-final.png" alt="Logo" class="logo img-fluid me-md-3" />
 			</div>
 
 			<nav class="font_ nav d-none d-md-flex flex-grow-1 justify-content-center">
@@ -51,7 +51,7 @@ export default {
 			</div>
 
 			<div class="hamburger-icon text-white d-md-none">
-				<i class="fa-solid fa-bars me-4" @click="toggleMenu"></i>
+				<i class="fa-solid fa-bars ps-sm-4 me-sm-4 ps-5 ms-5" @click="toggleMenu"></i>
 			</div>
 		</div>
 
@@ -85,7 +85,8 @@ export default {
 	
 		
 		.nav-link {
-			font-size: 2rem;
+			// font-size: 1.5rem;
+			font-size: clamp(0.5rem, 2.5vw, 1.8rem);
 			letter-spacing: 1px;
 			transition: all 0.3s ease-out;
 			&:hover {
