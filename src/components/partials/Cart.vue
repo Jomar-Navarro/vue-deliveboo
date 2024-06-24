@@ -40,150 +40,141 @@ export default {
 				postal_code: "CAP",
 				phone_number: "Telefono Cliente",
 				email: "Email@Cliente.com",
-				total_price: this.totalPrice,
-				dishes: this.store.cart.map((item) => ({
-					dish_id: item.id,
-					quantity: item.quantity,
-				})),
+				total_price: this.totalPrice.replace(',', '.'),
+        dishes: this.store.cart.map((item) => ({
+          dish_id: item.id,
+          quantity: item.quantity,
+        })),
 			};
 
 			axios
-				.post(this.store.apiUrl + "orders", order)
-				.then((response) => {
-					console.log(response.data);
-					alert("Ordine effettuato con successo!");
-					store.clearCart();
-				})
-				.catch((error) => {
-					console.error(error);
-					alert("Errore durante l'effettuazione dell'ordine.");
-				});
-		},
-	},
+        .post(this.store.apiUrl + "orders", order)
+        .then((response) => {
+          console.log(response.data);
+          alert("Ordine effettuato con successo!");
+          store.clearCart();
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Errore durante l'effettuazione dell'ordine.");
+        });
+    },
+  },
 };
 </script>
-
 <template>
-	<div
-		class="offcanvas offcanvas-end w-25"
-		tabindex="-1"
-		id="offcanvasRight"
-		aria-labelledby="offcanvasRightLabel"
-	>
-		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello Piatti</h5>
-			<button
-				type="button"
-				class="btn-close"
-				data-bs-dismiss="offcanvas"
-				aria-label="Close"
-			></button>
-		</div>
-		<div class="offcanvas-body">
-			<div class="cart">
-				<ul class="w-100">
-					<li
-						class="d-flex justify-content-between align-items-center"
-						v-for="item in store.cart"
-						:key="item.id"
-					>
-						<div>
-							{{ item.quantity }} x {{ item.dish_name }} {{ item.price }}
-						</div>
-						<div class="d-flex">
-							<div class="number-input">
-								<button @click="decreaseQuantity(item)">-</button>
-								<input
-									class="quantita"
-									type="number"
-									v-model.number="item.quantity"
-									@change="updateQuantity(item)"
-									min="1"
-									max="99"
-								/>
-								<button @click="increaseQuantity(item)">+</button>
-							</div>
-							<div class="ms-2">
-								<button
-									class="btn btn-outline-warning"
-									@click="removeFromCart(item)"
-								>
-									<i class="fa-regular fa-trash-can"></i>
-								</button>
-							</div>
-						</div>
-					</li>
-				</ul>
-				<p v-if="!store.cart.length">Il carrello è vuoto.</p>
-				<p>Total: {{ totalPrice }}</p>
-				<button @click="checkout" :disabled="!store.cart.length">
-					Checkout
-				</button>
-			</div>
-		</div>
-	</div>
+  <div
+    class="offcanvas offcanvas-end w-25"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="cart">
+        <ul class="w-100">
+          <li
+            class="d-flex justify-content-between align-items-center mb-4"
+            v-for="item in store.cart"
+            :key="item.id"
+          >
+            <div>
+              {{ item.quantity }} x {{ item.dish_name }} {{ item.price }}
+            </div>
+            <div class="d-flex">
+              <div class="number-input">
+                <button @click="decreaseQuantity(item)">-</button>
+                <input
+                  class="quantita"
+                  type="number"
+                  v-model.number="item.quantity"
+                  @change="updateQuantity(item)"
+                  min="1"
+                  max="99"
+                />
+                <button @click="increaseQuantity(item)">+</button>
+              </div>
+              <div class="ms-2">
+                <button
+                  class="btn btn-outline-warning"
+                  @click="removeFromCart(item)"
+                >
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p v-if="!store.cart.length">Il carrello è vuoto.</p>
+        <p class="tot-price">Totale: €{{ totalPrice }}</p>
+        <button @click="checkout" :disabled="!store.cart.length" class="btn btn-warning">
+          Vai al pagamento
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 ////////////////////////////////////////
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
-
 // Input type number per non mostare le frecce
-
 /* Firefox */
 input[type="number"] {
-	-moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
-
 //////////////////////////////////////////
-
 .offcanvas {
-	background-color: #8b0101;
-
-	.offcanvas-title {
-		font-family: "Luckiest Guy", system-ui;
-		color: #ff9f22;
-		font-size: 3rem;
-	}
-
-	.number-input {
-		display: flex;
-		align-items: center;
-	}
-
-	.number-input input {
-		text-align: center;
-		border-radius: 10px;
-		width: 30px;
-		border: 1px solid #ccc;
-		margin: 0 5px;
-	}
-
-	.number-input button {
-		background-color: #ff9f22;
-		border-radius: 50%;
-		width: 30px;
-		height: 30px;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.number-input button:active {
-		background-color: #bbb;
-	}
+  background-color: #8B0101;
+  .offcanvas-title {
+    font-family: "Luckiest Guy", system-ui;
+    color: #FF9F22;
+    font-size: 3rem;
+  }
+  .number-input {
+    display: flex;
+    align-items: center;
+  }
+  .number-input input {
+    text-align: center;
+    border-radius: 10px;
+    width: 30px;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+  }
+  .number-input button {
+    background-color: #FF9F22;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .number-input button:active {
+    background-color: #bbb;
+  }
 }
-
 li {
-	list-style: none;
-	font-family: "Luckiest Guy", system-ui;
-	color: #ff9f22;
+  list-style: none;
+  font-family: "Luckiest Guy", system-ui;
+  color: #FF9F22;
+}
+.tot-price{
+  color:#ff9f22;
 }
 </style>
