@@ -1,14 +1,16 @@
 <script>
 export default {
-	name: "Erro404",
+	name: "Errore404",
 };
 </script>
 
 <template>
-	<div>
+	<div class="text-center my-5">
 		<h1>Errore 404</h1>
-		<p>Pagina non trovata</p>
+		<h4>Pagina non trovata</h4>
 	</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
