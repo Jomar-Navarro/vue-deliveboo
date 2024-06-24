@@ -1,5 +1,5 @@
 <script>
-import Cart from './partials/Cart.vue';
+import Cart from "./partials/Cart.vue";
 export default {
 	components: {
 		Cart,
@@ -8,9 +8,11 @@ export default {
 </script>
 
 <template>
-	<header class="px-3">
+	<header class="px-3 position-sticky w-100 top-0 z-1">
 		<!-- <nav class="navbar navbar-expand-lg mx-3"> -->
-		<div class="d-flex align-items-center justify-content-between justify-content-center h-100">
+		<div
+			class="d-flex align-items-center justify-content-between justify-content-center h-100"
+		>
 			<div class="">
 				<img src="/img/logo-final.png" alt="" class="logo" />
 				<!-- <h1>Logo</h1> -->
@@ -19,15 +21,23 @@ export default {
 			<div class="d-flex align-items-center h-100">
 				<ul class="d-flex justify-content-between align-items-center h-100 m-0">
 					<li class="nav-item">
-						<router-link class="nav-link link-title p-3" :to="{ name: 'home' }">Home</router-link>
+						<router-link class="nav-link link-title p-3" :to="{ name: 'home' }"
+							>Home</router-link
+						>
 					</li>
 
 					<li class="nav-item">
-						<router-link class="nav-link link-title p-3" :to="{ name: 'contacts' }">Contatti</router-link>
+						<router-link
+							class="nav-link link-title p-3"
+							:to="{ name: 'contacts' }"
+							>Contatti</router-link
+						>
 					</li>
 
 					<li class="nav-item">
-						<router-link class="nav-link link-title p-3" :to="{ name: 'about' }">Chi Siamo</router-link>
+						<router-link class="nav-link link-title p-3" :to="{ name: 'about' }"
+							>Chi Siamo</router-link
+						>
 					</li>
 				</ul>
 			</div>
@@ -35,8 +45,15 @@ export default {
 			<div class="ms-5">
 				<div class="text-white d-flex align-items-center">
 					<div class="bottone btn btn-outline-warning me-3">
-						<button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-							aria-controls="offcanvasRight">Vai al carrello</button>
+						<button
+							class="btn"
+							type="button"
+							data-bs-toggle="offcanvas"
+							data-bs-target="#offcanvasRight"
+							aria-controls="offcanvasRight"
+						>
+							Vai al carrello
+						</button>
 					</div>
 					<div class="text-warning fs-4">
 						<i class="fa-solid fa-cart-shopping"></i>
@@ -44,11 +61,7 @@ export default {
 				</div>
 			</div>
 
-
-
 			<Cart />
-
-
 		</div>
 		<!-- </nav> -->
 	</header>
@@ -69,7 +82,7 @@ header {
 		color: #ffc107;
 		font-size: 1.5rem;
 		letter-spacing: 1px;
-		transition: all .3s ease-out;
+		transition: all 0.3s ease-out;
 
 		&:hover {
 			color: rgb(251, 198, 145);
