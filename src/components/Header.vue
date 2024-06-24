@@ -44,9 +44,9 @@ export default {
 
 			<div class="ms-5">
 				<div class="text-white d-flex align-items-center">
-					<div class="bottone btn btn-outline-warning me-3">
+					<div class="bottone btn  me-3">
 						<button
-							class="btn"
+							class="btn btn-outline-warning"
 							type="button"
 							data-bs-toggle="offcanvas"
 							data-bs-target="#offcanvasRight"
@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-	background-color: #8b0101;
+	background-color: #292626;
 	height: 90px;
 
 	li {
