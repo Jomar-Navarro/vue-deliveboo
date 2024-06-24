@@ -30,7 +30,7 @@ export default {
 					<li class="nav-item">
 						<router-link class="nav-link text-warning" :to="{ name: 'home' }">Home</router-link>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item mx-5">
 						<router-link class="nav-link text-warning" :to="{ name: 'contacts' }">Contatti</router-link>
 					</li>
 					<li class="nav-item">
@@ -70,6 +70,7 @@ export default {
 		</nav>
 
 		<Cart />
+
 	</header>
 </template>
 
@@ -77,16 +78,20 @@ export default {
 <style lang="scss" scoped>
 
 .header {
+	height: auto;
 	.logo {
 		width: 120px;
 	}
-	.nav-link {
-		font-size: 1.5rem;
-		letter-spacing: 1px;
-		transition: all 0.3s ease-out;
-		&:hover {
-			color: rgb(251, 198, 145);
-		}
+	
+		
+		.nav-link {
+			font-size: 2rem;
+			letter-spacing: 1px;
+			transition: all 0.3s ease-out;
+			&:hover {
+				color: rgb(251, 198, 145);
+			}
+		
 	}
 	.font_ {
 		font-family: "Luckiest Guy", system-ui;

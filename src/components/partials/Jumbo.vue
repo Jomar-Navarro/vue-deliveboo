@@ -138,7 +138,6 @@ export default {
     border-color: #fff;
     transform: translate(10%, 10%);
   }
-  20.1%,
   100% {
     border-color: #ffd64a;
   }
@@ -156,8 +155,7 @@ export default {
 
 .custom-shape-divider-bottom-1718892344 {
 	position: absolute;
-	bottom: -2%;
-	left: 0;
+	bottom: -8%;
 	width: 100%;
 	overflow: hidden;
 	line-height: 0;
