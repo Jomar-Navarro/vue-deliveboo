@@ -48,8 +48,8 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="text-center mt-5">{{ restaurantName.name }}</h1>
+  <div class="container menu-bg">
+    <h1 class="text-center mt-5 text-warning">{{ restaurantName.name }}</h1>
     <div class="row">
       <div v-for="dish in dishes" :key="dish.id" class="col">
         <div class="container page-wrapper">
@@ -103,6 +103,14 @@ export default {
 body,
 html {
   height: 100%;
+  
+}
+
+.menu-bg{
+  background-color: #292626;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-family: "Luckiest Guy", system-ui;
 }
 
 .d-flex {
@@ -127,9 +135,7 @@ html {
   align-items: center;
 }
 
-body {
-  background-color: #f7f7f7;
-}
+
 
 .page-wrapper {
   height: 100%;
