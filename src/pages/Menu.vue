@@ -49,9 +49,11 @@ export default {
 
 <template>
   <div class="container menu-bg">
-    <h1 class="text-center mt-5 text-warning">{{ restaurantName.name }}</h1>
+    <h1 class="text-center mt-5 text-warning pt-4">{{ restaurantName.name }}</h1>
     <div class="row">
-      <div v-for="dish in dishes" :key="dish.id" class="col">
+
+      <!-- card desktop  -->
+      <div v-for="dish in dishes" :key="dish.id" class="card_tab_desk col">
         <div class="container page-wrapper">
           <div class="page-inner">
             <div class="row">
@@ -93,6 +95,46 @@ export default {
           </div>
         </div>
       </div>
+      <!-- / -->
+
+
+      <!-- card phone / tablet  -->
+      <div v-for="dish in dishes" :key="dish.id"
+        class="card_phone col d-flex flex-column align-items-center text-white bg-warning rounded-5 m-4 p-4">
+        <div>
+          <img class="img-fluid img_phone mb-3" :src="dish.image_url" alt="" />
+        </div>
+
+        <div class="bg-warning d-flex flex-column align-items-center">
+          <h4 class="text-center">{{ dish.dish_name }}</h4>
+          <p>{{ dish.description }}</p>
+          <span class="price">{{ dish.price }}</span>
+
+          <div class="mb-3">
+            <h5 class="text-black text-center">Quantità</h5>
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
+              <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <button
+              @click.prevent="addToCart(dish), returnQuantityToOne(dish)"
+              class="btn btn-success">
+              Aggiungi al carrello
+            </button>
+          </div>
+
+        </div>
+      </div>
+      <!-- / -->
+
     </div>
   </div>
 </template>
@@ -100,13 +142,30 @@ export default {
 
 
 <style lang="scss" scoped>
+.img_phone {
+  max-width: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body,
 html {
   height: 100%;
-  
+
 }
 
-.menu-bg{
+.menu-bg {
   background-color: #292626;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -388,5 +447,19 @@ html {
   letter-spacing: 0.045em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+
+
+@media (min-width: 992px) {
+  .card_phone {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .card_tab_desk {
+    display: none;
+  }
 }
 </style>
