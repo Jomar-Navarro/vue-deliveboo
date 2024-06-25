@@ -72,45 +72,48 @@ export default {
 				// Aggiungi il nonce al payload dell'ordine
 				order.nonce = payload.nonce;
 
-        // Invia l'ordine al backend
-        axios
-          .post(store.apiUrl + "orders", order)
-          .then((response) => {
-            console.log(response.data);
-            alert("Ordine effettuato con successo!");
-            store.clearCart();
-            this.$router.push({ name: "success" });
-          })
-          .catch((error) => {
-            console.error("Errore durante l'effettuazione dell'ordine:", error.response.data);
-            alert("Errore durante l'effettuazione dell'ordine.");
-          });
-      });
-    },
-    setupDropin() {
-      axios
-        .get(this.store.apiUrl + "client_token")
-        .then((response) => {
-          return dropin.create({
-            authorization: response.data.clientToken,
-            container: "#dropin-container",
-						locale: 'it_IT'
-          });
-        })
-        .then((instance) => {
-          this.dropinInstance = instance;
-          this.setupDropinButton();
-        })
-        .catch((error) => {
-          console.error(error);
-          alert("Errore durante l'inizializzazione del metodo di pagamento.");
-        });
-    },
-    setupDropinButton() {
-      // Non è più necessario gestire il click separato per il pagamento
-    },
-  },
-  mounted() {
+				// Invia l'ordine al backend
+				axios
+					.post(store.apiUrl + "orders", order)
+					.then((response) => {
+						console.log(response.data);
+						alert("Ordine effettuato con successo!");
+						store.clearCart();
+						this.$router.push({ name: "success" });
+					})
+					.catch((error) => {
+						console.error(
+							"Errore durante l'effettuazione dell'ordine:",
+							error.response.data
+						);
+						alert("Errore durante l'effettuazione dell'ordine.");
+					});
+			});
+		},
+		setupDropin() {
+			axios
+				.get(this.store.apiUrl + "client_token")
+				.then((response) => {
+					return dropin.create({
+						authorization: response.data.clientToken,
+						container: "#dropin-container",
+						locale: "it_IT",
+					});
+				})
+				.then((instance) => {
+					this.dropinInstance = instance;
+					this.setupDropinButton();
+				})
+				.catch((error) => {
+					console.error(error);
+					alert("Errore durante l'inizializzazione del metodo di pagamento.");
+				});
+		},
+		setupDropinButton() {
+			// Non è più necessario gestire il click separato per il pagamento
+		},
+	},
+	mounted() {
 		this.setupDropin();
 	},
 };
@@ -119,9 +122,38 @@ export default {
 <template>
 	<div class="container mt-5">
 		<h2>Checkout</h2>
-		<div class="row">
+		<div class="row justify-content-center">
 			<!-- Form Dati Utente -->
-			<div class="col-md-6">
+			<div class="col-md-10">
+				<!-- Riepilogo Carrello -->
+				<h4>Riepilogo del Carrello</h4>
+				<ul class="list-group mb-3">
+					<li
+						class="list-group-item d-flex justify-content-between lh-condensed"
+						v-for="item in store.cart"
+						:key="item.id"
+					>
+						<div>
+							<h6 class="my-0">{{ item.dish_name }}</h6>
+							<small class="text-muted">Quantità: {{ item.quantity }}</small>
+						</div>
+						<span class="text-muted"
+							>€{{
+								(
+									parseFloat(item.price.replace("€", "").replace(",", ".")) *
+									item.quantity
+								)
+									.toFixed(2)
+									.replace(".", ",")
+							}}</span
+						>
+					</li>
+					<li class="list-group-item d-flex justify-content-between">
+						<span>Totale (EUR)</span>
+						<strong>€{{ totalPrice }}</strong>
+					</li>
+				</ul>
+
 				<form
 					@submit.prevent="submitOrder"
 					id="order-form"
@@ -201,42 +233,13 @@ export default {
 							L'email è richiesta e deve essere in un formato valido.
 						</div>
 					</div>
-					<button type="submit" class="btn btn-warning mb-5">
-						Invia Ordine e Paga
-					</button>
+					<div id="dropin-container"></div>
+					<div class="d-flex justify-content-end">
+						<button type="submit" class="btn btn-warning mb-5">
+							Ordina e Paga
+						</button>
+					</div>
 				</form>
-			</div>
-
-			<!-- Riepilogo Carrello -->
-			<div class="col-md-6">
-				<h4>Riepilogo del Carrello</h4>
-				<ul class="list-group mb-3">
-					<li
-						class="list-group-item d-flex justify-content-between lh-condensed"
-						v-for="item in store.cart"
-						:key="item.id"
-					>
-						<div>
-							<h6 class="my-0">{{ item.dish_name }}</h6>
-							<small class="text-muted">Quantità: {{ item.quantity }}</small>
-						</div>
-						<span class="text-muted"
-							>€{{
-								(
-									parseFloat(item.price.replace("€", "").replace(",", ".")) *
-									item.quantity
-								)
-									.toFixed(2)
-									.replace(".", ",")
-							}}</span
-						>
-					</li>
-					<li class="list-group-item d-flex justify-content-between">
-						<span>Totale (EUR)</span>
-						<strong>€{{ totalPrice }}</strong>
-					</li>
-				</ul>
-				<div id="dropin-container"></div>
 			</div>
 		</div>
 	</div>
