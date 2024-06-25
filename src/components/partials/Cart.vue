@@ -51,7 +51,7 @@ export default {
 </script>
 
 <template>
-  <div data-bs-dismiss="offcanvas" class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -84,10 +84,13 @@ export default {
             </div>
           </li>
         </ul>
-        <p v-if="!store.cart.length">Il carrello è vuoto.</p>
-        <p class="tot-price ">Totale: €{{ totalPrice }}</p>
-				
-        <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length" class="btn btn-dark" >Vai al pagamento</router-link>
+        <div data-bs-dismiss="offcanvas">
+
+          <p v-if="!store.cart.length">Il carrello è vuoto.</p>
+          <p class="tot-price ">Totale: €{{ totalPrice }}</p>
+          
+          <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length" class="btn btn-dark" >Vai al pagamento</router-link>
+        </div>
       </div>
     </div>
   </div>
