@@ -25,6 +25,7 @@ export default {
 				<img src="/img/logo-final.png" alt="Logo" class="logo img-fluid me-md-3" />
 			</div>
 
+			<!-- menu in vista desktop view -->
 			<nav class="font_ nav d-none d-md-flex flex-grow-1 justify-content-center">
 				<ul class="nav-list d-flex list-unstyled mb-0">
 					<li class="nav-item">
@@ -38,6 +39,7 @@ export default {
 					</li>
 				</ul>
 			</nav>
+			<!-- / -->
 
 			<div class="cart-container d-flex align-items-center me-md-4">
 				<button class="font_ btn btn-outline-warning d-none d-md-flex me-2" type="button" data-bs-toggle="offcanvas"
@@ -55,6 +57,7 @@ export default {
 			</div>
 		</div>
 
+		<!-- menu a comparsa in mobile view -->
 		<nav class="font_ nav d-md-none flex-column" :class="{ 'd-flex': isMenuOpen, 'd-none': !isMenuOpen }">
 			<ul class="nav-list list-unstyled text-center m-0">
 				<li class="nav-item">
@@ -68,6 +71,7 @@ export default {
 				</li>
 			</ul>
 		</nav>
+		<!-- / -->
 
 		<Cart />
 
