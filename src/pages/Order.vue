@@ -72,45 +72,48 @@ export default {
 				// Aggiungi il nonce al payload dell'ordine
 				order.nonce = payload.nonce;
 
-        // Invia l'ordine al backend
-        axios
-          .post(store.apiUrl + "orders", order)
-          .then((response) => {
-            console.log(response.data);
-            alert("Ordine effettuato con successo!");
-            store.clearCart();
-            this.$router.push({ name: "success" });
-          })
-          .catch((error) => {
-            console.error("Errore durante l'effettuazione dell'ordine:", error.response.data);
-            alert("Errore durante l'effettuazione dell'ordine.");
-          });
-      });
-    },
-    setupDropin() {
-      axios
-        .get(this.store.apiUrl + "client_token")
-        .then((response) => {
-          return dropin.create({
-            authorization: response.data.clientToken,
-            container: "#dropin-container",
-						locale: 'it_IT'
-          });
-        })
-        .then((instance) => {
-          this.dropinInstance = instance;
-          this.setupDropinButton();
-        })
-        .catch((error) => {
-          console.error(error);
-          alert("Errore durante l'inizializzazione del metodo di pagamento.");
-        });
-    },
-    setupDropinButton() {
-      // Non è più necessario gestire il click separato per il pagamento
-    },
-  },
-  mounted() {
+				// Invia l'ordine al backend
+				axios
+					.post(store.apiUrl + "orders", order)
+					.then((response) => {
+						console.log(response.data);
+						alert("Ordine effettuato con successo!");
+						store.clearCart();
+						this.$router.push({ name: "success" });
+					})
+					.catch((error) => {
+						console.error(
+							"Errore durante l'effettuazione dell'ordine:",
+							error.response.data
+						);
+						alert("Errore durante l'effettuazione dell'ordine.");
+					});
+			});
+		},
+		setupDropin() {
+			axios
+				.get(this.store.apiUrl + "client_token")
+				.then((response) => {
+					return dropin.create({
+						authorization: response.data.clientToken,
+						container: "#dropin-container",
+						locale: "it_IT",
+					});
+				})
+				.then((instance) => {
+					this.dropinInstance = instance;
+					this.setupDropinButton();
+				})
+				.catch((error) => {
+					console.error(error);
+					alert("Errore durante l'inizializzazione del metodo di pagamento.");
+				});
+		},
+		setupDropinButton() {
+			// Non è più necessario gestire il click separato per il pagamento
+		},
+	},
+	mounted() {
 		this.setupDropin();
 	},
 };
@@ -119,7 +122,7 @@ export default {
 <template>
 	<div class="container mt-5">
 		<h2>Checkout</h2>
-		<div class="row">
+		<div class="row flex-row-reverse">
 			<!-- Form Dati Utente -->
 			<div class="col-md-6">
 				<form
@@ -201,9 +204,14 @@ export default {
 							L'email è richiesta e deve essere in un formato valido.
 						</div>
 					</div>
-					<button type="submit" class="btn btn-warning mb-5">
-						Invia Ordine e Paga
-					</button>
+
+					<div id="dropin-container"></div>
+
+					<div class="d-flex justify-content-end">
+						<button type="submit" class="btn btn-warning mb-5">
+							Ordina e Paga
+						</button>
+					</div>
 				</form>
 			</div>
 
@@ -236,7 +244,6 @@ export default {
 						<strong>€{{ totalPrice }}</strong>
 					</li>
 				</ul>
-				<div id="dropin-container"></div>
 			</div>
 		</div>
 	</div>
