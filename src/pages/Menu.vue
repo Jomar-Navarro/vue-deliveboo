@@ -53,7 +53,7 @@ export default {
     <div class="row">
 
       <!-- card desktop  -->
-      <div v-for="dish in dishes" :key="dish.id" class="card_tab_desk col">
+      <div v-for="dish in dishes" :key="dish.id" class="card_desk col">
         <div class="container page-wrapper">
           <div class="page-inner">
             <div class="row">
@@ -142,20 +142,20 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
+/* Stato di default per .card_phone e .card_desk */
+.card_phone {
+  display: none; /* Nascosto di default */
+}
+
+.card_desk {
+  display: none; /* Nascosto di default */
+}
+
 .img_phone {
   max-width: 250px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -169,14 +169,7 @@ html {
   background-color: #292626;
   border-radius: 20px;
   margin-bottom: 20px;
-  // font-family: "Luckiest Guy", system-ui;
-  font-family: 'Bangers', system-ui;
-}
-
-.d-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  font-family: "Luckiest Guy", system-ui;
 }
 
 .align-center {
@@ -212,19 +205,6 @@ html {
   padding: 15px;
   margin: 15px auto;
   background-color: #fff;
-}
-
-@media (max-width: 991px) {
-  .el-wrapper {
-    width: 345px;
-  }
-}
-
-@media (max-width: 767px) {
-  .el-wrapper {
-    width: 290px;
-    margin: 30px auto;
-  }
 }
 
 .el-wrapper:hover .h-bg {
@@ -451,16 +431,39 @@ html {
 }
 
 
+/* Mostra .card_phone e nasconde .card_desk solo quando la vista è inferiore a 992px */
+@media (max-width: 991px) {
+  .card_phone {
+    display: block; /* o qualunque sia il valore di display desiderato */
+  }
+  
+  .card_desk {
+    display: none;
+  }
 
+  .el-wrapper {
+    width: 345px;
+  }
+}
+
+/* Nasconde .card_phone e mostra .card_desk solo quando la vista è superiore a 992px */
 @media (min-width: 992px) {
   .card_phone {
-    display: none;
+    display: none !important;
+  }
+  
+  .card_desk {
+    display: block; /* o qualunque sia il valore di display desiderato */
   }
 }
 
-@media (max-width: 992px) {
-  .card_tab_desk {
-    display: none;
+
+@media (max-width: 767px) {
+  .el-wrapper {
+    width: 290px;
+    margin: 30px auto;
   }
 }
+
+
 </style>
