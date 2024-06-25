@@ -220,6 +220,7 @@ export default {
 <style lang="scss" scoped>
 .resto {
 	background-color: #292626;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 .search {
@@ -239,7 +240,9 @@ export default {
 }
 
 .titolo {
-	font-family: "Luckiest Guy", system-ui;
+	// font-family: "Luckiest Guy", system-ui;
+	// font-family: 'Nunito Sans Variable', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	color: rgb(255, 237, 176);
 	// font-size: 5rem;
 	font-size: clamp(1.5rem, 4vw, 3rem);
@@ -247,152 +250,14 @@ export default {
 
 .filtro {
 	color: rgb(255, 237, 176);
-	font-family: "Luckiest Guy", system-ui;
+	// font-family: "Luckiest Guy", system-ui;
+	// font-family: 'Nunito Sans Variable', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	// font-size: 3rem;
 	font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
-// .card {
-// 	position: relative;
-// 	display: block;
-// 	height: 100%;
-// 	border-radius: calc(40 * 1px);
-// 	overflow: hidden;
-// 	text-decoration: none;
-// 	border-radius: 30px 5px 30px 5px;
-// 	border: 1px solid #f77f00;
-// }
 
-// .card__image {
-// 	width: 100%;
-// 	aspect-ratio: 1;
-// 	object-fit: cover;
-// }
-
-// .card__overlay {
-// 	position: absolute;
-// 	bottom: 0;
-// 	left: 0;
-// 	right: 0;
-// 	z-index: 1;
-// 	border-radius: calc(0 * 1px);
-// 	background-color: white;
-// 	transform: translateY(100%);
-// 	transition: 0.2s ease-in-out;
-// 	opacity: 0.85;
-// }
-
-// .card:hover .card__overlay {
-// 	transform: translateY(0);
-// 	opacity: 0.55;
-// }
-
-// .card__header {
-// 	position: relative;
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 2em;
-// 	padding: 2em;
-// 	border-radius: calc(30 * 1px) 0 0 0;
-// 	background-color: white;
-// 	transform: translateY(-100%);
-// 	transition: 0.2s ease-in-out;
-// 	opacity: 0.95;
-// }
-
-// .card__arc {
-// 	width: 80px;
-// 	height: 80px;
-// 	position: absolute;
-// 	bottom: 100%;
-// 	right: 0;
-// 	z-index: 1;
-// }
-
-// .card__arc path {
-// 	fill: white;
-// 	d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-// }
-
-// .card:hover .card__header {
-// 	transform: translateY(0);
-// }
-
-// .card__thumb {
-// 	flex-shrink: 0;
-// 	width: 50px;
-// 	height: 50px;
-// 	border-radius: 50%;
-// }
-
-// .card__title {
-// 	font-size: 2em;
-// 	margin: 0 0 0.3em;
-// 	color: #03071e;
-// }
-
-// .card__tagline {
-// 	display: block;
-// 	margin: 1em 0;
-// 	font-size: 0.8em;
-// 	color: #d7bdca;
-// }
-
-// .card__status {
-// 	font-size: 0.8em;
-// 	color: #03071e;
-// 	border: 1px solid #f77f00;
-// 	border-radius: 30px;
-// }
-
-// .card__description {
-// 	padding: 0 2em 2em;
-// 	margin: 0;
-// 	color: #03071e;
-// 	display: -webkit-box;
-// 	-webkit-box-orient: vertical;
-// 	-webkit-line-clamp: 3;
-// 	overflow: hidden;
-// }
-
-// .custom-shape-divider-top-1718898198 {
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	overflow: hidden;
-// 	line-height: 0;
-// }
-
-// .custom-shape-divider-top-1718898198 svg {
-// 	position: relative;
-// 	display: block;
-// 	width: calc(139% + 1.3px);
-// 	height: 130px;
-// }
-
-// .custom-shape-divider-top-1718898198 .shape-fill {
-// 	fill: #ffffff;
-// }
-
-// .card__title {
-// 	font-size: 1.8rem; /* Dimensione di default per schermi grandi */
-// 	line-height: 1.2; /* Altezza della riga per migliorare la leggibilità */
-// }
-
-// @media (max-width: 1280px) {
-// 	/* Stile per schermi di dimensioni inferiori a 1280px (es. MacBook Air piccolo) */
-// 	.card__title {
-// 		font-size: 1.2rem; /* Dimensione più piccola per adattarsi al dispositivo */
-// 	}
-// }
-
-// @media (max-width: 768px) {
-// 	/* Stile per schermi di dimensioni inferiori a 768px (es. dispositivi mobili) */
-// 	.card__title {
-// 		font-size: 1.5rem; /* Dimensione ancora più piccola per dispositivi più piccoli */
-// 	}
-// }
 
 h2 {
 	font-size: 2.1rem;
@@ -402,7 +267,9 @@ h2 {
 }
 
 p {
-	font-family: white;
+	// font-family: white;
+	// font-family: 'Nunito Sans Variable', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 	color: white;

@@ -99,7 +99,9 @@ export default {
 		
 	}
 	.font_ {
-		font-family: "Luckiest Guy", system-ui;
+		// font-family: "Luckiest Guy", system-ui;
+		// font-family: 'Nunito Sans Variable', sans-serif;
+		font-family: 'Ubuntu', sans-serif;
 	}
 	.fa-solid {
 		font-size: 2rem;

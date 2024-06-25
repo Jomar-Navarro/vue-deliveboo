@@ -65,7 +65,7 @@ export default {
             </div>
             <div class="d-flex">
               <div class="number-input">
-                <button class="btn-plus-minum" @click="decreaseQuantity(item)">-</button>
+                <button class="btn-plus-minum pay-title" @click="decreaseQuantity(item)">-</button>
                 <input
                   class="quantita"
                   type="number"
@@ -74,7 +74,7 @@ export default {
                   min="1"
                   max="99"
                 />
-                <button class="btn-plus-minum" @click="increaseQuantity(item)">+</button>
+                <button class="btn-plus-minum pay-title" @click="increaseQuantity(item)">+</button>
               </div>
               <div class="ms-2">
                 <button class="btn btn-dark" @click="removeFromCart(item)">
@@ -89,7 +89,7 @@ export default {
           <p v-if="!store.cart.length">Il carrello è vuoto.</p>
           <p class="tot-price ">Totale: €{{ totalPrice }}</p>
           
-          <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length" class="btn btn-dark" >Vai al pagamento</router-link>
+          <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length" class="btn btn-dark pay-title" >Vai al pagamento</router-link>
         </div>
       </div>
     </div>
@@ -120,10 +120,16 @@ input[type="number"] {
 	background-color: #ff9f22;
 
 	.offcanvas-title {
-		font-family: "Luckiest Guy", system-ui;
+		// font-family: "Luckiest Guy", system-ui;
+    font-family: 'Bangers', system-ui;
+  
 		color: #212529;
 		font-size: 3rem;
 	}
+
+  .pay-title{
+    font-family: 'Ubuntu', sans-serif;
+  }
 
 	.number-input {
 		display: flex;
@@ -160,7 +166,9 @@ input[type="number"] {
 
 li {
 	list-style: none;
-	font-family: "Luckiest Guy", system-ui;
+	// font-family: "Luckiest Guy", system-ui;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 900;
 	color: #212529;
 }
 
