@@ -89,6 +89,7 @@ export default {
           return dropin.create({
             authorization: response.data.clientToken,
             container: "#dropin-container",
+						locale: 'it_IT'
           });
         })
         .then((instance) => {
