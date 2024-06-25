@@ -128,11 +128,11 @@ export default {
 								class="btn btn-outline-warning d-flex flex-column justify-content-center align-items-center rounded-5"
 								:for="`btn-${type.type_name}`"
 							>
-								<img
+								<!-- <img
 									src="/img/logo-final.png"
 									alt=""
 									class="checkbox-icon img-fluid object-fit-cover"
-								/>
+								/> -->
 								<span class="fw-bold">{{ type.type_name }}</span></label
 							>
 						</span>

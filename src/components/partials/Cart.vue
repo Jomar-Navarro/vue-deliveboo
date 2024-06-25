@@ -46,40 +46,12 @@ export default {
         this.updateQuantity(dish);
       }
     },
-
-    // Conclude l'acquisto, inviando l'ordine al server e gestendo la risposta
-    checkout() {
-      const order = {
-        name: "Nome Cliente",
-        lastname: "Cognome Cliente",
-        address: "Indirizzo Cliente",
-        postal_code: "CAP",
-        phone_number: "Telefono Cliente",
-        email: "Email@Cliente.com",
-        total_price: this.totalPrice.replace(',', '.'),
-        dishes: this.store.cart.map((item) => ({
-          dish_id: item.id,
-          quantity: item.quantity,
-        })),
-      };
-      axios
-        .post(this.store.apiUrl + "orders", order)
-        .then((response) => {
-          console.log(response.data);
-          // alert("Ordine effettuato con successo!");
-          // store.clearCart();
-        })
-        .catch((error) => {
-          console.error(error);
-          alert("Errore durante l'effettuazione dell'ordine.");
-        });
-    },
   },
 };
 </script>
 
 <template>
-  <div class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div data-bs-dismiss="offcanvas" class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -93,7 +65,7 @@ export default {
             </div>
             <div class="d-flex">
               <div class="number-input">
-                <button @click="decreaseQuantity(item)">-</button>
+                <button class="btn-plus-minum" @click="decreaseQuantity(item)">-</button>
                 <input
                   class="quantita"
                   type="number"
@@ -102,10 +74,10 @@ export default {
                   min="1"
                   max="99"
                 />
-                <button @click="increaseQuantity(item)">+</button>
+                <button class="btn-plus-minum" @click="increaseQuantity(item)">+</button>
               </div>
               <div class="ms-2">
-                <button class="btn btn-outline-warning" @click="removeFromCart(item)">
+                <button class="btn btn-dark" @click="removeFromCart(item)">
                   <i class="fa-regular fa-trash-can"></i>
                 </button>
               </div>
@@ -113,9 +85,9 @@ export default {
           </li>
         </ul>
         <p v-if="!store.cart.length">Il carrello è vuoto.</p>
-        <p class="tot-price">Totale: €{{ totalPrice }}</p>
+        <p class="tot-price ">Totale: €{{ totalPrice }}</p>
 				
-        <router-link v-if="store.cart.length" :to="{ name: 'order' }" @click="checkout" :disabled="!store.cart.length" class="btn btn-warning">Vai al pagamento</router-link>
+        <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length" class="btn btn-dark" >Vai al pagamento</router-link>
       </div>
     </div>
   </div>
@@ -142,11 +114,11 @@ input[type="number"] {
 //////////////////////////////////////////
 
 .offcanvas {
-	background-color: #f77b7b;
+	background-color: #ff9f22;
 
 	.offcanvas-title {
 		font-family: "Luckiest Guy", system-ui;
-		color: #ff9f22;
+		color: #212529;
 		font-size: 3rem;
 	}
 
@@ -159,12 +131,12 @@ input[type="number"] {
 		text-align: center;
 		border-radius: 10px;
 		width: 30px;
-		border: 1px solid #ccc;
 		margin: 0 5px;
+    background-color: transparent;
+    border: none;
 	}
 
 	.number-input button {
-		background-color: #ff9f22;
 		border-radius: 50%;
 		width: 30px;
 		height: 30px;
@@ -172,20 +144,25 @@ input[type="number"] {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+    border: 1px solid black;
+    background-color: transparent;
+    font-size: 1.4rem;
 	}
 
 	.number-input button:active {
 		background-color: #bbb;
 	}
+  
 }
 
 li {
 	list-style: none;
 	font-family: "Luckiest Guy", system-ui;
-	color: #ff9f22;
+	color: #212529;
 }
 
 .tot-price{
-	color:#ff9f22;
+  font-weight: bold;
+	color:#212529;
 }
 </style>
