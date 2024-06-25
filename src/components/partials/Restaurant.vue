@@ -91,7 +91,7 @@ export default {
 
 <template>
 	<section class="resto py-5">
-		<div class="container-fluid py-5">
+		<div class="container py-5">
 			<div class="d-flex justify-content-center">
 				<div>
 					<h2 class="titolo mb-5 pb-2 text-center text-warning">Cerca il tuo ristorante</h2>
@@ -110,7 +110,7 @@ export default {
 						<h2 class="filtro mt-5 text-center mb-5 text-warning">Filtra per tipologia</h2>
 					</div>
 
-					<div class="d-flex flex-wrap justify-content-center">
+					<div class="d-flex font-type flex-wrap justify-content-center">
 						<span
 							v-for="type in store.types"
 							:key="type.id"
@@ -133,7 +133,7 @@ export default {
 									alt=""
 									class="checkbox-icon img-fluid object-fit-cover"
 								/> -->
-								<span class="fw-bold">{{ type.type_name }}</span></label
+								<span class="fw-bold font-type">{{ type.type_name }}</span></label
 							>
 						</span>
 					</div>
@@ -142,43 +142,7 @@ export default {
 			<div
 				class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center mt-5 mx-sm-0 mx-md-3"
 			>
-				<!-- <div
-					class="col mb-5 px-5"
-					v-for="restaurant in store.restaurants"
-					:key="restaurant.id"
-				>
-					<router-link
-						:to="{ name: 'menu', params: { id: restaurant.id } }"
-						class="card ratio-1x1"
-					>
-						<img
-							:src="`http://127.0.0.1:8000` + restaurant.image"
-							class="card__image"
-							alt=""
-						/>
-						<div class="card__overlay">
-							<div class="card__header">
-								<svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-									<path />
-								</svg>
-								<div class="card__header-text justify-content-center">
-									<h3 class="card__title fw-bold">
-										{{ restaurant.name }}
-									</h3>
-									<span
-										v-for="item in restaurant.types"
-										:key="item.id"
-										class="card__status badge mb-1 mx-1"
-										>{{ item.type_name }}</span
-									>
-								</div>
-							</div>
-							<p class="card__description fw-bolder">
-								{{ restaurant.description }}
-							</p>
-						</div>
-					</router-link>
-				</div> -->
+				
 
 				<div
 					class="col mb-5 px-3 d-flex justify-content-center"
@@ -221,6 +185,20 @@ export default {
 .resto {
 	background-color: #292626;
 	font-family: 'Ubuntu', sans-serif;
+	// background: linear-gradient(rgba(0, 0, 0, .9), rgba(32, 32, 32, 0.5)),
+	// 	url("/img/jumbo_2.jpeg");
+	// background-size: cover;
+	// background-repeat: no-repeat;
+}
+
+.font-type{
+	// font-family: 'Bangers', system-ui;
+	// font-family: 'Fredoka One', system-ui;
+	// font-family: 'Rampart One', system-ui;
+	font-family: 'Cabin Sketch', system-ui;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1.2rem;
 }
 
 .search {

@@ -49,8 +49,8 @@ export default {
 
 <template>
   <div class="container menu-bg">
-    <h1 class="text-center mt-5 text-warning pt-4">{{ restaurantName.name }}</h1>
-    <div class="row">
+    <h1 class="text-center rest-title mt-5 text-warning pt-4">{{ restaurantName.name }}</h1>
+    <div class="row d-flex justify-content-between">
 
       <!-- card desktop  -->
       <div v-for="dish in dishes" :key="dish.id" class="card_desk col">
@@ -100,36 +100,36 @@ export default {
 
       <!-- card phone / tablet  -->
       <div v-for="dish in dishes" :key="dish.id"
-        class="card_phone col d-flex flex-column align-items-center text-white bg-warning rounded-5 m-4 p-4">
+        class="card_phone col-sm-5 col-5 d-flex flex-column align-items-center text-white m-3 p-3">
         <div>
           <img class="img-fluid img_phone mb-3" :src="dish.image_url" alt="" />
         </div>
 
-        <div class="bg-warning d-flex flex-column align-items-center">
-          <h4 class="text-center">{{ dish.dish_name }}</h4>
-          <p>{{ dish.description }}</p>
-          <span class="price">{{ dish.price }}</span>
+        <div class=" d-flex flex-column align-items-center">
+          <h4 class="text-center dish-title">{{ dish.dish_name }}</h4>
+          <p class="dish-desc text-black text-center">{{ dish.description }}</p>
+          <span class="price text-black fw-bold">{{ dish.price }}</span>
 
-          <div class="mb-3">
-            <h5 class="text-black text-center">Quantità</h5>
-            <div class="d-flex justify-content-center align-items-center">
+          <div class="mb-3 d-flex align-items-center justify-content-between">
+            <!-- <h5 class="text-black text-center">Quantità</h5> -->
+            <div class="d-flex justify-content-center align-items-center mt-3 pe-5">
               <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
                 <i class="fa-solid fa-minus"></i>
               </button>
-              <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
+              <p class="text-black fw-semibold mx-1 m-0">{{ dish.selectedQuantity }}</p>
               <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
                 <i class="fa-solid fa-plus"></i>
               </button>
             </div>
+            <div class="mt-3  cart-cart">
+              <button
+                @click.prevent="addToCart(dish), returnQuantityToOne(dish)"
+                class="btn btn-success mx-1">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
           </div>
 
-          <div>
-            <button
-              @click.prevent="addToCart(dish), returnQuantityToOne(dish)"
-              class="btn btn-success">
-              Aggiungi al carrello
-            </button>
-          </div>
 
         </div>
       </div>
@@ -146,7 +146,28 @@ export default {
 
 /* Stato di default per .card_phone e .card_desk */
 .card_phone {
-  display: none; /* Nascosto di default */
+  display: none;
+  background-color: rgb(255, 255, 255);
+  // border-radius: 5px;
+  .dish-title{
+    color:black;
+    font-family: 'Ubuntu', sans-serif;
+    .dish-desc{
+    // font-family: 'Ubuntu', sans-serif;
+    color:black;
+    background-color: #e07878;
+    }
+    // .cart-cart{
+    //   margin-right: 600px;
+    // }
+
+
+  } /* Nascosto di default */
+}
+
+.rest-title{
+  font-family: 'Bangers', system-ui;
+
 }
 
 .card_desk {
@@ -155,6 +176,11 @@ export default {
 
 .img_phone {
   max-width: 250px;
+  object-fit: cover;
+  aspect-ratio: 2/1;
+  width: 100%;
+  height: 100%;
+  padding: 0px 0;
 }
 
 
@@ -167,9 +193,10 @@ html {
 
 .menu-bg {
   background-color: #292626;
-  border-radius: 20px;
+  border-radius: 5px;
   margin-bottom: 20px;
-  font-family: "Luckiest Guy", system-ui;
+  // font-family: "Luckiest Guy", system-ui;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .align-center {
@@ -227,12 +254,12 @@ html {
 }
 
 .el-wrapper:hover .img {
-  webkit-filter: blur(7px);
-  -o-filter: blur(7px);
-  -ms-filter: blur(7px);
-  filter: blur(7px);
+  // webkit-filter: blur(7px);
+  // -o-filter: blur(7px);
+  // -ms-filter: blur(7px);
+  // filter: blur(7px);
   filter: progid:DXImageTransform.Microsoft.Blur(pixelradius='7', shadowopacity='0.0');
-  opacity: 1;
+  opacity: 0.2;
 }
 
 .el-wrapper:hover .info-inner {
@@ -294,13 +321,13 @@ html {
   height: 100%;
   background-color: #ffc107;
   position: absolute;
-  left: -659px;
+  left: -800px;
 }
 
 .h-bg .h-bg-inner {
   width: 50%;
   height: 100%;
-  background-color: #8b0101;
+  background-color: #292626;
 }
 
 .info-inner {
@@ -462,6 +489,11 @@ html {
   .el-wrapper {
     width: 290px;
     margin: 30px auto;
+  }
+
+  .card_phone{
+    margin: 500px;
+
   }
 }
 
