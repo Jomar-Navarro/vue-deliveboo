@@ -70,7 +70,8 @@ export default {
 	background-repeat: no-repeat;
 	height: calc(100vh - 90px);
 	max-height: 100%;
-	font-family: "Luckiest Guy", system-ui;
+	// font-family: "Luckiest Guy", system-ui;
+	font-family: 'Bangers', system-ui;
 	// font-family: 'Bungee Shade', system-ui;
 	.indicator {
   position: relative;

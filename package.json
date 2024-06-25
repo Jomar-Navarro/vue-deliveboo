@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/nunito-sans": "^5.0.14",
+    "@fontsource/bangers": "^5.0.20",
     "@fontsource/bungee-shade": "^5.0.20",
     "@fontsource/luckiest-guy": "^5.0.19",
+    "@fontsource/ubuntu": "^5.0.13",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "braintree-web-drop-in": "^1.42.0",

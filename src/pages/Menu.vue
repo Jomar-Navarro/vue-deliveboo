@@ -169,7 +169,8 @@ html {
   background-color: #292626;
   border-radius: 20px;
   margin-bottom: 20px;
-  font-family: "Luckiest Guy", system-ui;
+  // font-family: "Luckiest Guy", system-ui;
+  font-family: 'Bangers', system-ui;
 }
 
 .d-flex {
