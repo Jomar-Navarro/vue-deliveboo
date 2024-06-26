@@ -5,7 +5,7 @@ import Contacts from "./pages/Contatti.vue";
 import Error404 from "./pages/Error404.vue";
 import Menu from "./pages/Menu.vue";
 import Order from "./pages/Order.vue";
-import Payment from "./pages/Payment.vue";
+import ThankYou from "./pages/Thank-you.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -35,11 +35,6 @@ const router = createRouter({
 			path: "/ordine",
 			name: "order",
 			component: Order,
-		},
-		{
-			path: "/payment",
-			name: "payment",
-			component: Payment,
 		},
 		{
 			path: "/thank-you",
