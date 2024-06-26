@@ -37,7 +37,7 @@ export default {
 
 <template>
 	
-	<Jumbo />
+	
 	<Restaurant />
 	<!-- <Review /> -->
 

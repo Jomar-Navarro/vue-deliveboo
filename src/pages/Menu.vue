@@ -11,6 +11,12 @@ export default {
       dishes: [],
     };
   },
+  computed: {
+    cartTotalItems() {
+      // Calcola il totale degli elementi nel carrello
+      return this.store.cart.reduce((total, item) => total + item.quantity, 0);
+    },
+  },
   methods: {
     getApi(id) {
       axios.get(this.store.apiUrl + "menu/" + id).then((res) => {
@@ -48,102 +54,106 @@ export default {
 </script>
 
 <template>
-  <div class="container menu-bg">
-    <h1 class="text-center rest-title mt-5 text-warning pt-4 pb-4">{{ restaurantName.name }}</h1>
-    <div class="row d-flex justify-content-between">
+  <div class="bg-main">
 
-      <!-- card desktop  -->
-      <div v-for="dish in dishes" :key="dish.id" class="card_desk col">
-        <div class="container page-wrapper">
-          <div class="page-inner">
-            <div class="row">
-              <div class="el-wrapper">
-                <div class="box-up py-3">
-                  <img class="img-fluid img" :src="dish.image_url" alt="" />
-                  <div class="img-info">
-                    <div class="info-inner">
-                      <span class="p-name fw-bold">{{ dish.dish_name }}</span>
-                      <span class="p-company">{{ dish.description }}</span>
-                    </div>
-                    <div class="a-size">
-                      <h5 class="text-black">Quantità</h5>
-                      <div class="d-flex justify-content-center align-items-center">
-                        <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
-                          <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
-                        <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
-                          <i class="fa-solid fa-plus"></i>
-                        </button>
+    <div class="container menu-bg">
+      <div class="cart-container d-flex align-items-center me-md-4">
+        <div class="font_ btn btn-outline-warning d-none d-md-flex me-2 btn-cart"  data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <i class="fa-brands fa-opencart"></i>
+          <div class="btn-count-cart">
+            {{ cartTotalItems }}
+          </div>
+        </div>
+      </div>
+      <h1 class="text-center rest-title mt-5 text-warning pt-4 pb-4">{{ restaurantName.name }}</h1>
+      <div class="row d-flex justify-content-between">
+        <!-- card desktop  -->
+        <div v-for="dish in dishes" :key="dish.id" class="card_desk col">
+          <div class="container page-wrapper">
+            <div class="page-inner">
+              <div class="row">
+                <div class="el-wrapper">
+                  <div class="box-up py-3">
+                    <img class="img-fluid img" :src="dish.image_url" alt="" />
+                    <div class="img-info">
+                      <div class="info-inner">
+                        <span class="p-name fw-bold">{{ dish.dish_name }}</span>
+                        <span class="p-company">{{ dish.description }}</span>
+                      </div>
+                      <div class="a-size">
+                        <h5 class="text-black">Quantità</h5>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
+                            <i class="fa-solid fa-minus"></i>
+                          </button>
+                          <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
+                          <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
+                            <i class="fa-solid fa-plus"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="box-down">
-                  <div class="h-bg">
-                    <div class="h-bg-inner"></div>
+                  <div class="box-down">
+                    <div class="h-bg">
+                      <div class="h-bg-inner"></div>
+                    </div>
+                    <a @click.prevent="addToCart(dish), returnQuantityToOne(dish)" class="cart" href="#">
+                      <span class="price">{{ dish.price }}</span>
+                      <span class="add-to-cart">
+                        <span class="txt">Aggiungi al carrello</span>
+                      </span>
+                    </a>
                   </div>
-                  <a @click.prevent="addToCart(dish), returnQuantityToOne(dish)" class="cart" href="#">
-                    <span class="price">{{ dish.price }}</span>
-                    <span class="add-to-cart">
-                      <span class="txt">Aggiungi al carrello</span>
-                    </span>
-                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / -->
+        <div v-for="dish in dishes" :key="dish.id" class="card_phone col menu-bg">
+          <div class="container  page-wrapper">
+            <div class="page-inner">
+              <div class="row">
+                <div class=" el-wrapper">
+                  <div class="box-up py-3">
+                    <img class="img-fluid img" :src="dish.image_url" alt="" />
+                    <div class="img-info">
+                      <div class="info-inner">
+                        <span class="p-name fw-bold">{{ dish.dish_name }}</span>
+                        <span class="p-company">{{ dish.description }}</span>
+                      </div>
+                      <div class="a-size">
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
+                            <i class="fa-solid fa-minus"></i>
+                          </button>
+                          <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
+                          <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
+                            <i class="fa-solid fa-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-down ">
+                    <div class="h-bg">
+                      <div class="h-bg-inner"></div>
+                    </div>
+                    <a @click.prevent="addToCart(dish), returnQuantityToOne(dish)" class="cart" href="#">
+                      <span class="price">{{ dish.price }}</span> 
+                      <span class="add-to-cart">
+                        <span class="txt"> <br> Aggiungi al carrello</span>
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- / -->
-      <div v-for="dish in dishes" :key="dish.id" class="card_phone col menu-bg">
-        <div class="container  page-wrapper">
-          <div class="page-inner">
-            <div class="row">
-              <div class=" el-wrapper">
-                <div class="box-up py-3">
-                  <img class="img-fluid img" :src="dish.image_url" alt="" />
-                  <div class="img-info">
-                    <div class="info-inner">
-                      <span class="p-name fw-bold">{{ dish.dish_name }}</span>
-                      <span class="p-company">{{ dish.description }}</span>
-                    </div>
-                    <div class="a-size">
-                      <!-- <h5 class="text-black">Quantità</h5> -->
-                      <div class="d-flex justify-content-center align-items-center">
-                        <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
-                          <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
-                        <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
-                          <i class="fa-solid fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="box-down ">
-                  <div class="h-bg">
-                    <div class="h-bg-inner"></div>
-                  </div>
-                  <a @click.prevent="addToCart(dish), returnQuantityToOne(dish)" class="cart" href="#">
-                    <span class="price">{{ dish.price }}</span> 
-                    <span class="add-to-cart">
-                      <span class="txt"> <br> Aggiungi al carrello</span>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- / -->
-
-
     </div>
   </div>
 </template>
@@ -152,6 +162,9 @@ export default {
 
 <style lang="scss" scoped>
 /* Stato di default per .card_phone e .card_desk */
+.bg-main{
+  background-color: #292626;
+}
 .card_phone {
   display: none;
   background-color: rgb(255, 255, 255);
@@ -169,6 +182,32 @@ export default {
   }
 }
 
+.btn-cart{
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+.btn-count-cart{
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 50%;
+  bottom: 0px;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffc107;
+}
 .rest-title {
   font-family: 'Bangers', system-ui;
 
@@ -613,8 +652,5 @@ html {
   
   font-size: 16px;
 }
-
-
-
 }
 </style>

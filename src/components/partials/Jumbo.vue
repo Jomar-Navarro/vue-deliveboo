@@ -53,9 +53,7 @@ $indicator-active-color: #ffd64a;
 
 .jumbo {
 	color: $jumbotron-color;
-	background: linear-gradient(rgba(0, 0, 0, .9), rgba(32, 32, 32, 0.5)), url("/img/jumbo_1.jpeg");
-	background-size: cover;
-	background-repeat: no-repeat;
+	
 	height: calc(100vh - 90px);
 	max-height: 100%;
 	font-family: 'Bangers', system-ui;
