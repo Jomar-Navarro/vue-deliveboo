@@ -162,7 +162,7 @@ export default {
 						/>
 						<div class="card__content | flow">
 							<div class="card__content--container | flow">
-								<h2 class="card__title">{{ restaurant.name }}</h2>
+								<h2 class="card__title mb-3">{{ restaurant.name }}</h2>
 								<span
 									v-for="item in restaurant.types"
 									:key="item.id"
@@ -318,6 +318,7 @@ p {
 
 .card__status {
 	border: 1px solid #f5e7c1;
+	margin-top: 10px;
 }
 
 @media (any-hover: hover) and (any-pointer: fine) {
@@ -385,6 +386,8 @@ p {
 	}
 }
 
+
+
 // da 992px in su
 @media (min-width: 992px) {
 	.type_:hover {
@@ -392,4 +395,14 @@ p {
 		background-color: rgb(251, 142, 0) !important;
 	}
 }
+
+
+
+// da 992px in giu
+@media (max-width: 992px) {
+	
+}
+
+
+
 </style>
