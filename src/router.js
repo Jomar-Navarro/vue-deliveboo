@@ -13,6 +13,7 @@ import Informazionilegali from "./pages/Informazionilegali.vue";
 import Domandefrequenti from "./pages/Domandefrequenti.vue";
 import Segnalazioni from "./pages/Segnalazioni.vue";
 
+
 const router = createRouter({
 	history: createWebHistory(),
 
