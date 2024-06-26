@@ -6,7 +6,6 @@ import Error404 from "./pages/Error404.vue";
 import Menu from "./pages/Menu.vue";
 import Order from "./pages/Order.vue";
 import Payment from "./pages/Payment.vue";
-import ThankYou from "./pages/Thank-you.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -41,17 +40,6 @@ const router = createRouter({
 			path: "/payment",
 			name: "payment",
 			component: Payment,
-		},
-		{
-			path: "/thank-you",
-			name: "thank-you",
-			component: ThankYou,
-			// props: (route) => ({ orderDetails: route.params.orderDetails }),
-			props: (route) => ({
-				orderDetails: route.query.orderDetails
-					? JSON.parse(route.query.orderDetails)
-					: null,
-			}),
 		},
 		{
 			path: "/:patchMatch(.*)*",

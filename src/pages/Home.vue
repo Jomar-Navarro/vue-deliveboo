@@ -4,6 +4,7 @@ import { store } from "../data/store";
 import Jumbo from "../components/partials/Jumbo.vue";
 import Restaurant from "../components/partials/Restaurant.vue";
 import Review from "../components/partials/Review.vue";
+
 export default {
 	name: "Home",
 
@@ -37,8 +38,11 @@ export default {
 <template>
 	
 	<Jumbo />
-		<Restaurant />
-		<!-- <Review /> -->
+	<Restaurant />
+	<!-- <Review /> -->
+
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
