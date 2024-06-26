@@ -96,42 +96,53 @@ export default {
         </div>
       </div>
       <!-- / -->
-
-
-      <!-- card phone / tablet  -->
-      <div v-for="dish in dishes" :key="dish.id"
-        class="card_phone col-sm-5 col-5 d-flex flex-column align-items-center text-white m-3 p-3">
-        <div>
-          <img class="img-fluid img_phone mb-3" :src="dish.image_url" alt="" />
-        </div>
-
-        <div class=" d-flex flex-column align-items-center">
-          <h4 class="text-center dish-title">{{ dish.dish_name }}</h4>
-          <p class="dish-desc text-black text-center">{{ dish.description }}</p>
-          <span class="price text-black fw-bold">{{ dish.price }}</span>
-
-          <div class="mb-3 d-flex align-items-center justify-content-between">
-            <!-- <h5 class="text-black text-center">Quantità</h5> -->
-            <div class="d-flex justify-content-center align-items-center mt-3 pe-5">
-              <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
-                <i class="fa-solid fa-minus"></i>
-              </button>
-              <p class="text-black fw-semibold mx-1 m-0">{{ dish.selectedQuantity }}</p>
-              <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
-            <div class="mt-3  cart-cart">
-              <button @click.prevent="addToCart(dish), returnQuantityToOne(dish)" class="btn btn-success mx-1">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </button>
+      <div v-for="dish in dishes" :key="dish.id" class="card_phone col menu-bg">
+        <div class="container  page-wrapper">
+          <div class="page-inner">
+            <div class="row">
+              <div class=" el-wrapper">
+                <div class="box-up py-3">
+                  <img class="img-fluid img" :src="dish.image_url" alt="" />
+                  <div class="img-info">
+                    <div class="info-inner">
+                      <span class="p-name fw-bold">{{ dish.dish_name }}</span>
+                      <span class="p-company">{{ dish.description }}</span>
+                    </div>
+                    <div class="a-size">
+                      <!-- <h5 class="text-black">Quantità</h5> -->
+                      <div class="d-flex justify-content-center align-items-center">
+                        <button class="btn-quantity btn btn-warning rounded-5" @click="decreaseQuantity(dish)">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <p class="text-black fw-semibold mx-3 m-0">{{ dish.selectedQuantity }}</p>
+                        <button class="btn-quantity btn btn-warning rounded-5" @click="increaseQuantity(dish)">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-down ">
+                  <div class="h-bg">
+                    <div class="h-bg-inner"></div>
+                  </div>
+                  <a @click.prevent="addToCart(dish), returnQuantityToOne(dish)" class="cart" href="#">
+                    <span class="price">{{ dish.price }}</span> 
+                    <span class="add-to-cart">
+                      <span class="txt"> <br> Aggiungi al carrello</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-
-
         </div>
       </div>
+
+
+
       <!-- / -->
+
 
     </div>
   </div>
@@ -483,12 +494,127 @@ html {
 @media (max-width: 767px) {
   .el-wrapper {
     width: 290px;
-    margin: 30px auto;
+    // margin: 30px auto;
   }
 
   .card_phone {
-    margin: 500px;
+    // margin: 500px;
 
   }
+
+  .el-wrapper .h-bg {
+  left: 0px;
+}
+
+.el-wrapper .price {
+  left: 50%;
+  // -webkit-transform: translateY(-50%);
+  // -ms-transform: translateY(-50%);
+  // -o-transform: translateY(-50%);
+  // transform: translateY(-50%);
+  color: #f0f0f0;
+  // border-right: 1px solid rgb(255, 252, 252);
+  border: none;
+  padding-right: 10px;
+  transition: none;
+}
+
+
+
+.el-wrapper .add-to-cart {
+  left: 50%;
+  padding-top:10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.el-wrapper .img {
+  // webkit-filter: blur(7px);
+  // -o-filter: blur(7px);
+  // -ms-filter: blur(7px);
+  // filter: blur(7px);
+  // filter: progid:DXImageTransform.Microsoft.Blur(pixelradius='7', shadowopacity='0.0');
+  opacity: 1;
+}
+
+.el-wrapper .info-inner {
+  bottom: 155px;
+  
+}
+
+.el-wrapper .a-size {
+  // -webkit-transition-delay: 300ms;
+  // -o-transition-delay: 300ms;
+  // transition-delay: 300ms;
+  bottom: 15px;
+  opacity: 1;
+}
+
+
+
+
+
+.info-inner {
+  // -webkit-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+  // -moz-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+  // -o-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+  // transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+  /* ease-out */
+  // -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+  // -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+  // -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+  // transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+  /* ease-out */
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+
+.info-inner .p-name,
+.info-inner .p-company {
+  display: block;
+}
+
+.info-inner .p-name {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+  color: #252525;
+}
+
+.info-inner .p-company {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  margin-top: 80px;
+  background-color: #fff;
+
+}
+
+.el-wrapper .box-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.cart .price {
+ 
+  color: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  font-size: 16px;
+}
+
+
+
 }
 </style>
