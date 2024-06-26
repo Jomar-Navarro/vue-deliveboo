@@ -125,7 +125,7 @@ export default {
 								:checked="isTypeChecked(type)"
 							/>
 							<label
-								class="btn btn-outline-warning d-flex flex-column justify-content-center align-items-center rounded-5"
+								class="btn type_ btn-outline-warning d-flex flex-column justify-content-center align-items-center rounded-5"
 								:for="`btn-${type.type_name}`"
 							>
 								<!-- <img
@@ -214,7 +214,7 @@ export default {
 
 /* Stile per l'elemento label quando il checkbox è selezionato */
 .btn-check:checked + .btn.checkbox-active {
-	background-color: yellow; /* Esempio di colore di sfondo */
+	background-color: yellow; 
 }
 
 .titolo {
@@ -258,7 +258,6 @@ p {
 }
 
 /* CARD COMPONENT */
-
 .card {
 	display: grid;
 	place-items: center;
@@ -383,6 +382,14 @@ p {
 		transform-origin: left;
 		transition: opacity 250ms ease-in, transform 250ms ease-in;
 		transition-delay: 250ms;
+	}
+}
+
+// da 992px in su
+@media (min-width: 992px) {
+	.type_:hover {
+		transition: all 0.7s ease;
+		background-color: rgb(251, 142, 0) !important;
 	}
 }
 </style>

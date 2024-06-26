@@ -1,6 +1,5 @@
 <script>
 import { store } from "../../data/store";
-import axios from "axios";
 
 export default {
   data() {
@@ -66,14 +65,8 @@ export default {
             <div class="d-flex">
               <div class="number-input">
                 <button class="btn-plus-minum pay-title" @click="decreaseQuantity(item)">-</button>
-                <input
-                  class="quantita"
-                  type="number"
-                  v-model.number="item.quantity"
-                  @change="updateQuantity(item)"
-                  min="1"
-                  max="99"
-                />
+                <input class="quantita" type="number" v-model.number="item.quantity" @change="updateQuantity(item)"
+                  min="1" max="99" />
                 <button class="btn-plus-minum pay-title" @click="increaseQuantity(item)">+</button>
               </div>
               <div class="ms-2">
@@ -88,8 +81,9 @@ export default {
 
           <p v-if="!store.cart.length">Il carrello è vuoto.</p>
           <p class="tot-price ">Totale: €{{ totalPrice }}</p>
-          
-          <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length" class="btn btn-dark pay-title" >Vai al pagamento</router-link>
+
+          <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length"
+            class="btn btn-dark pay-title">Vai al pagamento</router-link>
         </div>
       </div>
     </div>
@@ -103,77 +97,92 @@ export default {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 // Input type number per non mostare le frecce
 
 /* Firefox */
 input[type="number"] {
-	-moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 //////////////////////////////////////////
 
 .offcanvas {
-	background-color: #ff9f22;
+  background-color: #ff9f22;
 
-	.offcanvas-title {
-		// font-family: "Luckiest Guy", system-ui;
+  .offcanvas-title {
+    // font-family: "Luckiest Guy", system-ui;
     font-family: 'Bangers', system-ui;
-  
-		color: #212529;
-		font-size: 3rem;
-	}
+    color: #212529;
+    font-size: 3rem;
+  }
 
-  .pay-title{
+  .pay-title {
     font-family: 'Ubuntu', sans-serif;
   }
 
-	.number-input {
-		display: flex;
-		align-items: center;
-	}
+  .number-input {
+    display: flex;
+    align-items: center;
+  }
 
-	.number-input input {
-		text-align: center;
-		border-radius: 10px;
-		width: 30px;
-		margin: 0 5px;
+  .number-input input {
+    text-align: center;
+    border-radius: 10px;
+    width: 30px;
+    margin: 0 5px;
     background-color: transparent;
     border: none;
-	}
+  }
 
-	.number-input button {
-		border-radius: 50%;
-		width: 30px;
-		height: 30px;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+  .number-input button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid black;
     background-color: transparent;
     font-size: 1.4rem;
-	}
+  }
 
-	.number-input button:active {
-		background-color: #bbb;
-	}
-  
+  .number-input button:active {
+    background-color: #bbb;
+  }
 }
 
 li {
-	list-style: none;
-	// font-family: "Luckiest Guy", system-ui;
+  list-style: none;
+  // font-family: "Luckiest Guy", system-ui;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 900;
-	color: #212529;
+  color: #212529;
 }
 
-.tot-price{
+.tot-price {
   font-weight: bold;
-	color:#212529;
+  color: #212529;
+}
+
+
+
+// da 992px in giu
+@media (max-width: 992px) {
+  .offcanvas {
+    width: 50% !important;
+  }
+}
+
+
+// da 576px in giu
+@media (max-width: 576px) {
+  .offcanvas {
+    width: 100% !important;
+  }
 }
 </style>

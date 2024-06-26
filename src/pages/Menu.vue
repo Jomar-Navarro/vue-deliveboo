@@ -49,7 +49,7 @@ export default {
 
 <template>
   <div class="container menu-bg">
-    <h1 class="text-center rest-title mt-5 text-warning pt-4">{{ restaurantName.name }}</h1>
+    <h1 class="text-center rest-title mt-5 text-warning pt-4 pb-4">{{ restaurantName.name }}</h1>
     <div class="row d-flex justify-content-between">
 
       <!-- card desktop  -->
@@ -122,9 +122,7 @@ export default {
               </button>
             </div>
             <div class="mt-3  cart-cart">
-              <button
-                @click.prevent="addToCart(dish), returnQuantityToOne(dish)"
-                class="btn btn-success mx-1">
+              <button @click.prevent="addToCart(dish), returnQuantityToOne(dish)" class="btn btn-success mx-1">
                 <i class="fa-solid fa-cart-shopping"></i>
               </button>
             </div>
@@ -142,36 +140,31 @@ export default {
 
 
 <style lang="scss" scoped>
-
-
 /* Stato di default per .card_phone e .card_desk */
 .card_phone {
   display: none;
   background-color: rgb(255, 255, 255);
+
   // border-radius: 5px;
-  .dish-title{
-    color:black;
+  .dish-title {
+    color: black;
     font-family: 'Ubuntu', sans-serif;
-    .dish-desc{
-    // font-family: 'Ubuntu', sans-serif;
-    color:black;
-    background-color: #e07878;
+
+    .dish-desc {
+      // font-family: 'Ubuntu', sans-serif;
+      color: black;
+      background-color: #e07878;
     }
-    // .cart-cart{
-    //   margin-right: 600px;
-    // }
-
-
-  } /* Nascosto di default */
+  }
 }
 
-.rest-title{
+.rest-title {
   font-family: 'Bangers', system-ui;
 
 }
 
 .card_desk {
-  display: none; /* Nascosto di default */
+  display: none;
 }
 
 .img_phone {
@@ -458,12 +451,14 @@ html {
 }
 
 
-/* Mostra .card_phone e nasconde .card_desk solo quando la vista è inferiore a 992px */
+
+
+/* Mostra card_phone e nasconde card_desk solo quando la vista è inferiore a 992px */
 @media (max-width: 991px) {
   .card_phone {
-    display: block; /* o qualunque sia il valore di display desiderato */
+    display: block;
   }
-  
+
   .card_desk {
     display: none;
   }
@@ -473,14 +468,14 @@ html {
   }
 }
 
-/* Nasconde .card_phone e mostra .card_desk solo quando la vista è superiore a 992px */
+/* Nasconde card_phone e mostra card_desk solo quando la vista è superiore a 992px */
 @media (min-width: 992px) {
   .card_phone {
     display: none !important;
   }
-  
+
   .card_desk {
-    display: block; /* o qualunque sia il valore di display desiderato */
+    display: block;
   }
 }
 
@@ -491,11 +486,9 @@ html {
     margin: 30px auto;
   }
 
-  .card_phone{
+  .card_phone {
     margin: 500px;
 
   }
 }
-
-
 </style>

@@ -1,7 +1,7 @@
 <script>
 import { store } from "../data/store";
 import axios from "axios";
-import dropin from "braintree-web-drop-in"; // Assicurati di importare dropin correttamente
+import dropin from "braintree-web-drop-in";
 
 export default {
 	name: "Order",
@@ -128,25 +128,20 @@ export default {
 				<!-- Riepilogo Carrello -->
 				<h4>Riepilogo del Carrello</h4>
 				<ul class="list-group mb-3">
-					<li
-						class="list-group-item d-flex justify-content-between lh-condensed"
-						v-for="item in store.cart"
-						:key="item.id"
-					>
+					<li class="list-group-item d-flex justify-content-between lh-condensed" v-for="item in store.cart"
+						:key="item.id">
 						<div>
 							<h6 class="my-0">{{ item.dish_name }}</h6>
 							<small class="text-muted">Quantità: {{ item.quantity }}</small>
 						</div>
-						<span class="text-muted"
-							>€{{
-								(
-									parseFloat(item.price.replace("€", "").replace(",", ".")) *
-									item.quantity
-								)
-									.toFixed(2)
-									.replace(".", ",")
-							}}</span
-						>
+						<span class="text-muted">€{{
+							(
+								parseFloat(item.price.replace("€", "").replace(",", ".")) *
+								item.quantity
+							)
+								.toFixed(2)
+								.replace(".", ",")
+						}}</span>
 					</li>
 					<li class="list-group-item d-flex justify-content-between">
 						<span>Totale (EUR)</span>
@@ -154,81 +149,40 @@ export default {
 					</li>
 				</ul>
 
-				<form
-					@submit.prevent="submitOrder"
-					id="order-form"
-					ref="orderForm"
-					novalidate
-				>
+				<form @submit.prevent="submitOrder" id="order-form" ref="orderForm" novalidate>
 					<div class="mb-3">
 						<label for="name" class="form-label">Nome</label>
-						<input
-							type="text"
-							class="form-control"
-							id="name"
-							v-model="order.name"
-							required
-						/>
+						<input type="text" class="form-control" id="name" v-model="order.name" required />
 						<div class="invalid-feedback">Il nome è richiesto.</div>
 					</div>
 					<div class="mb-3">
 						<label for="lastname" class="form-label">Cognome</label>
-						<input
-							type="text"
-							class="form-control"
-							id="lastname"
-							v-model="order.lastname"
-							required
-						/>
+						<input type="text" class="form-control" id="lastname" v-model="order.lastname" required />
 						<div class="invalid-feedback">Il cognome è richiesto.</div>
 					</div>
 					<div class="mb-3">
 						<label for="address" class="form-label">Indirizzo</label>
-						<input
-							type="text"
-							class="form-control"
-							id="address"
-							v-model="order.address"
-							required
-						/>
+						<input type="text" class="form-control" id="address" v-model="order.address" required />
 						<div class="invalid-feedback">L'indirizzo è richiesto.</div>
 					</div>
 					<div class="mb-3">
 						<label for="postal_code" class="form-label">CAP</label>
-						<input
-							type="text"
-							class="form-control"
-							id="postal_code"
-							v-model="order.postal_code"
-							pattern="[0-9]{5}"
-							required
-						/>
+						<input type="text" class="form-control" id="postal_code" v-model="order.postal_code"
+							pattern="[0-9]{5}" required />
 						<div class="invalid-feedback">
 							Il CAP è richiesto e deve essere composto da 5 cifre numeriche.
 						</div>
 					</div>
 					<div class="mb-3">
 						<label for="phone_number" class="form-label">Telefono</label>
-						<input
-							type="tel"
-							class="form-control"
-							id="phone_number"
-							v-model="order.phone_number"
-							required
-						/>
+						<input type="tel" class="form-control" id="phone_number" v-model="order.phone_number" required />
 						<div class="invalid-feedback">
 							Il numero di telefono è richiesto.
 						</div>
 					</div>
 					<div class="mb-3">
 						<label for="email" class="form-label">Email</label>
-						<input
-							type="email"
-							class="form-control"
-							id="email"
-							v-model="order.email"
-							required
-						/>
+						<input type="email" class="form-control" id="email" v-model="order.email" required />
 						<div class="invalid-feedback">
 							L'email è richiesta e deve essere in un formato valido.
 						</div>
