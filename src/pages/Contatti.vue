@@ -1,6 +1,6 @@
 <script>
 export default {
-	name: "contatti",
+  name: "LavoraConNoi",
 };
 </script>
 
