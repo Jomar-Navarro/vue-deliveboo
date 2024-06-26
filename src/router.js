@@ -42,6 +42,16 @@ const router = createRouter({
 			component: Payment,
 		},
 		{
+			path: "/thank-you",
+			name: "thank-you",
+			component: ThankYou,
+			props: (route) => ({
+				orderDetails: route.query.orderDetails
+					? JSON.parse(route.query.orderDetails)
+					: null,
+			}),
+		},
+		{
 			path: "/:patchMatch(.*)*",
 			name: "errore404",
 			component: Error404,
