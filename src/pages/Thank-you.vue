@@ -29,8 +29,8 @@ export default {
 				class="col-md-10"
 				v-if="localOrderDetails && localOrderDetails.order"
 			>
-				<h4>Dettagli dell'ordine</h4>
-				<ul class="list-group mb-3">
+				<h4 class="mt-3">Dettagli dell'ordine</h4>
+				<ul class="list-group mb-5">
 					<li class="list-group-item">
 						<strong>Nome:</strong> {{ localOrderDetails.order.name }}
 					</li>
@@ -70,7 +70,7 @@ export default {
 							<li v-for="dish in localOrderDetails.order.dishes" :key="dish.id">
 								Piatto ID: {{ dish.id }}, Quantità: {{ dish.pivot.quantity }}
 								<br />
-								Nome: {{ dish.dish_name }}, Prezzo: €{{ dish.price }}
+								Nome: {{ dish.dish_name }}, Prezzo: {{ dish.price }}
 							</li>
 						</ul>
 					</li>
@@ -88,10 +88,6 @@ export default {
 	height: 100vh;
 }
 
-.order-summary {
-	margin-top: 30px;
-}
-
 .btn-primary {
 	background-color: #007bff;
 	border-color: #007bff;
@@ -100,5 +96,9 @@ export default {
 .btn-primary:hover {
 	background-color: #0056b3;
 	border-color: #004085;
+}
+
+li strong {
+	margin-right: 5px;
 }
 </style>
