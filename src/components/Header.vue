@@ -35,7 +35,7 @@ export default {
 				 <router-link class="nav-link text-warning" :to="{ name: 'contacts' }">Contatti</router-link>
 			  </li>
 			  <li class="nav-item">
-				 <router-link class="nav-link text-warning" :to="{ name: 'about' }">Chi Siamo</router-link>
+          <router-link class="nav-link text-warning" to="/la-nostra-storia">Chi Siamo</router-link>
 			  </li>
 			</ul>
 		 </nav>
