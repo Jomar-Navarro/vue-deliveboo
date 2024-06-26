@@ -10,28 +10,23 @@
 			<!-- Social media -->
 			<section class="social_ mb-4">
 				<!-- Facebook -->
-				<a class="btn border m-1 text-white" href="#!" role="button"><i
-						class="fab fa-facebook-f"></i></a>
+				<a class="btn border m-1 text-white" href="https://www.facebook.com/?locale=it_IT" role="button"><i class="fab fa-facebook-f"></i></a>
 
 				<!-- Twitter -->
-				<a class="btn border m-1 text-white" href="#!" role="button"><i
-						class="fab fa-twitter"></i></a>
+				<a class="btn border m-1 text-white" href="#!" role="button"><i class="fab fa-twitter"></i></a>
 
 				<!-- Google -->
-				<a class="btn border m-1 text-white" href="#!" role="button"><i
-						class="fab fa-google"></i></a>
+				<a class="btn border m-1 text-white" href="https://www.google.it/?pli=1" role="button"><i class="fab fa-google"></i></a>
 
 				<!-- Instagram -->
-				<a class="btn border m-1 text-white"
-					href="https://www.instagram.com/" role="button"><i class="fab fa-instagram"></i></a>
+				<a class="btn border m-1 text-white" href="https://www.instagram.com/" role="button"><i
+						class="fab fa-instagram"></i></a>
 
 				<!-- Linkedin -->
-				<a class="btn border m-1 text-white" href="#!" role="button"><i
-						class="fab fa-linkedin-in"></i></a>
+				<a class="btn border m-1 text-white" href="https://www.linkedin.com/home" role="button"><i class="fab fa-linkedin-in"></i></a>
 
 				<!-- Github -->
-				<a class="btn border m-1 text-white" href="#!" role="button"><i
-						class="fab fa-github"></i></a>
+				<a class="btn border m-1 text-white" href="https://github.com/login" role="button"><i class="fab fa-github"></i></a>
 			</section>
 			<!-- / -->
 
@@ -87,7 +82,7 @@
 							</li>
 						</ul>
 					</div>
-				
+
 
 
 					<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
@@ -95,16 +90,17 @@
 
 						<ul class="list-unstyled mb-0 text-start lh-lg">
 							<li>
-								<a class="text-white text-decoration-none" href="#!">La nostra storia</a>
+								<router-link class="text-white text-decoration-none" to="/la-nostra-storia">La Nostra
+									Storia</router-link>
 							</li>
 							<li>
-								<a class="text-white text-decoration-none" href="#!">Il nostro team</a>
+								<router-link class="text-white text-decoration-none" to="/il-nostro-team">Il Nostro Team</router-link>
 							</li>
 							<li>
-								<a class="text-white text-decoration-none" href="#!">Il nostro cibo</a>
+								<router-link class="text-white text-decoration-none" to="/lavora-con-noi">Lavora con noi</router-link>
 							</li>
 							<li>
-								<a class="text-white text-decoration-none" href="#!">Lavora con noi</a>
+								<router-link class="text-white text-decoration-none" to="/informazioni-legali">Informazioni legali</router-link>
 							</li>
 						</ul>
 					</div>
@@ -118,22 +114,22 @@
 
 						<ul class="list-unstyled mb-0 text-start lh-lg">
 							<li>
-								<a class="text-white text-decoration-none" href="#!">Domande frequenti</a>
+								<router-link class="text-white text-decoration-none" to="/domande-frequenti">Domande frequenti</router-link>
 							</li>
 							<li>
-								<a class="text-white text-decoration-none" href="#!">Termini e Condizioni</a>
+								<router-link class="text-white text-decoration-none" to="/informazioni-legali">Termini e Condizioni</router-link>
 							</li>
 							<li>
-								<a class="text-white text-decoration-none" href="#!">Scarica l'app Deliveboo</a>
+							<a class="text-white text-decoration-none" href="#!">Scarica l'app Deliveboo</a>
 							</li>
+							<router-link class="text-white text-decoration-none" to="/segnalaci-un-problema">Segnala un problema</router-link>
 							<li>
-								<a class="text-white text-decoration-none" href="#!">Segnala un problema</a>
 							</li>
 						</ul>
 					</div>
 
 				</div>
-			
+
 			</section>
 			<!-- / -->
 		</div>
@@ -161,5 +157,9 @@ footer {
 			background-color: rgb(94, 94, 94);
 		}
 	}
+}
+
+i:hover{
+	color: #FFC108;
 }
 </style>
