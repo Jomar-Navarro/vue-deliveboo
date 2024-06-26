@@ -12,7 +12,7 @@ import Nostroteam from "./pages/Nostroteam.vue";
 import Informazionilegali from "./pages/Informazionilegali.vue";
 import Domandefrequenti from "./pages/Domandefrequenti.vue";
 import Segnalazioni from "./pages/Segnalazioni.vue";
-
+import ThankYou from "./pages/Thank-you.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -44,35 +44,46 @@ const router = createRouter({
 			component: Order,
 		},
 		{
-      path: "/lavora-con-noi", 
-      name: "lavoraConNoi",
-      component: Lavoraconnoi,
-    },
+			path: "/thank-you",
+			name: "thank-you",
+			component: ThankYou,
+			props: (route) => ({
+				orderDetails: route.query.orderDetails
+					? JSON.parse(route.query.orderDetails)
+					: null,
+			}),
+		},
+
 		{
-      path: "/la-nostra-storia", 
-      name: "laNostraStoria",
-      component: Lanostrastoria,
-    },
+			path: "/lavora-con-noi",
+			name: "lavoraConNoi",
+			component: Lavoraconnoi,
+		},
 		{
-      path: "/il-nostro-team", 
-      name: "ilNostroTeam",
-      component: Nostroteam,
-    },
+			path: "/la-nostra-storia",
+			name: "laNostraStoria",
+			component: Lanostrastoria,
+		},
 		{
-      path: "/informazioni-legali", 
+			path: "/il-nostro-team",
+			name: "ilNostroTeam",
+			component: Nostroteam,
+		},
+		{
+			path: "/informazioni-legali",
 			name: "informazioniLegali",
-      component: Informazionilegali,
-    },
+			component: Informazionilegali,
+		},
 		{
-      path: "/domande-frequenti", 
+			path: "/domande-frequenti",
 			name: "domandeFrequenti",
-      component: Domandefrequenti,
-    },
+			component: Domandefrequenti,
+		},
 		{
-      path: "/segnalaci-un-problema", 
+			path: "/segnalaci-un-problema",
 			name: "segnalazioni",
-      component: Segnalazioni,
-    },
+			component: Segnalazioni,
+		},
 		{
 			path: "/:patchMatch(.*)*",
 			name: "errore404",
