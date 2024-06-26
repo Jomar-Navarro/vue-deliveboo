@@ -77,9 +77,13 @@ export default {
 					.post(store.apiUrl + "orders", order)
 					.then((response) => {
 						console.log(response.data);
-						alert("Ordine effettuato con successo!");
 						store.clearCart();
-						this.$router.push({ name: "success" });
+
+						localStorage.setItem("orderDetails", JSON.stringify(response.data));
+						this.$router.push({
+							name: "thank-you",
+							query: { orderDetails: JSON.stringify(response.data) },
+						});
 					})
 					.catch((error) => {
 						console.error(
@@ -115,6 +119,7 @@ export default {
 	},
 	mounted() {
 		this.setupDropin();
+		console.log("Order details received:", this.orderDetails);
 	},
 };
 </script>
