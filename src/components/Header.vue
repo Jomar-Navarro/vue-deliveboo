@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-	<header class="header  sticky-top py-2">
+	<header class="header py-2 float-start w-100">
 	  <div class="container-fluid d-flex align-items-center justify-content-between">
 		 <div class="logo-container me-md-4">
 			<img src="/img/logo-final.png" alt="Logo" class="logo img-fluid me-md-3" />

@@ -36,13 +36,19 @@ export default {
 </script>
 
 <template>
-	
-	
+	<div class="junbo-header">
+		<Jumbo />
+  </div>
 	<Restaurant />
 	<!-- <Review /> -->
 
 </template>
 
 <style lang="scss" scoped>
+.junbo-header{
+	background-image: url('https://t3.ftcdn.net/jpg/03/66/73/36/360_F_366733676_qTLsnBUZqNflzkE9bGgiMpurlkiUwUQc.jpg');
+	background-size: contain;
+	background-position: center;
+}
 
 </style>
