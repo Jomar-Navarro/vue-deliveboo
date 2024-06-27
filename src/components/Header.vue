@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-	<header class="header py-2 float-start w-100">
+	<header class="header py-2 w-100">
 		<div
 			class="container-fluid d-flex align-items-center justify-content-between"
 		>
