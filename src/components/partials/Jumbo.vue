@@ -65,7 +65,7 @@ $indicator-active-color: #ffd64a;
 .jumbo {
 	color: $jumbotron-color;
 
-	height: calc(100vh - 90px);
+	height: 80vh;
 	max-height: 100%;
 	font-family: "Bangers", system-ui;
 	background-color: rgba($color: #000000, $alpha: 0.5);
@@ -143,7 +143,7 @@ $indicator-active-color: #ffd64a;
 
 	.custom-shape-divider-bottom {
 		position: absolute;
-		bottom: -8%;
+		bottom: 1%;
 		width: 100%;
 		overflow: hidden;
 		line-height: 0;
