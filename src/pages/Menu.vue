@@ -121,12 +121,14 @@ export default {
 					</div>
 				</div>
 			</div>
-			<h1 class="text-center rest-title mt-5 text-warning pt-4 pb-4">
+			
+			<h1 class="text-center rest-title mt-3 text-warning pb-4 mt-5">
 				{{ restaurantName.name }}
 			</h1>
+
 			<div class="row d-flex justify-content-between">
 				<!-- card desktop  -->
-				<div v-for="dish in dishes" :key="dish.id" class="card_desk col">
+				<div v-for="dish in dishes" :key="dish.id" class="card_desk col mb-4">
 					<div class="container page-wrapper">
 						<div class="page-inner">
 							<div class="row">
@@ -140,22 +142,16 @@ export default {
 											</div>
 											<div class="a-size">
 												<h5 class="text-black">Quantità</h5>
-												<div
-													class="d-flex justify-content-center align-items-center"
-												>
-													<button
-														class="btn-quantity btn btn-warning rounded-5"
-														@click="decreaseQuantity(dish)"
-													>
+												<div class="d-flex justify-content-center align-items-center">
+													<button class="btn-quantity btn btn-warning rounded-5"
+														@click="decreaseQuantity(dish)">
 														<i class="fa-solid fa-minus"></i>
 													</button>
 													<p class="text-black fw-semibold mx-3 m-0">
 														{{ dish.selectedQuantity }}
 													</p>
-													<button
-														class="btn-quantity btn btn-warning rounded-5"
-														@click="increaseQuantity(dish)"
-													>
+													<button class="btn-quantity btn btn-warning rounded-5"
+														@click="increaseQuantity(dish)">
 														<i class="fa-solid fa-plus"></i>
 													</button>
 												</div>
@@ -166,13 +162,9 @@ export default {
 										<div class="h-bg">
 											<div class="h-bg-inner"></div>
 										</div>
-										<a
-											@click.prevent="
-												addToCart(dish), returnQuantityToOne(dish)
-											"
-											class="cart"
-											href="#"
-										>
+										<a @click.prevent="
+											addToCart(dish), returnQuantityToOne(dish)
+											" class="cart" href="#">
 											<span class="price">{{ dish.price }}</span>
 											<span class="add-to-cart">
 												<span class="txt">Aggiungi al carrello</span>
@@ -185,11 +177,7 @@ export default {
 					</div>
 				</div>
 				<!-- / -->
-				<div
-					v-for="dish in dishes"
-					:key="dish.id"
-					class="card_phone col menu-bg"
-				>
+				<div v-for="dish in dishes" :key="dish.id" class="card_phone col menu-bg mb-4">
 					<div class="container page-wrapper">
 						<div class="page-inner">
 							<div class="row">
@@ -202,22 +190,16 @@ export default {
 												<span class="p-company">{{ dish.description }}</span>
 											</div>
 											<div class="a-size">
-												<div
-													class="d-flex justify-content-center align-items-center"
-												>
-													<button
-														class="btn-quantity btn btn-warning rounded-5"
-														@click="decreaseQuantity(dish)"
-													>
+												<div class="d-flex justify-content-center align-items-center">
+													<button class="btn-quantity btn btn-warning rounded-5"
+														@click="decreaseQuantity(dish)">
 														<i class="fa-solid fa-minus"></i>
 													</button>
 													<p class="text-black fw-semibold mx-3 m-0">
 														{{ dish.selectedQuantity }}
 													</p>
-													<button
-														class="btn-quantity btn btn-warning rounded-5"
-														@click="increaseQuantity(dish)"
-													>
+													<button class="btn-quantity btn btn-warning rounded-5"
+														@click="increaseQuantity(dish)">
 														<i class="fa-solid fa-plus"></i>
 													</button>
 												</div>
@@ -228,19 +210,14 @@ export default {
 										<div class="h-bg">
 											<div class="h-bg-inner"></div>
 										</div>
-										<a
-											@click.prevent="
-												addToCart(dish), returnQuantityToOne(dish)
-											"
-											class="cart"
-											href="#"
-										>
+										<a @click.prevent="
+											addToCart(dish), returnQuantityToOne(dish)
+											" class="cart" href="#">
 											<span class="price">{{ dish.price }}</span>
 											<span class="add-to-cart">
 												<span class="txt">
 													<br />
-													Aggiungi al carrello</span
-												>
+													Aggiungi al carrello</span>
 											</span>
 										</a>
 									</div>
@@ -250,6 +227,7 @@ export default {
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </template>
@@ -259,6 +237,7 @@ export default {
 .bg-main {
 	background-color: #292626;
 }
+
 .card_phone {
 	display: none;
 	background-color: rgb(255, 255, 255);
@@ -277,30 +256,23 @@ export default {
 
 .btn-cart {
 	position: fixed;
-	top: 20%;
-	right: 20px;
-	height: 100px;
-	width: 100px;
 	border-radius: 50%;
 	justify-content: center;
 	align-items: center;
-	font-size: 3rem;
 }
+
 .btn-count-cart {
-	height: 30px;
-	width: 30px;
 	background-color: black;
 	border-radius: 50%;
+	border: 1px solid rgba(208, 208, 208, 0.467);
 	bottom: 0px;
 	position: absolute;
-	top: 0%;
-	right: 0%;
-	font-size: 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #ffc107;
 }
+
 .rest-title {
 	font-family: "Bangers", system-ui;
 }
@@ -596,6 +568,22 @@ export default {
 		color: white;
 		display: block;
 	}
+
+	.btn-cart {
+		top: 20%;
+		right: 20px;
+		height: 50px;
+		width: 50px;
+		font-size: 1.4rem;
+	}
+
+	.btn-count-cart {
+		height: 20px;
+		width: 20px;
+		top: -10%;
+		right: -10%;
+		font-size: 0.8rem;
+	}
 }
 
 /* Nasconde card_phone e mostra card_desk solo quando la vista è superiore a 992px */
@@ -642,6 +630,23 @@ export default {
 		transition-delay: 300ms;
 		bottom: 15px;
 		opacity: 1;
+	}
+
+	.btn-cart {
+		top: 20%;
+		right: 20px;
+		height: 100px;
+		width: 100px;
+		font-size: 3rem;
+	}
+
+	.btn-count-cart {
+		height: 30px;
+		width: 30px;
+		top: 0%;
+		right: 0%;
+		font-size: 1rem;
+
 	}
 }
 </style>

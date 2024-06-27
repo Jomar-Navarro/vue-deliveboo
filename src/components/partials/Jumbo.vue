@@ -21,7 +21,10 @@ export default {
 				Ordina Ora e Gusta la Felicità!
 			</h1>
 		</div>
+
 		<div class="d-flex justify-content-center">
+			
+			<!-- onde -->
 			<div class="custom-shape-divider-bottom">
 				<svg
 					data-name="Layer 1"
@@ -45,6 +48,8 @@ export default {
 					></path>
 				</svg>
 			</div>
+
+			<!-- frecce -->
 			<div class="indicator mt-5">
 				<span></span>
 				<span></span>
@@ -52,6 +57,7 @@ export default {
 				<span></span>
 				<span></span>
 			</div>
+
 		</div>
 	</div>
 </template>
@@ -71,8 +77,6 @@ $indicator-active-color: #ffd64a;
 	background-color: rgba($color: #000000, $alpha: 0.5);
 	.indicator {
 		position: relative;
-		width: 10vw;
-		height: 10vw;
 		transform: rotate(45deg);
 		display: grid;
 		place-items: center;
@@ -159,6 +163,25 @@ $indicator-active-color: #ffd64a;
 				fill: $shape-fill-color;
 			}
 		}
+	}
+}
+
+// da 992px in su
+@media (min-width: 992px) {
+	.indicator {
+		width: 10vw;
+		height: 10vw;
+	}
+}
+
+
+
+// da 992px in giu
+@media (max-width: 992px) {
+	.indicator {
+		width: 25vw;
+		height: 25vw;
+		top: 30%;
 	}
 }
 </style>
