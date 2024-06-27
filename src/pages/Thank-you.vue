@@ -24,7 +24,7 @@ export default {
 <template>
 	<div class="container mt-5">
 		<h2 class="text-center">Grazie per il tuo ordine!</h2>
-		<div class="row justify-content-center">
+		<div class="row justify-content-center my-3">
 			<div
 				class="col-lg-8 col-md-10 col-sm-12"
 				v-if="localOrderDetails && localOrderDetails.order"
@@ -100,6 +100,13 @@ export default {
 						<span>€{{ localOrderDetails.order.total_price }}</span>
 					</li>
 				</ul>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info">
+						<router-link :to="{ name: 'home' }"
+							><i class="fa-solid fa-house"></i
+						></router-link>
+					</button>
+				</div>
 			</div>
 			<div class="col-lg-8 col-md-10 col-sm-12" v-else>
 				<p class="text-center">Nessun dettaglio dell'ordine trovato.</p>
