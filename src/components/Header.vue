@@ -19,14 +19,18 @@ export default {
 </script>
 
 <template>
-	<header class="header py-2 w-100">
+	<header class="header float-start py-2 w-100">
 		<div
 			class="container-fluid d-flex align-items-center justify-content-between"
 		>
 			<div class="logo-container me-md-4 w-50">
 				<router-link to="/">
-          <img src="/img/logo-final.png" alt="Logo" class="logo img-fluid me-md-3" />
-        </router-link>
+					<img
+						src="/img/logo-final.png"
+						alt="Logo"
+						class="logo img-fluid me-md-3"
+					/>
+				</router-link>
 			</div>
 
 			<!-- menu in vista desktop view -->
