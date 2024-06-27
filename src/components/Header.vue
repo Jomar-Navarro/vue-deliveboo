@@ -24,11 +24,9 @@ export default {
 			class="container-fluid d-flex align-items-center justify-content-between"
 		>
 			<div class="logo-container me-md-4 w-50">
-				<img
-					src="/img/logo-final.png"
-					alt="Logo"
-					class="logo img-fluid me-md-3"
-				/>
+				<router-link to="/">
+          <img src="/img/logo-final.png" alt="Logo" class="logo img-fluid me-md-3" />
+        </router-link>
 			</div>
 
 			<!-- menu in vista desktop view -->
