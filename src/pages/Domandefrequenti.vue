@@ -105,8 +105,7 @@ h1 {
 }
 
 .accordion-button {
-  background-color: #FFC108;
-  color: #fff;
+  color: #000000;
 }
 
 .accordion-button:focus {
@@ -114,6 +113,6 @@ h1 {
 }
 
 .accordion-body {
-  background-color: #fff3cd;
+  color: #818181;
 }
 </style>
