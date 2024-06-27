@@ -8,6 +8,8 @@ export default {
 			store,
 			selectedTypes: [],
 			searchQuery: "",
+			currentPage: 1,
+			itemsPerPage: 8,
 		};
 	},
 
@@ -68,6 +70,22 @@ export default {
 			this.selectedTypes = []; // Clear selected types when a search query is entered
 			this.getFilteredRestaurants();
 		},
+
+		handlePageClick(pageNum) {
+			this.currentPage = pageNum;
+		},
+
+		prevPage() {
+			if (this.currentPage > 1) {
+				this.currentPage--;
+			}
+		},
+
+		nextPage() {
+			if (this.currentPage < this.pageCount) {
+				this.currentPage++;
+			}
+		},
 	},
 
 	watch: {
@@ -79,6 +97,16 @@ export default {
 	computed: {
 		isTypeChecked() {
 			return (type) => this.selectedTypes.includes(type.type_name);
+		},
+
+		paginatedRestaurants() {
+			const start = (this.currentPage - 1) * this.itemsPerPage;
+			const end = start + this.itemsPerPage;
+			return this.store.restaurants.slice(start, end);
+		},
+
+		pageCount() {
+			return Math.ceil(this.store.restaurants.length / this.itemsPerPage);
 		},
 	},
 
@@ -94,7 +122,9 @@ export default {
 		<div class="container py-5">
 			<div class="d-flex justify-content-center">
 				<div>
-					<h2 class="titolo mb-5 pb-2 text-center text-warning">Cerca il tuo ristorante</h2>
+					<h2 class="titolo mb-5 pb-2 text-center text-warning">
+						Cerca il tuo ristorante
+					</h2>
 					<div class="d-flex justify-content-center">
 						<input
 							class="search w-50 me-2 rounded-5 px-3 py-4"
@@ -107,7 +137,9 @@ export default {
 					</div>
 
 					<div>
-						<h2 class="filtro mt-5 text-center mb-5 text-warning">Filtra per tipologia</h2>
+						<h2 class="filtro mt-5 text-center mb-5 text-warning">
+							Filtra per tipologia
+						</h2>
 					</div>
 
 					<div class="d-flex font-type flex-wrap justify-content-center">
@@ -133,7 +165,9 @@ export default {
 									alt=""
 									class="checkbox-icon img-fluid object-fit-cover"
 								/> -->
-								<span class="fw-bold font-type">{{ type.type_name }}</span></label
+								<span class="fw-bold font-type">{{
+									type.type_name
+								}}</span></label
 							>
 						</span>
 					</div>
@@ -142,11 +176,9 @@ export default {
 			<div
 				class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center mt-5 mx-sm-0 mx-md-3"
 			>
-				
-
 				<div
 					class="col mb-5 px-3 d-flex justify-content-center"
-					v-for="restaurant in store.restaurants"
+					v-for="restaurant in paginatedRestaurants"
 					:key="restaurant.id"
 				>
 					<router-link
@@ -177,6 +209,32 @@ export default {
 					</router-link>
 				</div>
 			</div>
+			<div class="d-flex justify-content-center mt-4 align-items-center">
+				<button
+					@click="prevPage"
+					:disabled="currentPage === 1"
+					class="pagination-button rounded-5"
+				>
+					Prev
+				</button>
+
+				<button
+					v-for="pageNumber in pageCount"
+					:key="pageNumber"
+					@click="handlePageClick(pageNumber)"
+					:class="['pagination-button', { active: pageNumber === currentPage }]"
+				>
+					{{ pageNumber }}
+				</button>
+
+				<button
+					@click="nextPage"
+					:disabled="currentPage === pageCount"
+					class="pagination-button rounded-5"
+				>
+					Next
+				</button>
+			</div>
 		</div>
 	</section>
 </template>
@@ -184,18 +242,18 @@ export default {
 <style lang="scss" scoped>
 .resto {
 	background-color: #292626;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: "Ubuntu", sans-serif;
 	// background: linear-gradient(rgba(0, 0, 0, .9), rgba(32, 32, 32, 0.5)),
 	// 	url("/img/jumbo_2.jpeg");
 	// background-size: cover;
 	// background-repeat: no-repeat;
 }
 
-.font-type{
+.font-type {
 	// font-family: 'Bangers', system-ui;
 	// font-family: 'Fredoka One', system-ui;
 	// font-family: 'Rampart One', system-ui;
-	font-family: 'Cabin Sketch', system-ui;
+	font-family: "Cabin Sketch", system-ui;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-size: 1.2rem;
@@ -214,13 +272,13 @@ export default {
 
 /* Stile per l'elemento label quando il checkbox è selezionato */
 .btn-check:checked + .btn.checkbox-active {
-	background-color: yellow; 
+	background-color: yellow;
 }
 
 .titolo {
 	// font-family: "Luckiest Guy", system-ui;
 	// font-family: 'Nunito Sans Variable', sans-serif;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: "Ubuntu", sans-serif;
 	color: rgb(255, 237, 176);
 	// font-size: 5rem;
 	font-size: clamp(1.5rem, 4vw, 3rem);
@@ -230,12 +288,10 @@ export default {
 	color: rgb(255, 237, 176);
 	// font-family: "Luckiest Guy", system-ui;
 	// font-family: 'Nunito Sans Variable', sans-serif;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: "Ubuntu", sans-serif;
 	// font-size: 3rem;
 	font-size: clamp(1.5rem, 4vw, 3rem);
 }
-
-
 
 h2 {
 	font-size: 2.1rem;
@@ -247,7 +303,7 @@ h2 {
 p {
 	// font-family: white;
 	// font-family: 'Nunito Sans Variable', sans-serif;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: "Ubuntu", sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 	color: white;
@@ -266,7 +322,7 @@ p {
 	height: 26.125rem;
 	overflow: hidden;
 	border-radius: 0.625rem;
-	box-shadow: 0.25rem .25rem .25rem rgba(255, 197, 4, 0.562);
+	box-shadow: 0.25rem 0.25rem 0.25rem rgba(255, 197, 4, 0.562);
 }
 
 .card > * {
@@ -319,6 +375,31 @@ p {
 .card__status {
 	border: 1px solid #f5e7c1;
 	margin-top: 10px;
+}
+
+.pagination-button {
+	background-color: #fb8e00; /* Colore di sfondo */
+	color: white; /* Colore del testo */
+	border: none; /* Rimuovi il bordo */
+	padding: 0.65rem 1.2rem; /* Padding */
+	border-radius: 50%;
+	margin: 0 0.25rem; /* Margine tra i pulsanti */
+	cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+	transition: background-color 0.3s ease; /* Transizione per il colore di sfondo */
+
+	&:hover {
+		background-color: #ffac42; /* Cambia il colore di sfondo al passaggio del mouse */
+	}
+
+	&:disabled {
+		background-color: #d3d3d3; /* Colore di sfondo quando disabilitato */
+		cursor: not-allowed; /* Cambia il cursore quando disabilitato */
+	}
+
+	&.active {
+		background-color: #ffac42; /* Colore di sfondo quando attivo */
+		font-weight: bold; /* Testo in grassetto quando attivo */
+	}
 }
 
 @media (any-hover: hover) and (any-pointer: fine) {
@@ -386,8 +467,6 @@ p {
 	}
 }
 
-
-
 // da 992px in su
 @media (min-width: 992px) {
 	.type_:hover {
@@ -396,11 +475,7 @@ p {
 	}
 }
 
-
-
 // da 992px in giu
 @media (max-width: 992px) {
-	
 }
-
 </style>
