@@ -1,6 +1,7 @@
 <script>
 import { store } from "../data/store";
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 export default {
 	name: "menu",
@@ -13,7 +14,6 @@ export default {
 	},
 	computed: {
 		cartTotalItems() {
-			// Calcola il totale degli elementi nel carrello
 			return this.store.cart.reduce((total, item) => total + item.quantity, 0);
 		},
 	},
@@ -40,7 +40,41 @@ export default {
 
 		addToCart(dish) {
 			const restaurantId = this.$route.params.id;
-			store.addToCart(dish, dish.selectedQuantity, restaurantId);
+			if (this.store.cart.length > 0 && this.store.cart[0].restaurantId !== restaurantId) {
+				this.showCustomAlert();
+			} else {
+				store.addToCart(dish, dish.selectedQuantity, restaurantId);
+			}
+		},
+
+		showCustomAlert() {
+			if (this.store.cart.length > 0) {
+				const restaurantId = this.store.cart[0].restaurantId;
+				Swal.fire({
+					title: 'Attenzione!',
+					text: 'Non puoi ordinare da più di un ristorante alla volta. Vuoi svuotare il carrello o andare al ristorante giusto ?',
+					icon: 'error',
+					background: "#fabd07",
+					showCancelButton: true,
+					confirmButtonText: 'Vai alla ristorante',
+					cancelButtonText: 'Resetta il carrello',
+					allowOutsideClick: false,
+					customClass: {
+						container: 'custom-swal-container',
+						title: 'custom-swal-title',
+						htmlContainer: 'custom-swal-text',
+						confirmButton: 'btn btn-dark me-3',
+						cancelButton: 'btn btn-dark'
+					},
+					buttonsStyling: false
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.href = `/menu/${restaurantId}`;
+					} else if (result.dismiss === Swal.DismissReason.cancel) {
+						this.store.clearCart();
+					}
+				});
+			}
 		},
 
 		returnQuantityToOne(dish) {
@@ -201,6 +235,7 @@ export default {
 		</div>
 	</div>
 </template>
+
 
 <style lang="scss" scoped>
 /* Stato di default per .card_phone e .card_desk */
