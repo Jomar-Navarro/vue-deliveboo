@@ -8,10 +8,10 @@ import Review from "../components/partials/Review.vue";
 export default {
 	name: "Home",
 
-	components:{
+	components: {
 		Jumbo,
 		Restaurant,
-		Review
+		Review,
 	},
 
 	data() {
@@ -38,17 +38,16 @@ export default {
 <template>
 	<div class="junbo-header">
 		<Jumbo />
-  </div>
+	</div>
 	<Restaurant />
 	<!-- <Review /> -->
-
 </template>
 
 <style lang="scss" scoped>
-.junbo-header{
-	background-image: url('https://t3.ftcdn.net/jpg/03/66/73/36/360_F_366733676_qTLsnBUZqNflzkE9bGgiMpurlkiUwUQc.jpg');
-	background-size: contain;
+.junbo-header {
+	background-image: url("/img/jumbo_1.jpeg");
+	background-size: cover;
 	background-position: center;
+	background-repeat: no-repeat;
 }
-
 </style>
