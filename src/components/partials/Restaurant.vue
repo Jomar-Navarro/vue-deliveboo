@@ -118,9 +118,11 @@ export default {
 </script>
 
 <template>
-	<section class="resto py-5">
+	<section class="resto py-5 position-relative z-3">
 		<div class="container py-5">
 			<div class="d-flex justify-content-center">
+				<img class="fries" src="/img/Fries.png" alt="" />
+				<img class="pizza" src="/img/pizza.png" alt="" />
 				<div>
 					<h2 class="titolo mb-5 pb-2 text-center text-warning">
 						Cerca il tuo ristorante
@@ -142,7 +144,9 @@ export default {
 						</h2>
 					</div>
 
-					<div class="d-flex font-type flex-wrap justify-content-center">
+					<div
+						class="d-flex font-type flex-wrap justify-content-center position-relative"
+					>
 						<span
 							v-for="type in store.types"
 							:key="type.id"
@@ -240,6 +244,58 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.fries {
+	position: absolute;
+	top: 0%; /* Posizione in alto rispetto al contenitore genitore */
+	right: 0; /* Posizione a destra rispetto al contenitore genitore */
+	width: 30%; /* Larghezza dell'immagine in percentuale rispetto al contenitore genitore */
+	// max-width: 100px; /* Larghezza massima dell'immagine */
+	animation: moveFries 5s ease-in-out infinite alternate;
+	z-index: 0;
+	display: block; /* Mostra l'immagine di default */
+}
+
+@media (max-width: 768px) {
+	.fries {
+		display: none; /* Nascondi l'immagine su schermi più piccoli di 768px */
+	}
+}
+
+@keyframes moveFries {
+	0% {
+		transform: translate(-5%, -5%); /* Movimento iniziale in percentuale */
+	}
+	100% {
+		transform: translate(5%, 5%); /* Movimento finale in percentuale */
+	}
+}
+
+.pizza {
+	position: absolute;
+	top: 0%; /* Posizione in alto rispetto al contenitore genitore */
+	left: 0; /* Posizione a destra rispetto al contenitore genitore */
+	width: 30%; /* Larghezza dell'immagine in percentuale rispetto al contenitore genitore */
+	// max-width: 100px; /* Larghezza massima dell'immagine */
+	animation: moveFries 5s ease-in-out infinite alternate;
+	z-index: 0;
+	display: block; /* Mostra l'immagine di default */
+}
+
+@media (max-width: 768px) {
+	.fries {
+		display: none; /* Nascondi l'immagine su schermi più piccoli di 768px */
+	}
+}
+
+@keyframes moveFries {
+	0% {
+		transform: translate(5%, 5%); /* Movimento iniziale in percentuale */
+	}
+	100% {
+		transform: translate(-5%, -5%); /* Movimento finale in percentuale */
+	}
+}
+
 .resto {
 	background-color: #292626;
 	font-family: "Ubuntu", sans-serif;
