@@ -177,6 +177,7 @@ export default {
 					</div>
 				</div>
 			</div>
+
 			<div
 				class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center mt-5 mx-sm-0 mx-md-3"
 			>

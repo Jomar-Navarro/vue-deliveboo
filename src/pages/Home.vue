@@ -4,6 +4,7 @@ import { store } from "../data/store";
 import Jumbo from "../components/partials/Jumbo.vue";
 import Restaurant from "../components/partials/Restaurant.vue";
 import Review from "../components/partials/Review.vue";
+import Loader from "@/components/partials/Loader.vue";
 
 export default {
 	name: "Home",
@@ -12,20 +13,29 @@ export default {
 		Jumbo,
 		Restaurant,
 		Review,
+		Loader,
 	},
 
 	data() {
 		return {
 			store,
+			isLoading: false,
 		};
 	},
 
 	methods: {
 		getApi() {
-			axios.get(this.store.apiUrl + "restaurants").then((res) => {
-				this.store.restaurants = res.data;
-				console.log(this.store.restaurants);
-			});
+			axios
+				.get(this.store.apiUrl + "restaurants")
+				.then((res) => {
+					this.store.restaurants = res.data;
+					this.isLoading = false; // Imposta lo stato di caricamento su false quando i dati sono caricati
+					console.log(this.store.restaurants);
+				})
+				.catch((error) => {
+					console.error(error);
+					this.isLoading = false; // Imposta lo stato di caricamento su false anche in caso di errore
+				});
 		},
 	},
 
@@ -36,11 +46,18 @@ export default {
 </script>
 
 <template>
-	<div class="junbo-header">
-		<Jumbo />
+	<div>
+		<div v-if="isLoading" class="loader-container">
+			<Loader />
+		</div>
+		<div v-else>
+			<div class="junbo-header">
+				<Jumbo />
+			</div>
+			<Restaurant />
+			<!-- <Review /> -->
+		</div>
 	</div>
-	<Restaurant />
-	<!-- <Review /> -->
 </template>
 
 <style lang="scss" scoped>

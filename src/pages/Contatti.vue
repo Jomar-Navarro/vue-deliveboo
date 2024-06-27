@@ -1,11 +1,24 @@
 <script>
+import Loader from "@/components/partials/Loader.vue";
+
 export default {
 	name: "contacts",
+
+	components: {
+		Loader,
+	},
+
+	data() {
+		return {
+			isLoading: false,
+		};
+	},
 };
 </script>
 
 <template>
-	<div class="container pt-5">
+	<Loader v-if="isLoading" />
+	<div class="container pt-5" v-else>
 		<div class="contacts mt-5 pt-5">
 			<div class="my-5">
 				<h1>Contatti</h1>

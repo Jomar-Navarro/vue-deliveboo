@@ -1,15 +1,21 @@
 <script>
 import { store } from "../data/store";
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import Loader from "@/components/partials/Loader.vue";
 
 export default {
 	name: "menu",
+
+	components: {
+		Loader,
+	},
 	data() {
 		return {
 			store,
 			restaurantName: "",
 			dishes: [],
+			isLoading: true,
 		};
 	},
 	computed: {
@@ -19,13 +25,21 @@ export default {
 	},
 	methods: {
 		getApi(id) {
-			axios.get(this.store.apiUrl + "menu/" + id).then((res) => {
-				this.restaurantName = res.data;
-				this.dishes = res.data.dishes;
-				this.dishes.forEach((dish) => {
-					dish.selectedQuantity = 1;
+			axios
+				.get(this.store.apiUrl + "menu/" + id)
+				.then((res) => {
+					this.restaurantName = res.data;
+					this.dishes = res.data.dishes;
+					this.dishes.forEach((dish) => {
+						dish.selectedQuantity = 1;
+					});
+				})
+				.catch((error) => {
+					console.error("Errore nel caricamento dei dati:", error);
+				})
+				.finally(() => {
+					this.isLoading = false; // Imposta isLoading su false quando il caricamento è completato
 				});
-			});
 		},
 
 		increaseQuantity(dish) {
@@ -40,7 +54,10 @@ export default {
 
 		addToCart(dish) {
 			const restaurantId = this.$route.params.id;
-			if (this.store.cart.length > 0 && this.store.cart[0].restaurantId !== restaurantId) {
+			if (
+				this.store.cart.length > 0 &&
+				this.store.cart[0].restaurantId !== restaurantId
+			) {
 				this.showCustomAlert();
 			} else {
 				store.addToCart(dish, dish.selectedQuantity, restaurantId);
@@ -51,22 +68,22 @@ export default {
 			if (this.store.cart.length > 0) {
 				const restaurantId = this.store.cart[0].restaurantId;
 				Swal.fire({
-					title: 'Attenzione!',
-					text: 'Non puoi ordinare da più di un ristorante alla volta. Vuoi svuotare il carrello o andare al ristorante giusto ?',
-					icon: 'error',
+					title: "Attenzione!",
+					text: "Non puoi ordinare da più di un ristorante alla volta. Vuoi svuotare il carrello o andare al ristorante giusto ?",
+					icon: "error",
 					background: "#fabd07",
 					showCancelButton: true,
-					confirmButtonText: 'Vai alla ristorante',
-					cancelButtonText: 'Resetta il carrello',
+					confirmButtonText: "Vai alla ristorante",
+					cancelButtonText: "Resetta il carrello",
 					allowOutsideClick: false,
 					customClass: {
-						container: 'custom-swal-container',
-						title: 'custom-swal-title',
-						htmlContainer: 'custom-swal-text',
-						confirmButton: 'btn btn-dark me-3',
-						cancelButton: 'btn btn-dark'
+						container: "custom-swal-container",
+						title: "custom-swal-title",
+						htmlContainer: "custom-swal-text",
+						confirmButton: "btn btn-dark me-3",
+						cancelButton: "btn btn-dark",
 					},
-					buttonsStyling: false
+					buttonsStyling: false,
 				}).then((result) => {
 					if (result.isConfirmed) {
 						window.location.href = `/menu/${restaurantId}`;
@@ -90,7 +107,8 @@ export default {
 <template>
 	<div class="bg-main">
 		<div class="container menu-bg">
-			<div class="cart-container d-flex align-items-center me-md-4">
+			<Loader v-if="isLoading" />
+			<div class="cart-container d-flex align-items-center me-md-4" v-else>
 				<div
 					class="font_ btn btn-outline-warning d-none d-md-flex me-2 btn-cart"
 					data-bs-toggle="offcanvas"
@@ -235,7 +253,6 @@ export default {
 		</div>
 	</div>
 </template>
-
 
 <style lang="scss" scoped>
 /* Stato di default per .card_phone e .card_desk */
