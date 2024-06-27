@@ -128,7 +128,7 @@ export default {
 </script>
 
 <template>
-	<div class="container mt-5">
+	<div class="container">
 		<h2>Checkout</h2>
 		<div class="row justify-content-center">
 			<!-- Form Dati Utente -->

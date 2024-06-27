@@ -5,12 +5,10 @@ export default {
 </script>
 
 <template>
-	<div class="text-center my-5">
+	<div class="text-center">
 		<h1>Errore 404</h1>
 		<h4>Pagina non trovata</h4>
 	</div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
