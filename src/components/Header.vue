@@ -103,7 +103,7 @@ export default {
 		transition: all 0.3s ease-out;
 
 		&:hover {
-			color: rgb(251, 198, 145);
+			color: rgb(47, 47, 47);
 		}
 	}
 

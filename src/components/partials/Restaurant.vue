@@ -247,13 +247,11 @@ export default {
 <style lang="scss" scoped>
 .fries {
 	position: absolute;
-	top: 0%; /* Posizione in alto rispetto al contenitore genitore */
-	right: 0; /* Posizione a destra rispetto al contenitore genitore */
+	top: 0%;
+	right: 2%; 
 	width: 30%; /* Larghezza dell'immagine in percentuale rispetto al contenitore genitore */
 	// max-width: 100px; /* Larghezza massima dell'immagine */
 	animation: moveFries 5s ease-in-out infinite alternate;
-	z-index: 0;
-	display: block; /* Mostra l'immagine di default */
 }
 
 @keyframes moveFries {

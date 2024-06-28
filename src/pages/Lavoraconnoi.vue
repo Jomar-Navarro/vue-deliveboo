@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container">
     <h1>Lavora con noi</h1>
     <p>
       Unisciti al team di <strong>Deliveboo</strong>! Siamo alla ricerca di persone appassionate e motivate per
