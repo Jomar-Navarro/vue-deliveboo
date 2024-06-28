@@ -13,6 +13,7 @@ import Informazionilegali from "./pages/Informazionilegali.vue";
 import Domandefrequenti from "./pages/Domandefrequenti.vue";
 import Segnalazioni from "./pages/Segnalazioni.vue";
 import ThankYou from "./pages/Thank-you.vue";
+import Ristoranti from "./pages/Ristoranti.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -22,6 +23,11 @@ const router = createRouter({
 			path: "/",
 			name: "home",
 			component: Home,
+		},
+		{
+			path: "/ristoranti",
+			name: "ristoranti",
+			component: Ristoranti,
 		},
 		{
 			path: "/menu/:id",

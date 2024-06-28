@@ -121,12 +121,10 @@ export default {
 	<section class="resto py-5 position-relative z-3">
 		<div class="container py-5">
 			<div class="d-flex justify-content-center">
-				<img class="fries" src="/img/Fries.png" alt="" />
-				<img class="pizza" src="/img/pizza.png" alt="" />
+				<!-- <img class="fries" src="/img/Fries.png" alt="" />
+				<img class="pizza" src="/img/pizza.png" alt="" /> -->
 				<div>
-					<h2 class="titolo mb-5 pb-2 text-center text-warning">
-						Cerca il tuo ristorante
-					</h2>
+					<h2 class="titolo mb-5 pb-2 text-center">Cerca il tuo ristorante</h2>
 					<div class="d-flex justify-content-center">
 						<input
 							class="search w-50 me-2 rounded-5 px-3 py-4"
@@ -139,9 +137,7 @@ export default {
 					</div>
 
 					<div>
-						<h2 class="filtro mt-5 text-center mb-5 text-warning">
-							Filtra per tipologia
-						</h2>
+						<h2 class="filtro mt-5 text-center mb-5">Filtra per tipologia</h2>
 					</div>
 
 					<div
@@ -248,7 +244,7 @@ export default {
 .fries {
 	position: absolute;
 	top: 0%;
-	right: 2%; 
+	right: 2%;
 	width: 30%; /* Larghezza dell'immagine in percentuale rispetto al contenitore genitore */
 	// max-width: 100px; /* Larghezza massima dell'immagine */
 	animation: moveFries 5s ease-in-out infinite alternate;
@@ -284,7 +280,7 @@ export default {
 }
 
 .resto {
-	background-color: #292626;
+	background-color: #e84242;
 	font-family: "Ubuntu", sans-serif;
 	// background: linear-gradient(rgba(0, 0, 0, .9), rgba(32, 32, 32, 0.5)),
 	// 	url("/img/jumbo_2.jpeg");
@@ -304,7 +300,7 @@ export default {
 
 .search {
 	height: 2.4rem;
-	background-color: #f5e7c1;
+	background-color: white;
 }
 
 .checkbox-icon {
@@ -322,13 +318,13 @@ export default {
 	// font-family: "Luckiest Guy", system-ui;
 	// font-family: 'Nunito Sans Variable', sans-serif;
 	font-family: "Ubuntu", sans-serif;
-	color: rgb(255, 237, 176);
+	color: #f5e7c1;
 	// font-size: 5rem;
 	font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
 .filtro {
-	color: rgb(255, 237, 176);
+	color: #f5e7c1;
 	// font-family: "Luckiest Guy", system-ui;
 	// font-family: 'Nunito Sans Variable', sans-serif;
 	font-family: "Ubuntu", sans-serif;
@@ -338,7 +334,7 @@ export default {
 
 h2 {
 	font-size: 2.1rem;
-	font-family: var(--font-title);
+	font-family: #f5e7c1;
 	color: white;
 	line-height: 1.1;
 }
