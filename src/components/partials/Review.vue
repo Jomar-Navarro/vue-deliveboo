@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container-fluid">
 		<h1 class="text-center mt-4 mb-4">Recensioni</h1>
 
 		<div class="row justify-content-center flex-column align-items-center">
