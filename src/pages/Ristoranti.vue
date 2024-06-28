@@ -52,7 +52,9 @@ export default {
 					></path>
 				</svg>
 			</div>
-			<Restaurant />
+			<div class="position-relative">
+				<Restaurant />
+			</div>
 			<!-- <Review /> -->
 		</div>
 	</div>

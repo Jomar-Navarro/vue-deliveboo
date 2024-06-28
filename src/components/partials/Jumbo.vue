@@ -25,7 +25,7 @@ export default {
 
 		<div class="d-flex justify-content-center">
 			<!-- onde -->
-			<div class="custom-shape-divider-bottom">
+			<!-- <div class="custom-shape-divider-bottom">
 				<svg
 					data-name="Layer 1"
 					xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export default {
 						class="shape-fill"
 					></path>
 				</svg>
-			</div>
+			</div> -->
 
 			<!-- frecce -->
 			<div class="indicator mt-5">
