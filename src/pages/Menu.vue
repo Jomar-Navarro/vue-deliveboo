@@ -68,10 +68,13 @@ export default {
 			if (this.store.cart.length > 0) {
 				const restaurantId = this.store.cart[0].restaurantId;
 				Swal.fire({
-					title: "Attenzione!",
+					title: "OPS!",
 					text: "Non puoi ordinare da più di un ristorante alla volta. Vuoi svuotare il carrello o andare al ristorante giusto ?",
-					icon: "error",
-					background: "#fabd07",
+					
+					imageUrl: "../../public/img/logo-final.png",
+					imageWidth: 300,
+					imageHeight: 300,
+					imageAlt: "Custom image",
 					showCancelButton: true,
 					confirmButtonText: "Vai alla ristorante",
 					cancelButtonText: "Resetta il carrello",
@@ -261,6 +264,7 @@ export default {
 	border-radius: 50%;
 	justify-content: center;
 	align-items: center;
+	z-index: 1;
 }
 
 .btn-count-cart {
@@ -382,6 +386,7 @@ export default {
 }
 
 .info-inner {
+
 	-webkit-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
 	-moz-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
 	-o-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
@@ -535,7 +540,7 @@ export default {
 	}
 
 	.el-wrapper .info-inner {
-		bottom: 150px;
+		bottom: 78%;
 	}
 
 	.el-wrapper .a-size {
@@ -555,7 +560,6 @@ export default {
 		font-weight: 600;
 		text-transform: uppercase;
 		color: #2e2e2e;
-		margin-top: 80px;
 		background-color: #ffffffb7;
 	}
 

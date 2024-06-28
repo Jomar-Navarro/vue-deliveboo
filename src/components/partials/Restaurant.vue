@@ -381,11 +381,12 @@ p {
 
 .card__content {
 	--flow-space: 0.9375rem;
+	overflow: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-self: flex-end;
-	height: 65%;
+	height: 70%;
 	padding: 12% 1.25rem 1.875rem;
 	background: linear-gradient(
 		180deg,
@@ -520,5 +521,25 @@ p {
 
 // da 992px in giu
 @media (max-width: 992px) {
+	.card__content {
+		transform: translateY(0); /* Sempre visibile */
+	}
+
+	.card__content--container > :not(.card__title),
+	.card__button {
+		opacity: 1;
+		transition: none; /* Disabilita le transizioni */
+	}
+
+	.card__background {
+		transform: scale(1); /* Disabilita lo zoom su hover */
+		transition: none; /* Disabilita le transizioni */
+	}
+
+	.card__title::after {
+		opacity: 1;
+		transform: scaleX(1);
+		transition: none; /* Disabilita le transizioni */
+	}
 }
 </style>
