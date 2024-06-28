@@ -80,9 +80,9 @@ export default {
 									v-for="dish in localOrderDetails.order.dishes"
 									:key="dish.id"
 								>
-									<div class="d-flex flex-column w-100">
+									<div class="d-flex">
 										<div>
-											<span class="me-2"> {{ dish.pivot.quantity }}x</span>
+											<span class="me-2"> {{ dish.pivot.quantity }} x</span>
 											<span>{{ dish.dish_name }}</span>
 										</div>
 										<div class="d-flex justify-content-between">
@@ -102,11 +102,11 @@ export default {
 						</li>
 					</ul>
 					<div class="d-flex justify-content-end">
-						<button class="btn btn-outline-info">
-							<router-link :to="{ name: 'home' }"
-								><i class="fa-solid fa-house"></i
-							></router-link>
-						</button>
+						<router-link :to="{ name: 'home' }">
+							<button class="btn btn-outline-info">
+								<i class="fa-solid fa-house"></i>
+							</button>
+						</router-link>
 					</div>
 				</div>
 				<div class="col-lg-8 col-md-10 col-sm-12" v-else>

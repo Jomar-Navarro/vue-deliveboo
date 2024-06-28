@@ -29,7 +29,7 @@ export default {
 
 <template>
   <div class="container">
-    <h1>Lavora con noi</h1>
+    <h1 class="mb-4">Lavora con noi</h1>
     <p>
       Unisciti al team di <strong>Deliveboo</strong>! Siamo alla ricerca di persone appassionate e motivate per
       aiutarci a portare il cibo migliore direttamente a casa dei nostri clienti.
@@ -88,10 +88,6 @@ export default {
 
 h1,h2 {
   color: #FFC108;
-}
-
-h2 {
-  margin-top: 40px;
 }
 
 .list-group-item {

@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div class="container mt-5">
-    <h1>Domande frequenti</h1>
+    <h1 class="mb-4">Domande frequenti</h1>
     
     <div class="accordion" id="faqAccordion">
       <div class="accordion-item">
