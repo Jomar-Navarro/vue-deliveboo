@@ -41,7 +41,14 @@ export default {
 							>Home</router-link
 						>
 					</li>
-					<li class="nav-item mx-5 contatti">
+					<li class="nav-item ms-3">
+						<router-link
+							class="nav-link text-warning"
+							:to="{ name: 'ristoranti' }"
+							>Ristoranti</router-link
+						>
+					</li>
+					<li class="nav-item mx-3 contatti">
 						<router-link class="nav-link" :to="{ name: 'contacts' }"
 							>Contatti</router-link
 						>
@@ -72,6 +79,13 @@ export default {
 					>
 				</li>
 				<li class="nav-item">
+					<router-link
+						class="nav-link text-warning"
+						:to="{ name: 'ristoranti' }"
+						>Ristoranti</router-link
+					>
+				</li>
+				<li class="nav-item">
 					<router-link class="nav-link text-warning" :to="{ name: 'contacts' }"
 						>Contatti</router-link
 					>
@@ -91,6 +105,8 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+	position: relative;
+	z-index: 2;
 	height: auto;
 	background-color: rgba($color: #000000, $alpha: 0.5);
 

@@ -30,7 +30,7 @@ export default {
 						console.error(error);
 						this.isLoading = false; // Imposta lo stato di caricamento su false anche in caso di errore
 					});
-			}, 5000);
+			}, 2000);
 		},
 	},
 
