@@ -113,7 +113,7 @@ export default {
 			<Loader v-if="isLoading" />
 
 			<!-- cart -->
-			<div class="cart-container d-flex align-items-center me-md-4" v-else>
+			<div class="cart-container d-flex align-items-center position-relative z-3 me-md-4" v-else>
 				<div
 					class="font_ btn btn-outline-warning d-md-flex me-2 btn-cart"
 					data-bs-toggle="offcanvas"
