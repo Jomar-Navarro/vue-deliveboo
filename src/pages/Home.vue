@@ -54,8 +54,6 @@ export default {
 			<div class="junbo-header">
 				<Jumbo />
 			</div>
-			<Restaurant />
-			<!-- <Review /> -->
 		</div>
 	</div>
 </template>

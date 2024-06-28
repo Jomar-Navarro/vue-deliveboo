@@ -14,6 +14,7 @@ export default {
 	<div
 		class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column"
 	>
+		<!-- <img class="pizza" src="/img/pizza.png" alt="" /> -->
 		<div>
 			<h1 class="fw-bold jumbo-title text-warning text-center">
 				Il Tuo Gusto <br />
@@ -23,7 +24,6 @@ export default {
 		</div>
 
 		<div class="d-flex justify-content-center">
-			
 			<!-- onde -->
 			<div class="custom-shape-divider-bottom">
 				<svg
@@ -57,7 +57,6 @@ export default {
 				<span></span>
 				<span></span>
 			</div>
-
 		</div>
 	</div>
 </template>
@@ -80,6 +79,7 @@ $indicator-active-color: #ffd64a;
 		transform: rotate(45deg);
 		display: grid;
 		place-items: center;
+		z-index: 999;
 
 		span {
 			position: absolute;
@@ -173,8 +173,6 @@ $indicator-active-color: #ffd64a;
 		height: 10vw;
 	}
 }
-
-
 
 // da 992px in giu
 @media (max-width: 992px) {
