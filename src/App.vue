@@ -15,9 +15,9 @@ export default {
 </script>
 
 <template>
-	<div class="overflow-auto">
+	<div class="">
 		<Header />
-		<Main />
+		<Main class="position-relative" />
 		<Footer />
 	</div>
 </template>

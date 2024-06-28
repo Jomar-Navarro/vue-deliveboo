@@ -118,7 +118,7 @@ export default {
 </script>
 
 <template>
-	<section class="resto py-5 position-relative z-3">
+	<section class="resto py-5 position-relative">
 		<div class="container py-5">
 			<div class="d-flex justify-content-center">
 				<!-- <img class="fries" src="/img/Fries.png" alt="" />
@@ -127,7 +127,7 @@ export default {
 					<h2 class="titolo mb-5 pb-2 text-center">Cerca il tuo ristorante</h2>
 					<div class="d-flex justify-content-center">
 						<input
-							class="search w-50 me-2 rounded-5 px-3 py-4"
+							class="search w-50 me-2 rounded-4 px-3 py-4"
 							@keyup="handleKeyup"
 							v-model="searchQuery"
 							type="search"
@@ -241,44 +241,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.fries {
-	position: absolute;
-	top: 0%;
-	right: 2%;
-	width: 30%; /* Larghezza dell'immagine in percentuale rispetto al contenitore genitore */
-	// max-width: 100px; /* Larghezza massima dell'immagine */
-	animation: moveFries 5s ease-in-out infinite alternate;
-}
-
-@keyframes moveFries {
-	0% {
-		transform: translate(-5%, -5%); /* Movimento iniziale in percentuale */
-	}
-	100% {
-		transform: translate(5%, 5%); /* Movimento finale in percentuale */
-	}
-}
-
-.pizza {
-	position: absolute;
-	top: 0%; /* Posizione in alto rispetto al contenitore genitore */
-	left: 0; /* Posizione a destra rispetto al contenitore genitore */
-	width: 30%; /* Larghezza dell'immagine in percentuale rispetto al contenitore genitore */
-	// max-width: 100px; /* Larghezza massima dell'immagine */
-	animation: moveFries 5s ease-in-out infinite alternate;
-	z-index: 0;
-	display: block; /* Mostra l'immagine di default */
-}
-
-@keyframes moveFries {
-	0% {
-		transform: translate(5%, 5%); /* Movimento iniziale in percentuale */
-	}
-	100% {
-		transform: translate(-5%, -5%); /* Movimento finale in percentuale */
-	}
-}
-
 .resto {
 	background-color: #e84242;
 	font-family: "Ubuntu", sans-serif;

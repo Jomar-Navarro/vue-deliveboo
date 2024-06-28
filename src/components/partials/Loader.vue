@@ -15,6 +15,7 @@ export default {
 	height: 100vh;
 	position: relative;
 	background-color: #3e494d;
+	z-index: 999;
 }
 
 .loader {
@@ -29,8 +30,8 @@ export default {
 	z-index: 10;
 	perspective: 300px;
 	top: 50%; /* Centra verticalmente */
-	left: 50%; /* Centra orizzontalmente */
-	transform: translate(-50%, -50%); /* Centra con transform */
+	left: 44.5%; /* Centra orizzontalmente */
+	transform: translate(-40%, -40%); /* Centra con transform */
 }
 .loader::before {
 	content: "";
@@ -95,6 +96,81 @@ export default {
 	}
 	100% {
 		transform: rotate(10deg);
+	}
+}
+
+@media (max-width: 1200px) {
+	.loader {
+		width: 100px;
+		height: 12px;
+	}
+	.loader::before {
+		width: 60px;
+		height: 9px;
+	}
+	.loader::after {
+		width: 45px;
+		height: 43px;
+	}
+}
+
+@media (max-width: 992px) {
+	.loader {
+		width: 90px;
+		height: 10px;
+	}
+	.loader::before {
+		width: 50px;
+		height: 8px;
+	}
+	.loader::after {
+		width: 40px;
+		height: 38px;
+	}
+}
+
+@media (max-width: 768px) {
+	.loader {
+		width: 80px;
+		height: 9px;
+	}
+	.loader::before {
+		width: 45px;
+		height: 7px;
+	}
+	.loader::after {
+		width: 35px;
+		height: 33px;
+	}
+}
+
+@media (max-width: 576px) {
+	.loader {
+		width: 70px;
+		height: 8px;
+	}
+	.loader::before {
+		width: 40px;
+		height: 6px;
+	}
+	.loader::after {
+		width: 30px;
+		height: 28px;
+	}
+}
+
+@media (max-width: 480px) {
+	.loader {
+		width: 60px;
+		height: 7px;
+	}
+	.loader::before {
+		width: 35px;
+		height: 5px;
+	}
+	.loader::after {
+		width: 25px;
+		height: 23px;
 	}
 }
 </style>

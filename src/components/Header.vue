@@ -34,28 +34,36 @@ export default {
 			</div>
 
 			<!-- menu in vista desktop view -->
-			<nav class="font_ d-none d-md-flex justify-content-end w-75">
-				<ul class="nav-list d-flex list-unstyled mb-0">
+			<nav class="font_ d-none d-md-flex justify-content-end">
+				<ul
+					class="nav-list d-flex list-unstyled mb-0 align-items-center text-center"
+				>
 					<li class="nav-item home">
-						<router-link class="nav-link" :to="{ name: 'home' }"
+						<router-link
+							class="nav-link align-items-center d-flex"
+							:to="{ name: 'home' }"
 							>Home</router-link
 						>
 					</li>
-					<li class="nav-item ms-3">
+					<li class="nav-item ristoranti ms-3">
 						<router-link
-							class="nav-link text-warning"
+							class="nav-link align-items-center d-flex"
 							:to="{ name: 'ristoranti' }"
 							>Ristoranti</router-link
 						>
 					</li>
-					<li class="nav-item mx-3 contatti">
-						<router-link class="nav-link" :to="{ name: 'contacts' }"
+					<li class="nav-item contatti mx-3">
+						<router-link
+							class="nav-link align-items-center d-flex"
+							:to="{ name: 'contacts' }"
 							>Contatti</router-link
 						>
 					</li>
 					<li class="nav-item chi-siamo">
-						<router-link class="nav-link" to="/la-nostra-storia"
-							>Chi Siamo</router-link
+						<router-link
+							class="nav-link align-items-center d-flex"
+							to="/la-nostra-storia"
+							><span>Chi Siamo</span></router-link
 						>
 					</li>
 				</ul>
@@ -155,12 +163,15 @@ export default {
 
 .home,
 .contatti,
-.chi-siamo {
+.chi-siamo,
+.ristoranti {
 	border: 1px solid #ffc107;
-	border-radius: 30px;
+	border-radius: 10px;
+	height: 100%;
 	.nav-link {
 		color: #ffc107;
-		padding: 5px 10px;
+		padding: 2px 10px;
+		height: 100%;
 	}
 	&:hover {
 		background-color: #ffc107;
@@ -173,6 +184,85 @@ export default {
 	.hamburger-icon {
 		i {
 			margin: 0 20px 0 70px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.home,
+	.contatti,
+	.chi-siamo,
+	.ristoranti {
+		border: 1px solid #ffc107;
+		border-radius: 10px;
+		height: 50%;
+		.nav-link {
+			color: #ffc107;
+			padding: 0px 10px;
+			height: 50%;
+		}
+		&:hover {
+			background-color: #ffc107;
+			color: white;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.home,
+	.contatti,
+	.chi-siamo,
+	.ristoranti {
+		border: 1px solid #ffc107;
+		border-radius: 10px;
+		height: 50%;
+		.nav-link {
+			color: #ffc107;
+			padding: 0px 10px;
+			height: 50%;
+		}
+		&:hover {
+			background-color: #ffc107;
+			color: white;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.home,
+	.contatti,
+	.chi-siamo,
+	.ristoranti {
+		border: 1px solid #ffc107;
+		border-radius: 10px;
+		height: 50%;
+		align-items: center;
+		display: flex;
+		.nav-link {
+			color: #ffc107;
+			padding: 0px 10px;
+			height: 50%;
+			justify-content: center;
+			align-items: center;
+		}
+		&:hover {
+			background-color: #ffc107;
+			color: white;
+		}
+	}
+
+	.chi-siamo {
+		width: 100%;
+		padding: 30px 10px;
+		.nav-link {
+			color: #ffc107;
+			padding: 2px 10px;
+			justify-content: center;
+			width: 100%;
+			span {
+				width: 100%;
+				max-height: max-content;
+			}
 		}
 	}
 }
