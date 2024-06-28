@@ -5,7 +5,7 @@ export default {};
 <template>
 	<section id="reviews" class="py-5">
 		<div class="container-fluid">
-			<h1 class="text-center py-4">Recensioni</h1>
+			<h1 class="titolo text-center py-4">Recensioni</h1>
 
 			<div class="row justify-content-center flex-column align-items-center">
 				<div class="col-lg-6 col-md-8 my-5">
@@ -106,7 +106,10 @@ export default {};
 
 <style lang="scss" scoped>
 #reviews {
-	background-color: #f5e7c1;
+	background-color: #e4b235;
 	height: auto;
+	.titolo {
+		font-size: 8rem;
+	}
 }
 </style>
