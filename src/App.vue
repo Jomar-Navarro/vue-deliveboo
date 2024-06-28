@@ -17,7 +17,7 @@ export default {
 <template>
 	<div class="">
 		<Header />
-		<Main class="position-relative" />
+		<Main />
 		<Footer />
 	</div>
 </template>
