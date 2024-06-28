@@ -34,7 +34,7 @@ export default {
 			</div>
 
 			<!-- menu in vista desktop view -->
-			<nav class="font_ d-none d-md-flex justify-content-end w-50">
+			<nav class="font_ d-none d-md-flex justify-content-end w-75">
 				<ul class="nav-list d-flex list-unstyled mb-0">
 					<li class="nav-item home">
 						<router-link class="nav-link" :to="{ name: 'home' }"

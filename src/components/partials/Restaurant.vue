@@ -256,12 +256,6 @@ export default {
 	display: block; /* Mostra l'immagine di default */
 }
 
-@media (max-width: 768px) {
-	.fries {
-		display: none; /* Nascondi l'immagine su schermi più piccoli di 768px */
-	}
-}
-
 @keyframes moveFries {
 	0% {
 		transform: translate(-5%, -5%); /* Movimento iniziale in percentuale */
@@ -280,12 +274,6 @@ export default {
 	animation: moveFries 5s ease-in-out infinite alternate;
 	z-index: 0;
 	display: block; /* Mostra l'immagine di default */
-}
-
-@media (max-width: 768px) {
-	.fries {
-		display: none; /* Nascondi l'immagine su schermi più piccoli di 768px */
-	}
 }
 
 @keyframes moveFries {

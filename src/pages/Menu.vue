@@ -108,9 +108,11 @@ export default {
 	<div class="bg-main">
 		<div class="container menu-bg">
 			<Loader v-if="isLoading" />
+
+			<!-- cart -->
 			<div class="cart-container d-flex align-items-center me-md-4" v-else>
 				<div
-					class="font_ btn btn-outline-warning d-none d-md-flex me-2 btn-cart"
+					class="font_ btn btn-outline-warning d-md-flex me-2 btn-cart"
 					data-bs-toggle="offcanvas"
 					data-bs-target="#offcanvasRight"
 					aria-controls="offcanvasRight"
