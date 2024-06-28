@@ -34,13 +34,13 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="container py-5">
     <h1>Segnala un problema</h1>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="submitForm" class="">
       <div class="form-group">
         <label for="issueType">Tipo di problema:</label>
         <select v-model="issueType" id="issueType" class="form-control">
-          <option disabled value="">Seleziona un tipo di problema</option>
+          <option disabled>Seleziona un tipo di problema</option>
           <option v-for="type in issueTypes" :key="type">{{ type }}</option>
         </select>
       </div>
@@ -66,9 +66,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-div{
-	margin: 40px;
-}
 
 h1 {
   color: #FFC108;
@@ -76,14 +73,10 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
-
 .form-control {
   width: 100%;
   padding: 0.5rem;
-  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .btn-primary {

@@ -52,7 +52,7 @@ export default {
 <template>
   <div class="offcanvas offcanvas-end w-25" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
+      <h5 class="offcanvas-title ms-4" id="offcanvasRightLabel">Carrello</h5>
       <button type="button" class="btn-close me-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -63,24 +63,27 @@ export default {
               {{ item.quantity }} x {{ item.dish_name }} {{ item.price }}
             </div>
             <div class="d-flex">
+              
               <div class="number-input">
                 <button class="btn-plus-minum pay-title" @click="decreaseQuantity(item)">-</button>
-                <input class="quantita" type="number" v-model.number="item.quantity" @change="updateQuantity(item)"
+                <input class="quantita m-0" type="number" v-model.number="item.quantity" @change="updateQuantity(item)"
                   min="1" max="99" />
                 <button class="btn-plus-minum pay-title" @click="increaseQuantity(item)">+</button>
               </div>
+
               <div class="ms-2">
                 <button class="btn btn-dark" @click="removeFromCart(item)">
                   <i class="fa-regular fa-trash-can"></i>
                 </button>
               </div>
+
             </div>
           </li>
         </ul>
         <div data-bs-dismiss="offcanvas">
 
           <p v-if="!store.cart.length">Il carrello è vuoto.</p>
-          <p class="tot-price ">Totale: €{{ totalPrice }}</p>
+          <p class="tot-price">Totale: €{{ totalPrice }}</p>
 
           <router-link v-if="store.cart.length" :to="{ name: 'order' }" :disabled="!store.cart.length"
             class="btn btn-dark pay-title">Vai al pagamento</router-link>
@@ -165,6 +168,7 @@ li {
 }
 
 .tot-price {
+  font-size: 1.5rem;
   font-weight: bold;
   color: #212529;
 }

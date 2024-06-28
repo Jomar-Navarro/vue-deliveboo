@@ -5,8 +5,8 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>Informazioni legali</h1>
+  <div class="container">
+    <h1 class="mb-4">Informazioni legali</h1>
 
     <section>
       <h2>Termini e Condizioni</h2>
@@ -45,18 +45,19 @@ export default {
         sui resi e rimborsi disponibile nella sezione del tuo account cliente.
       </p>
     </section>
+
   </div>
 </template>
 
 <style lang="scss" scoped>
-
-div{
-	margin: 40px;
+.container {
+	background-color: #fff;
+	padding: 20px;
 }
+
 h1 {
   color: #FFC108;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
 }
 
 section {
