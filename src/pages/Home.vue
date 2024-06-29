@@ -2,7 +2,6 @@
 import axios from "axios";
 import { store } from "../data/store";
 import Jumbo from "../components/partials/Jumbo.vue";
-import Restaurant from "../components/partials/Restaurant.vue";
 import Review from "../components/partials/Review.vue";
 import Sconti from "../components/partials/Discount.vue";
 import Mobile from "../components/partials/Mobile-app.vue";
@@ -13,7 +12,6 @@ export default {
 
 	components: {
 		Jumbo,
-		Restaurant,
 		Review,
 		Loader,
 		Sconti,

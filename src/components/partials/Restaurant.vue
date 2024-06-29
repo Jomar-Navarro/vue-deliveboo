@@ -127,7 +127,7 @@ export default {
 					<h2 class="titolo mb-5 pb-2 text-center">Cerca il tuo ristorante</h2>
 					<div class="d-flex justify-content-center">
 						<input
-							class="search w-50 me-2 rounded-4 px-3 py-4"
+							class="search w-50 me-2 rounded-5 px-3 py-4"
 							@keyup="handleKeyup"
 							v-model="searchQuery"
 							type="search"
@@ -263,6 +263,12 @@ export default {
 .search {
 	height: 2.4rem;
 	background-color: white;
+	border: none;
+	&:focus {
+		outline: 1px solid rgb(187, 187, 187);
+		background-color: rgb(238, 238, 238);
+		transition: background-color 0.3s ease;
+	}
 }
 
 .checkbox-icon {
@@ -380,27 +386,26 @@ p {
 }
 
 .pagination-button {
-	background-color: #fb8e00; /* Colore di sfondo */
-	color: white; /* Colore del testo */
+	background-color: #ffffff;
 	border: none; /* Rimuovi il bordo */
 	padding: 0.65rem 1.2rem; /* Padding */
 	border-radius: 50%;
 	margin: 0 0.25rem; /* Margine tra i pulsanti */
-	cursor: pointer; /* Cambia il cursore al passaggio del mouse */
-	transition: background-color 0.3s ease; /* Transizione per il colore di sfondo */
+	cursor: pointer; 
+	transition: background-color 0.3s ease; 
 
 	&:hover {
-		background-color: #ffac42; /* Cambia il colore di sfondo al passaggio del mouse */
+		background-color: #c3c3c3; 
 	}
 
 	&:disabled {
-		background-color: #d3d3d3; /* Colore di sfondo quando disabilitato */
-		cursor: not-allowed; /* Cambia il cursore quando disabilitato */
+		background-color: #d3d3d3; 
+		cursor: not-allowed; 
 	}
 
 	&.active {
-		background-color: #ffac42; /* Colore di sfondo quando attivo */
-		font-weight: bold; /* Testo in grassetto quando attivo */
+		background-color: #cacaca; 
+		font-weight: bold; 
 	}
 }
 
