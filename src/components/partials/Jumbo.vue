@@ -143,6 +143,7 @@ $indicator-active-color: #ffd64a;
 		margin-bottom: 8%;
 		font-size: clamp(1.5rem, 4vw, 4rem);
 		letter-spacing: 3px;
+		font-size: 70px;
 	}
 
 	.custom-shape-divider-bottom {
