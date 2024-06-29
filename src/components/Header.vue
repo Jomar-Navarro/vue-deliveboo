@@ -226,6 +226,12 @@ export default {
 			color: white;
 		}
 	}
+
+	.nav_hidden { 
+		.nav-link {
+			font-size: 25px;
+		}
+	}
 }
 
 @media (max-width: 1200px) {

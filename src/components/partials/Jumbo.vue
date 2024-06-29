@@ -11,9 +11,7 @@ export default {
 </script>
 
 <template>
-	<div
-		class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column"
-	>
+	<div class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column">
 		<!-- <img class="pizza" src="/img/pizza.png" alt="" /> -->
 		<div>
 			<h1 class="fw-bold jumbo-title text-warning text-center">
@@ -74,6 +72,7 @@ $indicator-active-color: #ffd64a;
 	max-height: 100%;
 	font-family: "Bangers", system-ui;
 	background-color: rgba($color: #000000, $alpha: 0.5);
+
 	.indicator {
 		position: relative;
 		transform: rotate(45deg);
@@ -177,10 +176,16 @@ $indicator-active-color: #ffd64a;
 
 // da 992px in giu
 @media (max-width: 992px) {
-	.indicator {
-		width: 25vw;
-		height: 25vw;
-		top: 30%;
+	.jumbo {
+		.indicator {
+			width: 25vw;
+			height: 25vw;
+			top: 30%;
+		}
+
+		.jumbo-title {
+			font-size: 40px;
+		}
 	}
 }
 </style>

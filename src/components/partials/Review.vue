@@ -109,7 +109,17 @@ export default {};
 	background-color: #e4b235;
 	height: auto;
 	.titolo {
-		font-size: 8rem;
+		font-size: 6rem;
 	}
+
+
+
+// da 992px in giu
+@media (max-width: 992px) {
+	.titolo {
+		font-size: 4rem;
+	}
+
+}
 }
 </style>

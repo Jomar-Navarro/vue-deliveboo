@@ -23,7 +23,7 @@ export default {};
 	color: rgb(233, 233, 233);
 
 	img {
-		width: 10%;
+		width: 13%;
 		border-radius: 50%;
 		margin-bottom: 5%;
 	}
@@ -38,7 +38,7 @@ export default {};
 	}
 
 	p {
-		font-size: 50px;
+		font-size: 45px;
 		font-weight: 600;
 		text-align: center;
 		width: 90%;
@@ -73,12 +73,12 @@ export default {};
 @media (max-width: 576px) {
 	.container_discont {
 		img {
-			width: 30%;
+			width: 40%;
 			margin-bottom: 20%;	
 		}
 
 		h1 {
-			font-size: 40px;
+			font-size: 45px;
 			width: 90%;
 			margin-bottom: 15%;
 			padding-bottom: 50px;
@@ -86,7 +86,7 @@ export default {};
 		}
 
 		p {
-			font-size: 27px;
+			font-size: 30px;
 			width: 70%;
 		}
 	}
