@@ -11,7 +11,7 @@ export default {};
 			</div>
 			<div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
 				<div class="">
-					<h1 class="text-uppercase fw-bold"> Il bello è prenderci gusto</h1>
+					<h1 class="text-uppercase fw-bold pt-4"> Il bello è prenderci gusto</h1>
 					<p class="fw-bold desc-text">Scarica l'app di DeliveBoo e ordina dove vuoi, qualunque cosa desideri. </p>
 					<div>
 
@@ -84,6 +84,13 @@ export default {};
       margin: 0;
       text-align: center;
     }
+		h1{
+			text-align: center;
+		}
+
+		.desc-text{
+			text-align: center;
+		}
     
     div.btn:nth-child(1) {
       margin-right: 0px !important;
