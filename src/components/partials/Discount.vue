@@ -8,9 +8,9 @@ export default {};
 			src="https://static.vecteezy.com/ti/vettori-gratis/p1/2423042-badge-logo-servizio-di-consegna-gratuita-vettoriale.jpg"
 			alt="free delivery">
 		<div class="d-flex justify-content-between align-items-center flex-column">
-			<h1>solo per il mese di Agosto la spedizione è gratuita!</h1>
+			<h1>Solo per questo mese la spedizione è gratuita!</h1>
 			
-			<p>approfitta degli sconti per scoprire nuovi ristoranti</p>
+			<p>Approfitta degli sconti per scoprire nuovi ristoranti</p>
 		</div>
 		
 	</div>
@@ -30,19 +30,24 @@ export default {};
 
 	h1 {
 		text-align: center;
-		font-size: 70px;
+		// font-size: 70px;
 		width: 70%;
 		padding-bottom: 5%;
 		margin: 5% 0;
 		border-bottom: 1px solid;
+		font-size: clamp(3rem, 4vw, 5rem);
+
+
 	}
 
 	p {
-		font-size: 45px;
+		// font-size: 45px;
 		font-weight: 600;
 		text-align: center;
 		width: 90%;
 		margin-bottom: 15%;
+	font-size: clamp(1.5rem, 4vw, 3rem);
+
 	}
 }
 
@@ -58,13 +63,13 @@ export default {};
 		}
 
 		h1 {
-			font-size: 60px;
+			// font-size: 60px;
 			width: 70%;
 			margin-bottom: 5%;
 		}
 
 		p {
-			font-size: 40px;
+			// font-size: 40px;
 			width: 70%;
 		}
 	}
@@ -80,7 +85,7 @@ export default {};
 		}
 
 		h1 {
-			font-size: 45px;
+			// font-size: 45px;
 			width: 90%;
 			margin-bottom: 15%;
 			padding-bottom: 50px;
@@ -88,7 +93,7 @@ export default {};
 		}
 
 		p {
-			font-size: 30px;
+			// font-size: 30px;
 			width: 70%;
 		}
 	}

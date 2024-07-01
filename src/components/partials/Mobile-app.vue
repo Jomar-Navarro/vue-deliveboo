@@ -3,7 +3,8 @@ export default {};
 </script>
 
 <template>
-	<div class="dontainer">
+	<div class="container-fluid big">
+	<div class="container">
 		<div class="phone-hei row">
 
 			<div class="col-12 col-md-6 d-flex justify-content-center">
@@ -11,8 +12,8 @@ export default {};
 			</div>
 			<div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
 				<div class="">
-					<h1 class="text-uppercase fw-bold"> Il bello è prenderci gusto</h1>
-					<p class="fw-bold">Scarica l'app di DeliveBoo e ordina dove vuoi, qualunque cosa desideri. </p>
+					<h1 class="text-uppercase fw-bold pt-4"> Il bello è prenderci gusto</h1>
+					<p class="fw-bold desc-text">Scarica l'app di DeliveBoo e ordina dove vuoi, qualunque cosa desideri. </p>
 					<div>
 
 						<div class="btn btn-outline-dark me-3 p-0 mb-2">
@@ -42,11 +43,17 @@ export default {};
 			</div>
 		</div>
 	</div>
+</div>
 </template>
 
 <style lang="scss" scoped>
 
+
+.big{
+	background-color: #f5e7c1;
+}
 .phone-hei{
+	
 	height: 700px;
 	padding: 60px 0px;
 	.btn-phone{
@@ -72,11 +79,25 @@ export default {};
 			
 		}
 	}
+
+	h1{
+		font-size: clamp(1.5rem, 4vw, 2.5rem);
+	}
+	.desc-text{
+		font-size: clamp(1rem, 3vw, 1.5rem);
+	}
 	@media (max-width: 520px) {
     div.col-12:nth-child(2) > div:nth-child(1) > div:nth-child(3) {
       margin: 0;
       text-align: center;
     }
+		h1{
+			text-align: center;
+		}
+
+		.desc-text{
+			text-align: center;
+		}
     
     div.btn:nth-child(1) {
       margin-right: 0px !important;
