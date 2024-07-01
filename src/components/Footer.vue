@@ -190,10 +190,6 @@ footer {
 	.box_ {
 		padding-bottom: 10px;
 		border-bottom: 1px solid rgba(188, 188, 188, 0.772);
-
-		li {
-			line-height: 170%;
-		}
 	}
 }
 </style>
