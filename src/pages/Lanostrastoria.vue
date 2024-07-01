@@ -7,7 +7,7 @@ export default {
 <template>
 	<div class="container_color">
 
-		<div class="container pt-5  rounded-2">
+		<div class="container rounded-2">
 			<h1>La nostra storia</h1>
 			<section class="my-5">
 				<p>
@@ -71,10 +71,9 @@ export default {
 
 <style lang="scss" scoped>
 .container_color{
-	padding-top: 200px;
+	padding-top: 100px;
 	padding-bottom: 50px;
   // background-color: #3C0A05;
-	background-color: #ff7300c0;
 }
 .container {
 	background-color: #fff;
