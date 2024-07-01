@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container">
     <h1 class="mb-4">Domande frequenti</h1>
     
     <div class="accordion" id="faqAccordion">
@@ -94,7 +94,6 @@ export default {
 <style lang="scss" scoped>
 
 .container {
-  margin-top: 40px;
   margin-bottom: 40px;
 }
 

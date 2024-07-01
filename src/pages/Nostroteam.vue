@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container">
     <h1>Il nostro team</h1>
     <section class="my-5">
       <div class="row">
@@ -35,7 +35,7 @@ export default {
             
             <div class="card-body">
               <h5 class="card-title">{{ member.name }}</h5>
-              <p class="card-text">{{ member.role }}</p>
+              <p class="card-text fw-semibold mt-3">{{ member.role }}</p>
               <p class="card-text">{{ member.bio }}</p>
               <div class="social-links">
                 <a :href="member.linkedin" class="me-2" target="_blank" rel="noopener noreferrer">
@@ -55,14 +55,15 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1, h5 {
   color: #FFC108;
+}
+
+h5 {
   text-align: center;
 }
 
