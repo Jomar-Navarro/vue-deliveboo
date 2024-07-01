@@ -7,7 +7,7 @@ export default {
 <template>
 	<div class="container_color">
 
-		<div class="container pt-5">
+		<div class="container pt-5  rounded-2">
 			<h1>La nostra storia</h1>
 			<section class="my-5">
 				<p>
@@ -73,7 +73,8 @@ export default {
 .container_color{
 	padding-top: 200px;
 	padding-bottom: 50px;
-  background-color: #3C0A05;
+  // background-color: #3C0A05;
+	background-color: #ff7300c0;
 }
 .container {
 	background-color: #fff;
