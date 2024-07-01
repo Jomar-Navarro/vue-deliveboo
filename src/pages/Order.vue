@@ -170,7 +170,7 @@ export default {
 						novalidate
 					>
 						<div class="mb-3">
-							<label for="name" class="form-label">Nome</label>
+							<label for="name" class="form-label">Nome(*)</label>
 							<input
 								type="text"
 								class="form-control"
@@ -181,7 +181,7 @@ export default {
 							<div class="invalid-feedback">Il nome è richiesto.</div>
 						</div>
 						<div class="mb-3">
-							<label for="lastname" class="form-label">Cognome</label>
+							<label for="lastname" class="form-label">Cognome(*)</label>
 							<input
 								type="text"
 								class="form-control"
@@ -192,7 +192,7 @@ export default {
 							<div class="invalid-feedback">Il cognome è richiesto.</div>
 						</div>
 						<div class="mb-3">
-							<label for="address" class="form-label">Indirizzo</label>
+							<label for="address" class="form-label">Indirizzo(*)</label>
 							<input
 								type="text"
 								class="form-control"
@@ -203,7 +203,7 @@ export default {
 							<div class="invalid-feedback">L'indirizzo è richiesto.</div>
 						</div>
 						<div class="mb-3">
-							<label for="postal_code" class="form-label">CAP</label>
+							<label for="postal_code" class="form-label">CAP(*)</label>
 							<input
 								type="text"
 								class="form-control"
@@ -217,7 +217,7 @@ export default {
 							</div>
 						</div>
 						<div class="mb-3">
-							<label for="phone_number" class="form-label">Telefono</label>
+							<label for="phone_number" class="form-label">Telefono(*)</label>
 							<input
 								type="tel"
 								class="form-control"
@@ -230,7 +230,7 @@ export default {
 							</div>
 						</div>
 						<div class="mb-3">
-							<label for="email" class="form-label">Email</label>
+							<label for="email" class="form-label">Email(*)</label>
 							<input
 								type="email"
 								class="form-control"
@@ -242,6 +242,7 @@ export default {
 								L'email è richiesta e deve essere in un formato valido.
 							</div>
 						</div>
+						<span>(*) campo obbligatorio</span>
 						<div id="dropin-container"></div>
 						<div class="d-flex justify-content-end">
 							<button type="submit" class="btn btn-warning mb-5">
