@@ -169,6 +169,9 @@ footer {
 			transition: all 0.4s ease;
 			text-decoration: underline white;
 		}
+		li {
+			line-height: 170%;
+		}
 	}
 	h5 {
 		text-align: start;
