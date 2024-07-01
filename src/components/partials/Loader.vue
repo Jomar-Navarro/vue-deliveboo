@@ -15,7 +15,6 @@ export default {
 .loader-container {
 	height: 100vh;
 	position: relative;
-	// background-color: #b41111;
 	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(254, 127, 127, 0.123)),
 		url("/img/jumbo_2.jpeg");
 	background-size: cover;
@@ -35,9 +34,9 @@ export default {
 	transform-origin: 170px 0;
 	z-index: 10;
 	perspective: 300px;
-	top: 50%; /* Centra verticalmente */
-	left: 44.5%; /* Centra orizzontalmente */
-	transform: translate(-40%, -40%); /* Centra con transform */
+	top: 50%;
+	left: 44.5%;
+	transform: translate(-40%, -40%);
 }
 
 .fire {
@@ -46,8 +45,7 @@ export default {
 		width: 150px;
 		height: 120px;
 		top: 50%;
-		left: 50%;
-		transform: translate(-80%, -10%); /* Centra con transform */
+		left: 52.5%;
 		animation: flicker 1s infinite alternate;
 	}
 }
@@ -143,6 +141,11 @@ export default {
 		width: 45px;
 		height: 43px;
 	}
+	.fire img {
+		width: 130px;
+		height: 100px;
+		left: 52.5%;
+	}
 }
 
 @media (max-width: 992px) {
@@ -157,6 +160,11 @@ export default {
 	.loader::after {
 		width: 40px;
 		height: 38px;
+	}
+	.fire img {
+		width: 110px;
+		height: 90px;
+		left: 54%;
 	}
 }
 
@@ -173,6 +181,11 @@ export default {
 		width: 35px;
 		height: 33px;
 	}
+	.fire img {
+		width: 90px;
+		height: 80px;
+		left: 54%;
+	}
 }
 
 @media (max-width: 576px) {
@@ -188,6 +201,11 @@ export default {
 		width: 30px;
 		height: 28px;
 	}
+	.fire img {
+		width: 70px;
+		height: 60px;
+		left: 56.5%;
+	}
 }
 
 @media (max-width: 480px) {
@@ -202,6 +220,11 @@ export default {
 	.loader::after {
 		width: 25px;
 		height: 23px;
+	}
+	.fire img {
+		width: 60px;
+		height: 50px;
+		left: 56.5%;
 	}
 }
 </style>
