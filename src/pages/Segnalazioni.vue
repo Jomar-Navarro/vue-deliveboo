@@ -34,7 +34,7 @@ export default {
 </script>
 
 <template>
-  <div class="container py-5">
+  <div class="container-fluid bg_color">
     <h1>Segnala un problema</h1>
     <form @submit.prevent="submitForm" class="">
       <div class="form-group">
@@ -66,6 +66,14 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.bg_color {
+	background: rgb(235,194,44);
+	background: radial-gradient(circle, rgba(235,194,44,0.3841911764705882) 0%, rgba(184,42,8,0.05085784313725494) 100%);
+}
+
+.container-fluid {
+	padding: 100px 20% 50px 20%;
+}
 
 h1 {
   color: #FFC108;

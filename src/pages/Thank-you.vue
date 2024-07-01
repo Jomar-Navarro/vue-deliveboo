@@ -22,10 +22,10 @@ export default {
 </script>
 
 <template>
-	<div class="container py-5">
-		<div class="mt-5 py-5">
+	<div class="container-fluid bg_color py-5">
+		<div class="container mt-5 py-5">
 			<h2 class="text-center pt-5">Grazie per il tuo ordine!</h2>
-			<div class="row justify-content-center my-3">
+			<div class="row justify-content-center my-3 ">
 				<div
 					class="col-lg-8 col-md-10 col-sm-12"
 					v-if="localOrderDetails && localOrderDetails.order"
@@ -118,6 +118,11 @@ export default {
 </template>
 
 <style scoped>
+.bg_color {
+	background: rgb(235,194,44);
+background: radial-gradient(circle, rgba(235,194,44,0.3841911764705882) 0%, rgba(184,42,8,0.05085784313725494) 100%);
+}
+
 .text-center {
 	text-align: center;
 }

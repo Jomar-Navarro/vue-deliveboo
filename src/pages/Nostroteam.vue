@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container-fluid bg_color">
     <h1>Il nostro team</h1>
     <section class="my-5">
       <div class="row">
@@ -54,8 +54,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.container {
-  padding: 20px;
+.bg_color {
+	background: rgb(235,194,44);
+	background: radial-gradient(circle, rgba(235,194,44,0.3841911764705882) 0%, rgba(184,42,8,0.05085784313725494) 100%);
+}
+
+.container-fluid {
+	padding: 100px 10% 50px 10%;
   border-radius: 10px;
 }
 

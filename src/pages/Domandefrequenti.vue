@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container-fluid bg_color">
     <h1 class="mb-4">Domande frequenti</h1>
     
     <div class="accordion" id="faqAccordion">
@@ -92,9 +92,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.bg_color {
+	background: rgb(235,194,44);
+	background: radial-gradient(circle, rgba(235,194,44,0.3841911764705882) 0%, rgba(184,42,8,0.05085784313725494) 100%);
+}
 
-.container {
-  margin-bottom: 40px;
+.container-fluid {
+	padding: 100px 10% 50px 10%;
 }
 
 h1 {

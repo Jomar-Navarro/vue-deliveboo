@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container-fluid bg_color">
     <h1 class="mb-4">Informazioni legali</h1>
 
     <section>
@@ -50,9 +50,15 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.container {
+.bg_color {
+	background: rgb(235,194,44);
+	background: radial-gradient(circle, rgba(235,194,44,0.3841911764705882) 0%, rgba(184,42,8,0.05085784313725494) 100%);
+}
+
+.container-fluid {
 	background-color: #fff;
-	padding: 20px;
+	padding: 100px 10% 50px 10%;
+
 }
 
 h1 {

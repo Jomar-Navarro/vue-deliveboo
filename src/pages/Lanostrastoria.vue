@@ -5,9 +5,11 @@ export default {
 </script>
 
 <template>
-	<div class="container">
+	<div class="container-fluid bg_color">
+
+	
 		<h1>La nostra storia</h1>
-		<section class="my-5">
+		<section class="mt-5">
 			<p>
 				<strong>Deliveboo</strong> è nata dalla passione per il buon cibo e
 				dalla volontà di portarlo direttamente a casa dei nostri clienti.
@@ -63,19 +65,19 @@ export default {
 				condividere con voi il prossimo capitolo del nostro viaggio.
 			</p>
 		</section>
-	</div>
+	
+</div>
+
 </template>
 
 <style lang="scss" scoped>
-.container {
-	padding-top: 100px;
-	padding-bottom: 50px;
-	// background-color: #3C0A05;
+.bg_color {
+	background: rgb(235,194,44);
+	background: radial-gradient(circle, rgba(235,194,44,0.3841911764705882) 0%, rgba(184,42,8,0.05085784313725494) 100%);
 }
 
-.container {
-	background-color: #fff;
-	padding: 20px;
+.container-fluid {
+	padding: 100px 10% 50px 10%;
 }
 
 h1,
