@@ -131,6 +131,8 @@ export default {
 				{{ restaurantName.name }}
 			</h1>
 
+			<h4 class="text-white text-center mb-5">{{ restaurantName.description }}</h4>
+
 			<div class="row d-flex justify-content-between">
 				<!-- card desktop  -->
 				<div v-for="dish in dishes" :key="dish.id" class="card_desk col mb-4">
@@ -281,6 +283,7 @@ export default {
 
 .rest-title {
 	font-family: "Bangers", system-ui;
+	font-size: clamp(3rem, 5vw, 4rem);
 }
 
 .img_phone {

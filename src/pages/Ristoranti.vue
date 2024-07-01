@@ -1,11 +1,12 @@
 <script>
 import Loader from "../components/partials/Loader.vue";
 import Jumbo from "../components/partials/Jumbo.vue";
+import JumboRest from "../components/partials/JumboRest.vue";
 import Restaurant from "../components/partials/Restaurant.vue";
 export default {
 	components: {
 		Loader,
-		Jumbo,
+		JumboRest,
 		Restaurant,
 	},
 	data() {
@@ -30,7 +31,7 @@ export default {
 							><img class="fries_2" src="/img/Fries.png" alt="Fries"
 						/></span>
 					</div>
-					<Jumbo class="jumbo" />
+					<JumboRest class="jumbo" />
 				</div>
 			</div>
 			<Restaurant />
@@ -46,7 +47,9 @@ export default {
 .junbo-header {
 	height: 70vh;
 	width: 100%;
-	background-image: url("/img/piatto.jpg");
+	// background-image: url("/img/piatto.jpg");
+	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(254, 127, 127, 0.123)),
+		url("/img/piatto.jpg");
 	background-size: cover;
 }
 
