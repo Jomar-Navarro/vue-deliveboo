@@ -324,8 +324,9 @@ p {
 .card {
 	display: grid;
 	place-items: center;
-	width: 50vw;
+	// width: 50vw;
 	max-width: 20.875rem;
+	text-decoration: none;
 	height: 26.125rem;
 	overflow: hidden;
 	border-radius: 0.625rem;
@@ -543,6 +544,9 @@ p {
 		width: 100%;
 		justify-content: end;
 	}
+
+
+
 
 }
 </style>
