@@ -329,8 +329,15 @@ p {
 	height: 26.125rem;
 	overflow: hidden;
 	border-radius: 0.625rem;
-	box-shadow: 0.25rem 0.25rem 0.25rem rgba(255, 197, 4, 0.562);
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); /* Inizialmente senza ombra */
+	transition: box-shadow 1s ease; /* Transizione della box-shadow più veloce */
+
+	&:hover {
+		box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3); /* Ombra con transizione al passaggio del mouse */
+	}
 }
+
+
 
 .card > * {
 	grid-column: 1 / 2;
@@ -344,6 +351,7 @@ p {
 }
 
 .card__content {
+	border: none;
 	--flow-space: 0.9375rem;
 	overflow: auto;
 	display: flex;
@@ -358,6 +366,7 @@ p {
 		hsla(0, 0%, 0%, 0.3) 10%,
 		hsl(0, 0%, 0%) 100%
 	);
+	
 }
 
 .card__content--container {
