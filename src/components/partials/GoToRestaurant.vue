@@ -1,23 +1,130 @@
 <script>
 import { store } from "../../data/store";
-  export default {
-    
-  }
+export default {};
 </script>
 
 <template>
-  <div class="sub-jumbo d-flex justify-content-center">
-<!-- <button class="button-78" role="button">Vai a Ristoranti</button> -->
-<router-link :to="{ name: 'ristoranti' }" class="space-btn fw-bold text-center">VAI AI RISTORANTI</router-link>
-  </div>
+	<section id="vai-ristoranti" class="section-container">
+		<div class="wave wave-top">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+				<path
+					fill="#e84242"
+					fill-opacity="1"
+					d="M0,96L80,101.3C160,107,320,117,480,117.3C640,117,800,107,960,90.7C1120,75,1280,53,1360,42.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+				></path>
+			</svg>
+		</div>
+		<div class="sub-jumbo d-flex justify-content-center">
+			<!-- <button class="button-78" role="button">Vai a Ristoranti</button> -->
+			<router-link
+				:to="{ name: 'ristoranti' }"
+				class="space-btn fw-bold text-center"
+				>VAI AI RISTORANTI</router-link
+			>
+		</div>
+	</section>
 </template>
 
-
 <style lang="scss" scoped>
-
 @import url(https://fonts.googleapis.com/css?family=Electrolize);
 
-$btn-color: #FFB902; 
+$btn-color: #ffb902;
+
+.section-container {
+	position: relative; // Posizionamento relativo per contenere gli elementi assoluti
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #e84242;
+}
+
+.wave {
+	position: absolute;
+	width: 100%;
+	height: 100px; // Altezza delle onde, adatta secondo necessità
+	fill: #e84242; // Colore delle onde
+	z-index: 0;
+
+	&.wave-top {
+		top: -17%;
+		transform: translateY(-100%);
+	}
+
+	svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.sub-jumbo {
+	padding: 150px; // Spazio intorno alla sezione "Vai ai Ristoranti"
+	background-color: #e84242;
+}
+
+@media (max-width: 576px) {
+	.wave {
+		height: 40px; // Altezza onde per schermi più piccoli
+
+		&.wave-top {
+			top: -2%;
+			transform: translateY(-100%);
+		}
+	}
+
+	.sub-jumbo {
+		padding-top: 70px !important;
+		padding-bottom: 100px !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.wave {
+		height: 40px; // Altezza onde per schermi più piccoli
+
+		&.wave-top {
+			top: -17%;
+			transform: translateY(-100%);
+		}
+	}
+
+	.sub-jumbo {
+		padding-top: 90px !important;
+		padding-bottom: 110px !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.wave {
+		height: 100px; // Altezza onde per schermi più piccoli
+
+		&.wave-top {
+			top: -25%;
+			transform: translateY(-100%);
+		}
+	}
+
+	.sub-jumbo {
+		padding-top: 70px !important;
+		padding-bottom: 170px !important;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+	.wave {
+		height: 40px; // Altezza onde per schermi più piccoli
+
+		&.wave-top {
+			top: -17%;
+			transform: translateY(-100%);
+		}
+	}
+
+	.sub-jumbo {
+		padding-top: 100px !important;
+	}
+}
 
 * {
 	box-sizing: border-box;
@@ -32,12 +139,12 @@ body {
 }
 
 .space-btn {
-  text-decoration: none;
+	text-decoration: none;
 	position: relative;
-	font-family: 'Electrolize', sans-serif;
-    // font-family: 'Ubuntu', sans-serif;
-  
-    font-size: clamp(1.5rem, 4vw, 3rem);
+	font-family: "Electrolize", sans-serif;
+	// font-family: 'Ubuntu', sans-serif;
+
+	font-size: clamp(1.5rem, 4vw, 3rem);
 
 	text-transform: uppercase;
 	letter-spacing: 0.125em;
@@ -79,7 +186,6 @@ body {
 		bottom: 0;
 		box-shadow: inset -1px -1px 0 0 $btn-color;
 	}
-	
 }
 
 .space-btn:hover {
@@ -92,176 +198,66 @@ body {
 }
 
 @keyframes hoverShadowBefore {
-  	0% {
-    	width: 100%;
+	0% {
+		width: 100%;
 		height: 1px;
-		
+
 		top: 0;
 		left: 0;
-  	}
-  	33% {
-   	width: 1px;
+	}
+	33% {
+		width: 1px;
 		height: 100%;
-		
+
 		top: 0;
 		left: 0;
-  	}
+	}
 	66% {
 		width: 1px;
 		height: 1px;
-		
+
 		top: calc(100% - 1px);
 		left: 0;
 	}
 	100% {
-   	width: 100%;
+		width: 100%;
 		height: 1px;
-		
-		top: calc(100% - 1px); 
+
+		top: calc(100% - 1px);
 		left: 0;
-  	}	
+	}
 }
 
 @keyframes hoverShadowAfter {
-  	0% {
-    	width: 100%;
+	0% {
+		width: 100%;
 		height: 1px;
-  	}
-  	33% {
-   	width: 1px;
+	}
+	33% {
+		width: 1px;
 		height: 100%;
-		
+
 		bottom: 0;
 		right: 0;
-  	}
+	}
 	66% {
 		width: 1px;
 		height: 1px;
-		
+
 		bottom: calc(100% - 1px);
 		right: 0;
 	}
 	100% {
-   	width: 100%;
+		width: 100%;
 		height: 1px;
-		
+
 		bottom: calc(100% - 1px);
 		right: 0;
-  	}
+	}
 }
 
-.sub-jumbo{
-  padding: 150px;
-  background-color: #e84242;
+.sub-jumbo {
+	padding: 150px;
+	background-color: #e84242;
 }
-// .button-78 {
-//   align-items: center;
-//   appearance: none;
-//   background-clip: padding-box;
-//   background-color: initial;
-//   background-image: none;
-//   border-style: none;
-//   box-sizing: border-box;
-//   color: #fff;
-//   cursor: pointer;
-//   display: inline-block;
-//   flex-direction: row;
-//   flex-shrink: 0;
-//   font-family: Eina01,sans-serif;
-//   font-size: 16px;
-//   font-weight: 800;
-//   justify-content: center;
-//   line-height: 24px;
-//   margin: 0;
-//   min-height: 64px;
-//   outline: none;
-//   overflow: visible;
-//   padding: 19px 26px;
-//   pointer-events: auto;
-//   position: relative;
-//   text-align: center;
-//   text-decoration: none;
-//   text-transform: none;
-//   user-select: none;
-//   -webkit-user-select: none;
-//   touch-action: manipulation;
-//   vertical-align: middle;
-//   width: auto;
-//   word-break: keep-all;
-//   z-index: 0;
-// }
-
-// @media (min-width: 768px) {
-//   .button-78 {
-//     padding: 19px 32px;
-//   }
-// }
-
-// .button-78:before,
-// .button-78:after {
-//   border-radius: 80px;
-// }
-
-// .button-78:before {
-//   background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
-//   content: "";
-//   display: block;
-//   height: 100%;
-//   left: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   top: 0;
-//   width: 100%;
-//   z-index: -2;
-// }
-
-// .button-78:after {
-//   background-color: initial;
-//   background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
-//   bottom: 4px;
-//   content: "";
-//   display: block;
-//   left: 4px;
-//   overflow: hidden;
-//   position: absolute;
-//   right: 4px;
-//   top: 4px;
-//   transition: all 100ms ease-out;
-//   z-index: -1;
-// }
-
-// .button-78:hover:not(:disabled):before {
-//   background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
-// }
-
-// .button-78:hover:not(:disabled):after {
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   top: 0;
-//   transition-timing-function: ease-in;
-//   opacity: 0;
-// }
-
-// .button-78:active:not(:disabled) {
-//   color: #ccc;
-// }
-
-// .button-78:active:not(:disabled):before {
-//   background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
-// }
-
-// .button-78:active:not(:disabled):after {
-//   background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
-//   bottom: 4px;
-//   left: 4px;
-//   right: 4px;
-//   top: 4px;
-// }
-
-// .button-78:disabled {
-//   cursor: default;
-//   opacity: .24;
-// }
-
 </style>
