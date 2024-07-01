@@ -76,10 +76,10 @@ export default {
 
 @media (max-width: 576px) {
 	.wave {
-		height: 9px; // Altezza onde per schermi più piccoli
+		height: 10px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 14%;
+			top: 15%;
 			transform: translateY(-100%);
 		}
 	}
@@ -90,7 +90,7 @@ export default {
 		height: 20px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 26%;
+			top: 22%;
 			transform: translateY(-100%);
 		}
 	}
@@ -98,7 +98,7 @@ export default {
 
 @media (min-width: 992px) {
 	.wave {
-		height: 100px; // Altezza onde per schermi più piccoli
+		height: 30px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
 			top: 30%;
@@ -109,7 +109,7 @@ export default {
 
 @media (min-width: 1024px) and (max-width: 1440px) {
 	.wave {
-		height: 80px; // Altezza onde per schermi più piccoli
+		height: 40px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
 			top: 24%;
