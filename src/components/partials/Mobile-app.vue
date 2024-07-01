@@ -3,6 +3,7 @@ export default {};
 </script>
 
 <template>
+	<div class="container-fluid big">
 	<div class="container">
 		<div class="phone-hei row">
 
@@ -42,11 +43,17 @@ export default {};
 			</div>
 		</div>
 	</div>
+</div>
 </template>
 
 <style lang="scss" scoped>
 
+
+.big{
+	background-color: #f5e7c1;
+}
 .phone-hei{
+	
 	height: 700px;
 	padding: 60px 0px;
 	.btn-phone{
