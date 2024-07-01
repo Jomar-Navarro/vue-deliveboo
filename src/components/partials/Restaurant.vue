@@ -511,6 +511,7 @@ p {
 
 // da 992px in giu
 @media (max-width: 992px) {
+	
 	.card__content {
 		transform: translateY(0); /* Sempre visibile */
 	}
@@ -537,6 +538,9 @@ p {
 
 // da 768px in giu
 @media (max-width: 768px) {
+	.card {
+		min-height: 500px;
+	}
 	.card__description {
 		display: none;
 	}
@@ -546,8 +550,30 @@ p {
 		justify-content: end;
 	}
 
+	.card__content {
+	background: linear-gradient(
+		180deg,
+		hsla(0, 0%, 0%, 0) 10%,
+		hsla(0, 0%, 0%, 0) 20%,
+		hsl(0, 0%, 0%) 100%
+	);
+	
+}
+}
 
 
+// da 576px in giu
+@media (max-width: 576px) {
+	.card {
+		min-height: 500px;
+	}
+	.card__description {
+		display: none;
+	}
 
+	.card__content {
+		width: 100%;
+		justify-content: end;
+	}
 }
 </style>
