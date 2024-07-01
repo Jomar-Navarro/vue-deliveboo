@@ -7,6 +7,7 @@ export default {
 <template>
 	<div class="loader-container">
 		<span class="loader"></span>
+		<span class="fire"><img src="/img/fire.png" alt="" /></span>
 	</div>
 </template>
 
@@ -17,7 +18,7 @@ export default {
 	// background-color: #b41111;
 	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(254, 127, 127, 0.123)),
 		url("/img/jumbo_2.jpeg");
-		background-size: cover;
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	z-index: 999;
@@ -38,6 +39,31 @@ export default {
 	left: 44.5%; /* Centra orizzontalmente */
 	transform: translate(-40%, -40%); /* Centra con transform */
 }
+
+.fire {
+	img {
+		position: absolute;
+		width: 150px;
+		height: 120px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-80%, -10%); /* Centra con transform */
+		animation: flicker 1s infinite alternate;
+	}
+}
+
+@keyframes flicker {
+	0% {
+		transform: translate(-80%, -10%) scale(1);
+	}
+	50% {
+		transform: translate(-80%, -10%) scale(1.1);
+	}
+	100% {
+		transform: translate(-80%, -10%) scale(1);
+	}
+}
+
 .loader::before {
 	content: "";
 	position: absolute;
