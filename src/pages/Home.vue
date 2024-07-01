@@ -71,7 +71,7 @@ export default {
 <style lang="scss" scoped>
 .junbo-header {
 	// background-image: url("/img/jumbo_1.jpeg");
-	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(244, 235, 235, 0.123)),
+	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
 		url("/img/jumbo_1.jpeg");
 	background-size: cover;
 	background-position: center;
