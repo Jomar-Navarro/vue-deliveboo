@@ -385,10 +385,23 @@ p {
 	margin-top: 10px;
 }
 
+// customize ScrollBar
+.card__content::-webkit-scrollbar{
+   width: 5px;
+}
+
+.card__content::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 20px;
+   border-radius: 20px;
+   background: rgba(153, 153, 153, 0.589);
+   border: 1px solid rgba(255, 255, 255, 0.452);
+ }
+//
+
 .pagination-button {
 	background-color: #ffffff;
-	border: none; /* Rimuovi il bordo */
-	padding: 0.65rem 1.2rem; /* Padding */
+	border: none; 
+	padding: 0.65rem 1.2rem; 
 	border-radius: 50%;
 	margin: 0 0.25rem; /* Margine tra i pulsanti */
 	cursor: pointer; 
