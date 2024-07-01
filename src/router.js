@@ -10,7 +10,6 @@ import Ristoranti from "./pages/Ristoranti.vue";
 
 // footer
 import Lavoraconnoi from "./pages/Lavoraconnoi.vue";
-import Storia from "./pages/Lanostrastoria.vue";
 import Lanostrastoria from "./pages/Lanostrastoria.vue";
 import Nostroteam from "./pages/Nostroteam.vue";
 import Informazionilegali from "./pages/Informazionilegali.vue";

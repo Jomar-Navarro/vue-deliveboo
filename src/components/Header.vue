@@ -99,7 +99,7 @@ export default {
 					>
 				</li>
 				<li class="nav-item">
-					<router-link class="nav-link text-warning" :to="{ name: 'about' }"
+					<router-link class="nav-link text-warning" :to="{ name: 'laNostraStoria' }"
 						>Chi Siamo</router-link
 					>
 				</li>
