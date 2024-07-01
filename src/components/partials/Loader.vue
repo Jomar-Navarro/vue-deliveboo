@@ -45,7 +45,7 @@ export default {
 		width: 150px;
 		height: 120px;
 		top: 50%;
-		left: 52.5%;
+		left: 50%;
 		animation: flicker 1s infinite alternate;
 	}
 }
