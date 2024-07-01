@@ -17,15 +17,14 @@ export default {
 </script>
 
 <template>
-	<div class="container_c ">
+	<div class="container">
 
 	<Loader v-if="isLoading" />
 	<div class="container pt-5 " v-else>
-		<div class="contacts mt-5 pt-3 rounded-2">
+		<div class="contacts">
 			<div class="my-3">
 				<h1>Contatti</h1>
 				<section class="contact-info">
-					<h2>Informazioni di Contatto</h2>
 					<p>
 						Per qualsiasi domanda o informazione, puoi contattarci tramite uno
 						dei seguenti metodi. Siamo qui per aiutarti!
@@ -48,11 +47,8 @@ export default {
 
 <style lang="scss" scoped>
 
-.container_c{
-	padding-top: 100px;
+.container{
 	padding-bottom: 50px;
-  // background-color: #3C0A05;
-	background-color: #ff7300c0;
 }
 
 .contacts {
