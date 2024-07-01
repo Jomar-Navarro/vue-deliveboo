@@ -169,6 +169,13 @@ footer {
 			transition: all 0.4s ease;
 			text-decoration: underline white;
 		}
+		li {
+			line-height: 170%;
+		}
+	}
+	h5 {
+		text-align: start;
+		margin-bottom: 10px;
 	}
 }
 
@@ -183,10 +190,6 @@ footer {
 	.box_ {
 		padding-bottom: 10px;
 		border-bottom: 1px solid rgba(188, 188, 188, 0.772);
-
-		li {
-			line-height: 170%;
-		}
 	}
 }
 </style>
