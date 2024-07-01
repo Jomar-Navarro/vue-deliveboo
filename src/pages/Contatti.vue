@@ -17,6 +17,8 @@ export default {
 </script>
 
 <template>
+	<div class="container_c">
+
 	<Loader v-if="isLoading" />
 	<div class="container pt-5" v-else>
 		<div class="contacts mt-5 pt-5">
@@ -40,14 +42,24 @@ export default {
 			</div>
 		</div>
 	</div>
+</div>
 </template>
 
+
 <style lang="scss" scoped>
+
+.container_c{
+	padding-top: 100px;
+	padding-bottom: 50px;
+  background-color: #3C0A05;
+}
+
 .contacts {
 	margin: 0 auto;
 	padding: 20px;
 	background-color: #fff;
-	border: none;
+	border-radius: 2px;
+	box-shadow: #fff;
 
 	h1,
 	h2 {
