@@ -6,6 +6,7 @@ import Review from "../components/partials/Review.vue";
 import Sconti from "../components/partials/Discount.vue";
 import Mobile from "../components/partials/Mobile-app.vue";
 import Loader from "@/components/partials/Loader.vue";
+import GoToRestaurant from "../components/partials/GoToRestaurant.vue";
 
 export default {
 	name: "Home",
@@ -16,6 +17,7 @@ export default {
 		Loader,
 		Sconti,
 		Mobile,
+		GoToRestaurant
 	},
 
 	data() {
@@ -55,6 +57,9 @@ export default {
 		<div v-else>
 			<div class="junbo-header">
 				<Jumbo />
+			</div>
+			<div>
+				<GoToRestaurant />
 			</div>
 			<Review />
 			<Sconti />
