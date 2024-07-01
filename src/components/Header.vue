@@ -77,7 +77,7 @@ export default {
 
 		<!-- menu a comparsa in mobile view -->
 		<nav
-			class="font_ nav nav_hidden d-md-none flex-column"
+			class="font_ nav nav_hidden d-md-none flex-column z-3 position-relative"
 			:class="{ 'menu-open': isMenuOpen, 'menu-closed': !isMenuOpen }"
 		>
 			<ul class="nav-list list-unstyled text-center m-0">

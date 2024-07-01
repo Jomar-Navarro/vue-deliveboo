@@ -170,6 +170,10 @@ footer {
 			text-decoration: underline white;
 		}
 	}
+	h5 {
+		text-align: start;
+		margin-bottom: 10px;
+	}
 }
 
 
