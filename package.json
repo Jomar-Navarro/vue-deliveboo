@@ -17,6 +17,7 @@
     "@fontsource/luckiest-guy": "^5.0.19",
     "@fontsource/rampart-one": "^5.0.19",
     "@fontsource/ubuntu": "^5.0.13",
+    "aos": "^2.3.4",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "braintree-web-drop-in": "^1.42.0",
