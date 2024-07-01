@@ -14,7 +14,7 @@ export default {
 .loader-container {
 	height: 100vh;
 	position: relative;
-	background-color: #3e494d;
+	background-color: #b41111;
 	z-index: 999;
 }
 

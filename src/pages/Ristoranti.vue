@@ -22,12 +22,16 @@ export default {
 			<Loader />
 		</div>
 		<div v-else>
-			<div class="junbo-header">
-				<div class="fries-container">
-					<span><img class="fries" src="/img/Fries.png" alt="Fries" /></span>
-					<span><img class="fries_2" src="/img/Fries.png" alt="Fries" /></span>
+			<div class="image">
+				<div class="junbo-header">
+					<div class="fries-container">
+						<span><img class="fries" src="/img/Fries.png" alt="Fries" /></span>
+						<span
+							><img class="fries_2" src="/img/Fries.png" alt="Fries"
+						/></span>
+					</div>
+					<Jumbo class="jumbo" />
 				</div>
-				<Jumbo />
 			</div>
 			<Restaurant />
 		</div>
@@ -42,6 +46,8 @@ export default {
 .junbo-header {
 	height: 70vh;
 	width: 100%;
+	background-image: url("/img/piatto.jpg");
+	background-size: cover;
 }
 
 .fries-container {

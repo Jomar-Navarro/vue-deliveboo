@@ -20,7 +20,7 @@ export default {};
 									alt="Persona che mangia"
 								/>
 							</div>
-							<div class="col-md-6 col-lg-7">
+							<div class="col-md-6 col-lg-7 d-flex align-items-center">
 								<div class="card-body">
 									<p class="card-text">
 										"Grazie a questa app ho scoperto ristoranti fantastici! Ho
@@ -49,7 +49,9 @@ export default {};
 									alt="Persona che mangia"
 								/>
 							</div>
-							<div class="col-md-6 col-lg-7 order-md-1">
+							<div
+								class="col-md-6 col-lg-7 order-md-1 d-flex align-items-center"
+							>
 								<div class="card-body">
 									<p class="card-text text-end">
 										"Ottima esperienza! Ho scoperto nuovi ristoranti e il
@@ -78,7 +80,7 @@ export default {};
 									alt="Persona che mangia"
 								/>
 							</div>
-							<div class="col-md-6 col-lg-7">
+							<div class="col-md-6 col-lg-7 d-flex align-items-center">
 								<div class="card-body">
 									<p class="card-text">
 										"Sono rimasto molto soddisfatto dell'applicazione. Mi ha
@@ -107,7 +109,9 @@ export default {};
 									alt="Persona che mangia"
 								/>
 							</div>
-							<div class="col-md-6 order-md-1 col-lg-7">
+							<div
+								class="col-md-6 order-md-1 col-lg-7 d-flex align-items-center"
+							>
 								<div class="card-body">
 									<p class="card-text text-end">
 										"Fantastica app! Ho potuto esplorare una varietà di
