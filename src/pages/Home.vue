@@ -17,7 +17,7 @@ export default {
 		Loader,
 		Sconti,
 		Mobile,
-		GoToRestaurant
+		GoToRestaurant,
 	},
 
 	data() {

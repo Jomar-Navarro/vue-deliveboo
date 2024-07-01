@@ -45,12 +45,10 @@ $btn-color: #ffb902;
 	height: 100px; // Altezza delle onde, adatta secondo necessità
 	fill: #e84242; // Colore delle onde
 	z-index: 0;
-	
 
 	&.wave-top {
 		top: -17%;
 		transform: translateY(-100%);
-		
 	}
 
 	svg {
@@ -61,6 +59,7 @@ $btn-color: #ffb902;
 }
 
 .sub-jumbo {
+	width: 100%;
 	padding: 150px; // Spazio intorno alla sezione "Vai ai Ristoranti"
 	background-color: #e84242;
 }
@@ -76,6 +75,7 @@ $btn-color: #ffb902;
 	}
 
 	.sub-jumbo {
+		width: 100%;
 		padding-top: 70px !important;
 		padding-bottom: 100px !important;
 	}
@@ -92,6 +92,7 @@ $btn-color: #ffb902;
 	}
 
 	.sub-jumbo {
+		width: 100%;
 		padding-top: 90px !important;
 		padding-bottom: 110px !important;
 	}
@@ -108,6 +109,7 @@ $btn-color: #ffb902;
 	}
 
 	.sub-jumbo {
+		width: 100%;
 		padding-top: 70px !important;
 		padding-bottom: 170px !important;
 	}
@@ -124,6 +126,7 @@ $btn-color: #ffb902;
 	}
 
 	.sub-jumbo {
+		width: 100%;
 		padding-top: 100px !important;
 	}
 }
@@ -158,12 +161,10 @@ body {
 	border: none;
 	cursor: pointer;
 	transition: all 1s ease;
-	
 
 	&:hover {
 		color: lighten($btn-color, 20%);
-		transition: all .5 ease-in;
-		
+		transition: all 0.5 ease-in;
 	}
 	&:focus {
 		color: lighten($btn-color, 10%);
@@ -171,7 +172,6 @@ body {
 	}
 	&:active {
 		color: $btn-color;
-
 	}
 
 	&:before,
@@ -181,15 +181,12 @@ body {
 		position: absolute;
 		width: 100%;
 		height: 1px;
-
-
 	}
 
 	&:before {
 		top: 0;
 		left: 0;
 		box-shadow: inset 1px 1px 0 0 $btn-color;
-		
 	}
 	&:after {
 		right: 0;
@@ -201,11 +198,9 @@ body {
 .space-btn:hover {
 	&:before {
 		animation: hoverShadowBefore 1s forwards;
-		
 	}
 	&:after {
 		animation: hoverShadowAfter 1s forwards;
-		
 	}
 }
 

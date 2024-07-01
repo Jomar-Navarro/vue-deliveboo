@@ -164,7 +164,7 @@ export default {
 	height: auto;
 
 	.main-wrapper {
-		overflow: hidden;
+		overflow-x: hidden;
 	}
 
 	.wave {

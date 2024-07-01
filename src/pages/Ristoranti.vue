@@ -76,10 +76,10 @@ export default {
 
 @media (max-width: 576px) {
 	.wave {
-		height: 10px; // Altezza onde per schermi più piccoli
+		height: 20px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 15%;
+			top: 14%;
 			transform: translateY(-100%);
 		}
 	}
@@ -90,7 +90,7 @@ export default {
 		height: 20px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 22%;
+			top: 24%;
 			transform: translateY(-100%);
 		}
 	}
@@ -112,7 +112,7 @@ export default {
 		height: 40px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 24%;
+			top: 23%;
 			transform: translateY(-100%);
 		}
 	}
