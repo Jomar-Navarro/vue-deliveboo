@@ -19,13 +19,13 @@ export default {};
 <style lang="scss" scoped>
 .container_discont {
 	background-color: rgb(255, 115, 0);
-	height: 100vh;
+	height: 130vh;
 	color: rgb(233, 233, 233);
 
 	img {
 		width: 13%;
 		border-radius: 50%;
-		margin-bottom: 5%;
+		margin-top: 25%;
 	}
 
 	h1 {
@@ -33,7 +33,7 @@ export default {};
 		font-size: 70px;
 		width: 70%;
 		padding-bottom: 5%;
-		margin-bottom: 5%;
+		margin: 5% 0;
 		border-bottom: 1px solid;
 	}
 
@@ -42,9 +42,9 @@ export default {};
 		font-weight: 600;
 		text-align: center;
 		width: 90%;
+		margin-bottom: 15%;
 	}
 }
-
 
 
 
@@ -52,6 +52,7 @@ export default {};
 // da 992px in giu
 @media (max-width: 992px) {
 	.container_discont {
+		height: 100vh;
 		img {
 			width: 20%;
 		}
@@ -72,6 +73,7 @@ export default {};
 // da 576px in giu
 @media (max-width: 576px) {
 	.container_discont {
+		height: 110vh;
 		img {
 			width: 40%;
 			margin-bottom: 20%;	
