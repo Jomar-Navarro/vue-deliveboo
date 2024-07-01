@@ -5,7 +5,7 @@
 <template>
 
 	<footer class="text-center pt-5">
-		<div class="container p-4">
+		<div class="container p-4 ">
 
 			<!-- Social media -->
 			<section class="social_ mb-4">
@@ -49,15 +49,15 @@
 			<section>
 				<div class="row">
 
-					<div class="box_ col-lg-4 col-md-12 mb-4 mb-md-0 me-5">
-						<h5 class="text-uppercase text-white fw-bolder">Indirizzo</h5>
-						<ul class="list-unstyled mb-0 text-start">
+					<div class="box_ col-lg-4 col-md-12 mb-4 mb-md-0">
+						<h5 class="text-uppercase text-white fw-bolder  text-center">Indirizzo</h5>
+						<ul class="list-unstyled mb-0 text-center ">
 							<li>
-								<a class="text-white text-decoration-none d-flex" href="#!">
+								<a class="text-white text-decoration-none" href="#">
 									<div class="pe-2">
 										<i class="fa-solid fa-location-dot"></i>
+										<span class="card-subtitle text-center"> Via Monte Napoleone,12 20121 Milano (MI)</span>
 									</div>
-									<span class="card-subtitle">Via Monte Napoleone, 12 20121 Milano MI, Italia</span>
 								</a>
 							</li>
 							<li>
@@ -90,9 +90,9 @@
 
 
 					<div class="box_ col-lg-4 col-md-12 mb-4 mb-md-0">
-						<h5 class="text-uppercase text-white fw-bolder">chi siamo</h5>
+						<h5 class="text-uppercase text-white fw-bolder  text-center">chi siamo</h5>
 
-						<ul class="list-unstyled mb-0 text-start lh-lg">
+						<ul class="list-unstyled mb-0  text-center lh-lg">
 							<li>
 								<router-link class="text-white text-decoration-none" to="/la-nostra-storia">La Nostra
 									Storia</router-link>
@@ -113,8 +113,8 @@
 					</div>
 
 					<div class="box_ col-lg-3 col-md-12 mb-4 mb-md-0">
-						<h5 class="text-uppercase text-white fw-bolder">servizio clienti</h5>
-						<ul class="list-unstyled mb-0 text-start lh-lg">
+						<h5 class="text-uppercase text-white fw-bolder  text-center">servizio clienti</h5>
+						<ul class="list-unstyled mb-0  text-center lh-lg">
 							<li>
 								<router-link class="text-white text-decoration-none" to="/domande-frequenti">Domande
 									frequenti</router-link>
