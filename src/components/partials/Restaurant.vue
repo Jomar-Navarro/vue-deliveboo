@@ -322,6 +322,7 @@ p {
 
 /* CARD COMPONENT */
 .card {
+	border: none;
 	display: grid;
 	place-items: center;
 	// width: 50vw;
