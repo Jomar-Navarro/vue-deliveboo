@@ -447,20 +447,14 @@ p {
 		transition: transform 250ms ease-out, opacity 250ms ease-out;
 	}
 
-	.card:hover,
-	.card:focus-within {
-		transform: scale(1.05);
-		transition: transform 250ms ease-in;
-	}
+}
 
-	.card:hover .card__content,
-	.card:focus-within .card__content {
-		transform: translateY(0);
-		transition: transform 250ms ease-in;
-	}
 
-	.card:focus-within .card__content {
-		transition-duration: 0ms;
+// da 992px in su
+@media (min-width: 992px) {
+	.type_:hover {
+		transition: all 0.7s ease;
+		background-color: rgb(251, 142, 0) !important;
 	}
 
 	.card:hover .card__background,
@@ -485,15 +479,24 @@ p {
 		transition: opacity 250ms ease-in, transform 250ms ease-in;
 		transition-delay: 250ms;
 	}
-}
 
-// da 992px in su
-@media (min-width: 992px) {
-	.type_:hover {
-		transition: all 0.7s ease;
-		background-color: rgb(251, 142, 0) !important;
+	.card:hover,
+	.card:focus-within {
+		transform: scale(1.05);
+		transition: transform 250ms ease-in;
+	}
+
+	.card:hover .card__content,
+	.card:focus-within .card__content {
+		transform: translateY(0);
+		transition: transform 250ms ease-in;
+	}
+
+	.card:focus-within .card__content {
+		transition-duration: 0ms;
 	}
 }
+
 
 // da 992px in giu
 @media (max-width: 992px) {
@@ -517,5 +520,20 @@ p {
 		transform: scaleX(1);
 		transition: none; /* Disabilita le transizioni */
 	}
+}
+
+
+
+// da 768px in giu
+@media (max-width: 768px) {
+	.card__description {
+		display: none;
+	}
+
+	.card__content {
+		width: 100%;
+		justify-content: end;
+	}
+
 }
 </style>

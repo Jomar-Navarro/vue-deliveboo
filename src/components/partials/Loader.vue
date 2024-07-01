@@ -14,7 +14,12 @@ export default {
 .loader-container {
 	height: 100vh;
 	position: relative;
-	background-color: #b41111;
+	// background-color: #b41111;
+	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(254, 127, 127, 0.123)),
+		url("/img/jumbo_2.jpeg");
+		background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	z-index: 999;
 }
 
