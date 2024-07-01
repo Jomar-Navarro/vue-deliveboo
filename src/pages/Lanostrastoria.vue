@@ -5,22 +5,20 @@ export default {
 </script>
 
 <template>
-	<div class="container_color">
-
-		<div class="container rounded-2">
-			<h1>La nostra storia</h1>
-			<section class="my-5">
-				<p>
-					<strong>Deliveboo</strong> è nata dalla passione per il buon cibo e
-					dalla volontà di portarlo direttamente a casa dei nostri clienti.
-					Fondata nel 2021 a Milano, Deliveboo è rapidamente cresciuta
-					diventando uno dei servizi di food delivery più amati e affidabili
-					della città.
-				</p>
-				<h2>Le nostre origini</h2>
-				<p>
-					Tutto è iniziato con un piccolo team di appassionati di cucina e
-					tecnologia, che ha deciso di rivoluzionare il modo in cui le persone
+	<div class="container">
+		<h1>La nostra storia</h1>
+		<section class="my-5">
+			<p>
+				<strong>Deliveboo</strong> è nata dalla passione per il buon cibo e
+				dalla volontà di portarlo direttamente a casa dei nostri clienti.
+				Fondata nel 2021 a Milano, Deliveboo è rapidamente cresciuta
+				diventando uno dei servizi di food delivery più amati e affidabili
+				della città.
+			</p>
+			<h2>Le nostre origini</h2>
+			<p>
+				Tutto è iniziato con un piccolo team di appassionati di cucina e
+				tecnologia, che ha deciso di rivoluzionare il modo in cui le persone
 				ordinano e ricevono il cibo. Abbiamo iniziato collaborando con pochi
 				ristoranti locali, ma grazie alla qualità del servizio e al
 				passaparola, siamo cresciuti rapidamente.
@@ -66,15 +64,15 @@ export default {
 			</p>
 		</section>
 	</div>
-</div>
 </template>
 
 <style lang="scss" scoped>
-.container_color{
+.container {
 	padding-top: 100px;
 	padding-bottom: 50px;
-  // background-color: #3C0A05;
+	// background-color: #3C0A05;
 }
+
 .container {
 	background-color: #fff;
 	padding: 20px;
@@ -97,5 +95,4 @@ ul {
 li {
 	margin-bottom: 10px;
 }
-
 </style>
