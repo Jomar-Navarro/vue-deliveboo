@@ -47,7 +47,7 @@ export default {};
 <style lang="scss" scoped>
 
 .phone-hei{
-	height: 600px;
+	height: 700px;
 	padding: 60px 0px;
 	.btn-phone{
 		display: flex;
