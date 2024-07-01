@@ -247,7 +247,6 @@ body {
 	height: 80vh;
 	max-height: 100%;
 	font-family: "Bangers", system-ui;
-	background-color: rgba($color: #000000, $alpha: 0.5);
 
 	.indicator {
 		position: relative;

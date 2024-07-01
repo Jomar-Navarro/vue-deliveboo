@@ -111,7 +111,7 @@ export default {
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-8 col-md-12 my-5">
+					<div class="col-lg-8 col-md-12 my-5 pb-5">
 						<div class="mb-3 review-card" data-aos="fade-left">
 							<div class="row no-gutters">
 								<div
@@ -170,12 +170,12 @@ export default {
 	.wave {
 		position: absolute;
 		width: 100%;
-		height: 100px; // Altezza delle onde, adatta secondo necessità
+		height: 160px; // Altezza delle onde, adatta secondo necessità
 		fill: #f5e7c1; // Colore delle onde
 		z-index: 1;
 
 		&.wave-top {
-			top: -2.6%;
+			top: -2.4%;
 			transform: translateY(-100%);
 		}
 

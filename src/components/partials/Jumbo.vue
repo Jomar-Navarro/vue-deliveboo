@@ -11,12 +11,13 @@ export default {
 </script>
 
 <template>
-	<div class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column">
+	<div
+		class="container-fluid jumbo d-flex justify-content-center align-items-center flex-column"
+	>
 		<!-- <img class="pizza" src="/img/pizza.png" alt="" /> -->
 		<div>
 			<h1 class="fw-bold jumbo-title text-warning text-center">
-				Il Tuo Gusto 
-				la Nostra Missione <br />
+				Il Tuo Gusto la Nostra Missione <br />
 				Ordina Ora e Gusta la Felicità!
 			</h1>
 		</div>
@@ -246,7 +247,6 @@ body {
 	height: 80vh;
 	max-height: 100%;
 	font-family: "Bangers", system-ui;
-	background-color: rgba($color: #000000, $alpha: 0.5);
 
 	.indicator {
 		position: relative;

@@ -76,10 +76,10 @@ export default {
 
 @media (max-width: 576px) {
 	.wave {
-		height: 40px; // Altezza onde per schermi più piccoli
+		height: 9px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: -2%;
+			top: 14%;
 			transform: translateY(-100%);
 		}
 	}
@@ -87,10 +87,10 @@ export default {
 
 @media (min-width: 768px) {
 	.wave {
-		height: 40px; // Altezza onde per schermi più piccoli
+		height: 20px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: -17%;
+			top: 26%;
 			transform: translateY(-100%);
 		}
 	}
@@ -101,7 +101,7 @@ export default {
 		height: 100px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 28%;
+			top: 30%;
 			transform: translateY(-100%);
 		}
 	}
@@ -109,17 +109,17 @@ export default {
 
 @media (min-width: 1024px) and (max-width: 1440px) {
 	.wave {
-		height: 40px; // Altezza onde per schermi più piccoli
+		height: 80px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: -17%;
+			top: 24%;
 			transform: translateY(-100%);
 		}
 	}
 }
 
 .junbo-header {
-	height: 80vh;
+	height: 90vh;
 	width: 100%;
 	// background-image: url("/img/piatto.jpg");
 	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(254, 127, 127, 0.123)),
@@ -173,7 +173,7 @@ export default {
 
 @media screen and (max-width: 768px) {
 	.junbo-header {
-		height: 85vh;
+		height: 100vh;
 		width: 100%;
 	}
 
