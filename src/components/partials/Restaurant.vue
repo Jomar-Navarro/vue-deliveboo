@@ -86,6 +86,7 @@ export default {
 				this.currentPage++;
 			}
 		},
+		
 	},
 
 	watch: {
@@ -95,19 +96,29 @@ export default {
 	},
 
 	computed: {
-		isTypeChecked() {
-			return (type) => this.selectedTypes.includes(type.type_name);
-		},
-
 		paginatedRestaurants() {
-			const start = (this.currentPage - 1) * this.itemsPerPage;
-			const end = start + this.itemsPerPage;
-			return this.store.restaurants.slice(start, end);
-		},
+        const start = (this.currentPage - 1) * this.itemsPerPage;
+        const end = start + this.itemsPerPage;
+        return this.store.restaurants.slice(start, end);
+    },
 
-		pageCount() {
-			return Math.ceil(this.store.restaurants.length / this.itemsPerPage);
-		},
+    pageCount() {
+        return Math.ceil(this.store.restaurants.length / this.itemsPerPage);
+    },
+
+    getRestaurantImage() {
+        return (restaurant) => {
+            if (restaurant.image.startsWith("/img/")) {
+							return `http://127.0.0.1:8000${restaurant.image}`;
+            } else {
+							return `http://127.0.0.1:8000/storage/${restaurant.image}`;
+            }
+        };
+    },
+
+    isTypeChecked() {
+        return (type) => this.selectedTypes.includes(type.type_name);
+    },
 	},
 
 	mounted() {
@@ -188,8 +199,7 @@ export default {
 					>
 						<img
 							class="card__background"
-							:src="`http://127.0.0.1:8000` + restaurant.image"
-							alt="#"
+							:src="getRestaurantImage(restaurant)"	alt=""
 							width="1920"
 							height="2193"
 						/>
@@ -242,7 +252,9 @@ export default {
 
 <style lang="scss" scoped>
 .resto {
-	background-color: #e84242;
+	// background-color: #e84242;
+	background: rgb(255,59,59);
+background: linear-gradient(0deg, rgba(255,59,59,1) 0%, rgba(255,120,65,1) 100%);
 	font-family: "Ubuntu", sans-serif;
 	// background: linear-gradient(rgba(0, 0, 0, .9), rgba(32, 32, 32, 0.5)),
 	// 	url("/img/jumbo_2.jpeg");

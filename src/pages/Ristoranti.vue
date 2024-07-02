@@ -38,7 +38,7 @@ export default {
 				<div class="wave wave-top">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 						<path
-							fill="#e84242"
+							fill="#ff7741"
 							fill-opacity="1"
 							d="M0,64L80,74.7C160,85,320,107,480,96C640,85,800,43,960,37.3C1120,32,1280,64,1360,80L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
 						></path>
@@ -59,7 +59,7 @@ export default {
 	position: absolute;
 	width: 100%;
 	height: 100px; // Altezza delle onde, adatta secondo necessità
-	fill: #e84242; // Colore delle onde
+	fill: #ff7741; // Colore delle onde
 	z-index: 0;
 
 	&.wave-top {

@@ -114,7 +114,7 @@ $indicator-color: #fff;
 $indicator-active-color: #ffd64a;
 
 $circle-w: 100px;
-$circle-bg: #e84242;
+$circle-bg: #ff7741;
 $arrow-bg: #ffc107;
 $body-bg: #9ddcdc;
 $bezier: cubic-bezier(0.77, 0, 0.175, 1);

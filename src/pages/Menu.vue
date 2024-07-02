@@ -101,6 +101,17 @@ export default {
 			dish.selectedQuantity = 1;
 		},
 	},
+	computed: {
+    getMenuImage() {
+        return (dish) => {
+            if (dish.image_url.startsWith("https://")) {
+							return dish.image_url;
+            } else {
+							return `http://127.0.0.1:8000/storage/${dish.image_url}`;
+            }
+        };
+    },
+	},
 	mounted() {
 		this.getApi(this.$route.params.id);
 	},
@@ -141,7 +152,7 @@ export default {
 							<div class="row">
 								<div class="el-wrapper">
 									<div class="box-up py-3">
-										<img class="img-fluid img" :src="dish.image_url" alt="" />
+										<img class="img-fluid img" :src="getMenuImage(dish)" alt="" />
 										<div class="img-info">
 											<div class="info-inner">
 												<span class="p-name fw-bold">{{ dish.dish_name }}</span>
