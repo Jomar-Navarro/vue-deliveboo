@@ -173,7 +173,7 @@ export default {
 
 @media screen and (max-width: 768px) {
 	.junbo-header {
-		height: 100vh;
+		height: 100%;
 		width: 100%;
 	}
 
