@@ -131,7 +131,7 @@ export default {
 							@keyup="handleKeyup"
 							v-model="searchQuery"
 							type="search"
-							placeholder="Search"
+							placeholder="Cerca"
 							aria-label="Search"
 						/>
 					</div>
