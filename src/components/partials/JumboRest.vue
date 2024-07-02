@@ -316,7 +316,7 @@ body {
 	.jumbo-title {
 		padding-top: 80px;
 		margin-bottom: 8%;
-		font-size: clamp(2rem, 4vw, 2.5rem);
+		font-size: clamp(2rem, 4vw, 3.2rem);
 		letter-spacing: 3px;
 		// font-size: 70px;
 		// width: 50%;
