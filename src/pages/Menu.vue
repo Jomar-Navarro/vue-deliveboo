@@ -71,7 +71,7 @@ export default {
 					imageHeight: 300,
 					imageAlt: "Custom image",
 					showCancelButton: true,
-					confirmButtonText: "Vai alla ristorante",
+					confirmButtonText: "Vai al ristorante",
 					cancelButtonText: "Resetta il carrello",
 					allowOutsideClick: false,
 					customClass: {
