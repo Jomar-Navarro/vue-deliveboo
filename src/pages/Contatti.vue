@@ -17,10 +17,10 @@ export default {
 </script>
 
 <template>
-	<div class="container">
 
 	<Loader v-if="isLoading" />
-	<div class="container pt-5 " v-else>
+
+	<div class="container-fluid bg_color" v-else>
 		<div class="contacts">
 			<div class="my-3">
 				<h1>Contatti</h1>
@@ -41,22 +41,22 @@ export default {
 			</div>
 		</div>
 	</div>
-</div>
 </template>
 
 
 <style lang="scss" scoped>
+.bg_color {
+	background: rgb(235, 194, 44);
+	background: radial-gradient(circle, rgba(235, 194, 44, 0.3841911764705882) 0%, rgba(184, 42, 8, 0.05085784313725494) 100%);
+}
 
-.container{
-	padding-bottom: 50px;
+.container-fluid {
+	padding: 140px 10% 100px 10%;
 }
 
 .contacts {
 	margin: 0 auto;
 	padding: 20px;
-	background-color: #fff;
-	border-radius: 2px;
-	box-shadow: #fff;
 
 	h1,
 	h2 {
