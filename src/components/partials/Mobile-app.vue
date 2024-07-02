@@ -56,7 +56,7 @@ export default {};
 	background-color: #f5e7c1;
 }
 .phone-hei {
-	height: 700px;
+	height: 800px;
 	padding: 60px 0px;
 	.btn-phone {
 		display: flex;
