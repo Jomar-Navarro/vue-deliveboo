@@ -18,11 +18,6 @@ export default {
 			isLoading: true,
 		};
 	},
-	computed: {
-		cartTotalItems() {
-			return this.store.cart.reduce((total, item) => total + item.quantity, 0);
-		},
-	},
 	methods: {
 		getApi(id) {
 			axios
@@ -102,6 +97,9 @@ export default {
 		},
 	},
 	computed: {
+		cartTotalItems() {
+			return this.store.cart.reduce((total, item) => total + item.quantity, 0);
+		},
     getMenuImage() {
         return (dish) => {
             if (dish.image_url.startsWith("https://")) {
@@ -283,7 +281,7 @@ background: linear-gradient(0deg, rgba(255,59,59,1) 0%, rgba(255,120,65,1) 100%)
 }
 
 .btn-count-cart {
-	background-color: black;
+	background-color: rgb(50, 48, 48);
 	border-radius: 50%;
 	border: 1px solid rgba(208, 208, 208, 0.467);
 	bottom: 0px;
@@ -606,7 +604,7 @@ background: linear-gradient(0deg, rgba(255,59,59,1) 0%, rgba(255,120,65,1) 100%)
 		width: 20px;
 		top: -10%;
 		right: -10%;
-		font-size: 0.8rem;
+		font-size: 1.3rem;
 	}
 }
 
