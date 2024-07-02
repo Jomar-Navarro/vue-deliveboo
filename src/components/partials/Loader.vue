@@ -7,7 +7,6 @@ export default {
 <template>
 	<div class="loader-container">
 		<span class="loader"></span>
-		<span class="fire"><img src="/img/fire.png" alt="" /></span>
 	</div>
 </template>
 
@@ -37,29 +36,6 @@ export default {
 	top: 50%;
 	left: 44.5%;
 	transform: translate(-40%, -40%);
-}
-
-.fire {
-	img {
-		position: absolute;
-		width: 150px;
-		height: 120px;
-		top: 50%;
-		left: 50%;
-		animation: flicker 1s infinite alternate;
-	}
-}
-
-@keyframes flicker {
-	0% {
-		transform: translate(-80%, -10%) scale(1);
-	}
-	50% {
-		transform: translate(-80%, -10%) scale(1.1);
-	}
-	100% {
-		transform: translate(-80%, -10%) scale(1);
-	}
 }
 
 .loader::before {
@@ -141,11 +117,6 @@ export default {
 		width: 45px;
 		height: 43px;
 	}
-	.fire img {
-		width: 130px;
-		height: 100px;
-		left: 52.5%;
-	}
 }
 
 @media (max-width: 992px) {
@@ -160,11 +131,6 @@ export default {
 	.loader::after {
 		width: 40px;
 		height: 38px;
-	}
-	.fire img {
-		width: 110px;
-		height: 90px;
-		left: 54%;
 	}
 }
 
@@ -181,11 +147,6 @@ export default {
 		width: 35px;
 		height: 33px;
 	}
-	.fire img {
-		width: 90px;
-		height: 80px;
-		left: 54%;
-	}
 }
 
 @media (max-width: 576px) {
@@ -201,11 +162,6 @@ export default {
 		width: 30px;
 		height: 28px;
 	}
-	.fire img {
-		width: 70px;
-		height: 60px;
-		left: 56.5%;
-	}
 }
 
 @media (max-width: 480px) {
@@ -220,11 +176,6 @@ export default {
 	.loader::after {
 		width: 25px;
 		height: 23px;
-	}
-	.fire img {
-		width: 60px;
-		height: 50px;
-		left: 56.5%;
 	}
 }
 </style>
