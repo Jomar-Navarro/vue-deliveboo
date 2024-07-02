@@ -17,7 +17,6 @@ export default {
 </script>
 
 <template>
-
 	<Loader v-if="isLoading" />
 
 	<div class="container-fluid bg_color" v-else>
@@ -43,11 +42,16 @@ export default {
 	</div>
 </template>
 
-
 <style lang="scss" scoped>
 .bg_color {
 	background: rgb(235, 194, 44);
-	background: radial-gradient(circle, rgba(235, 194, 44, 0.3841911764705882) 0%, rgba(184, 42, 8, 0.05085784313725494) 100%);
+	background: radial-gradient(
+		circle,
+		rgba(235, 194, 44, 0.3841911764705882) 0%,
+		rgba(184, 42, 8, 0.05085784313725494) 100%
+	);
+
+	height: 60vh;
 }
 
 .container-fluid {
