@@ -103,7 +103,7 @@ export default {
 					</ul>
 					<div class="d-flex justify-content-end">
 						<router-link :to="{ name: 'home' }">
-							<button class="btn btn-outline-warning">
+							<button class="btn btn-outline-dark">
 								<i class="fa-solid fa-house"></i>
 							</button>
 						</router-link>
