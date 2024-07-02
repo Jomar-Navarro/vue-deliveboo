@@ -108,7 +108,7 @@ export default {
 </script>
 
 <template>
-	<div class="bg-main">
+	<div class="bg-main container-fluid">
 		<div class="container menu-bg">
 			<Loader v-if="isLoading" />
 
@@ -242,7 +242,9 @@ export default {
 <style lang="scss" scoped>
 /* Stato di default per .card_phone e .card_desk */
 .bg-main {
-	background-color: #292626;
+	// background-color: #292626;
+	background: rgb(255,59,59);
+background: linear-gradient(0deg, rgba(255,59,59,1) 0%, rgba(255,120,65,1) 100%);
 }
 
 .card_phone {
@@ -293,7 +295,9 @@ export default {
 }
 
 .menu-bg {
-	background-color: #292626;
+	// background-color: #292626;
+	background: rgb(255,59,59);
+background: linear-gradient(0deg, rgba(255,59,59,1) 0%, rgba(255,120,65,1) 100%);
 	border-radius: 5px;
 	// font-family: "Luckiest Guy", system-ui;
 	font-family: "Ubuntu", sans-serif;
