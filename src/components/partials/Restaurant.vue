@@ -73,20 +73,29 @@ export default {
 
 		handlePageClick(pageNum) {
 			this.currentPage = pageNum;
+			this.scrollToTop(); // Scroll to top on page click
 		},
 
 		prevPage() {
 			if (this.currentPage > 1) {
 				this.currentPage--;
+				this.scrollToTop(); // Scroll to top on prev page
 			}
 		},
 
 		nextPage() {
 			if (this.currentPage < this.pageCount) {
 				this.currentPage++;
+				this.scrollToTop(); // Scroll to top on next page
 			}
 		},
 		
+		scrollToTop() {
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth"
+			});
+		},
 	},
 
 	watch: {
@@ -97,43 +106,43 @@ export default {
 
 	computed: {
 		paginatedRestaurants() {
-        const start = (this.currentPage - 1) * this.itemsPerPage;
-        const end = start + this.itemsPerPage;
-        return this.store.restaurants.slice(start, end);
-    },
+			const start = (this.currentPage - 1) * this.itemsPerPage;
+			const end = start + this.itemsPerPage;
+			return this.store.restaurants.slice(start, end);
+		},
 
-    pageCount() {
-        return Math.ceil(this.store.restaurants.length / this.itemsPerPage);
-    },
+		pageCount() {
+			return Math.ceil(this.store.restaurants.length / this.itemsPerPage);
+		},
 
-    getRestaurantImage() {
-        return (restaurant) => {
-            if (restaurant.image.startsWith("/img/")) {
-							return `http://127.0.0.1:8000${restaurant.image}`;
-            } else {
-							return `http://127.0.0.1:8000/storage/${restaurant.image}`;
-            }
-        };
-    },
+		getRestaurantImage() {
+			return (restaurant) => {
+				if (restaurant.image.startsWith("/img/")) {
+					return `http://127.0.0.1:8000${restaurant.image}`;
+				} else {
+					return `http://127.0.0.1:8000/storage/${restaurant.image}`;
+				}
+			};
+		},
 
-    isTypeChecked() {
-        return (type) => this.selectedTypes.includes(type.type_name);
-    },
+		isTypeChecked() {
+			return (type) => this.selectedTypes.includes(type.type_name);
+		},
 	},
 
 	mounted() {
 		this.getAllRestaurants();
 		this.getTypes();
+		this.scrollToTop(); // Scroll to top when the component is mounted
 	},
 };
 </script>
+
 
 <template>
 	<section class="resto py-5 position-relative">
 		<div class="container py-5">
 			<div class="d-flex justify-content-center">
-				<!-- <img class="fries" src="/img/Fries.png" alt="" />
-				<img class="pizza" src="/img/pizza.png" alt="" /> -->
 				<div>
 					<h2 class="titolo mb-5 pb-2 text-center">Cerca il tuo ristorante</h2>
 					<div class="d-flex justify-content-center">
@@ -171,11 +180,6 @@ export default {
 								class="btn type_ btn-outline-warning d-flex flex-column justify-content-center align-items-center rounded-5"
 								:for="`btn-${type.type_name}`"
 							>
-								<!-- <img
-									src="/img/logo-final.png"
-									alt=""
-									class="checkbox-icon img-fluid object-fit-cover"
-								/> -->
 								<span class="fw-bold font-type">{{
 									type.type_name
 								}}</span></label
@@ -249,6 +253,7 @@ export default {
 		</div>
 	</section>
 </template>
+
 
 <style lang="scss" scoped>
 .resto {
