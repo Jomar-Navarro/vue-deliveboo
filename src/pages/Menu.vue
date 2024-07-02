@@ -95,6 +95,13 @@ export default {
 		returnQuantityToOne(dish) {
 			dish.selectedQuantity = 1;
 		},
+
+		scrollToTop() {
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth"
+			});
+		},
 	},
 	computed: {
 		cartTotalItems() {
@@ -112,9 +119,11 @@ export default {
 	},
 	mounted() {
 		this.getApi(this.$route.params.id);
+		this.scrollToTop(); // Scroll to top when the component is mounted
 	},
 };
 </script>
+
 
 <template>
 	<div class="bg-main container-fluid">
@@ -243,7 +252,6 @@ export default {
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </template>
