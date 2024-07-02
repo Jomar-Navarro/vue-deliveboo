@@ -34,7 +34,7 @@ export default {
 					<JumboRest class="jumbo" />
 				</div>
 			</div>
-			<div>
+			<div class="position-relative">
 				<div class="wave wave-top">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 						<path
@@ -79,7 +79,7 @@ export default {
 		height: 20px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 14%;
+			top: -1%;
 			transform: translateY(-100%);
 		}
 	}
@@ -90,7 +90,7 @@ export default {
 		height: 20px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 24%;
+			top: -5%;
 			transform: translateY(-100%);
 		}
 	}
@@ -101,7 +101,7 @@ export default {
 		height: 30px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 30%;
+			top: -9%;
 			transform: translateY(-100%);
 		}
 	}
@@ -112,7 +112,7 @@ export default {
 		height: 40px; // Altezza onde per schermi più piccoli
 
 		&.wave-top {
-			top: 23%;
+			top: -7%;
 			transform: translateY(-100%);
 		}
 	}
