@@ -127,7 +127,8 @@ $btn-color: #ffb902;
 
 	.sub-jumbo {
 		width: 100%;
-		padding-top: 100px !important;
+		padding-top: 75px !important;
+		padding-bottom: 200px !important;
 	}
 }
 
